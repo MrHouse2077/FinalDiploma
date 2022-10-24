@@ -8,33 +8,46 @@ function MainNav(){
                     <ul>
                         <li>
                             <NavLink
-                                to="messages"
+                                to="/home"
                                 style={({ isActive }) =>
                                 isActive ? Styles.active : undefined
                                 }
                             >
-                            Messages
+                            home
                             </NavLink>
                         </li>
                         <li>
                             <NavLink
-                                to="tasks"
+                                to="shop"
                                 className={({ isActive }) =>
                                 isActive ? Styles.active : undefined
                                 }
                             >
-                                Tasks
+                                shop
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink to="tasks">
+                            <NavLink to="blog">
                                 {({ isActive }) => (
                                 <span
                                     className={
                                     isActive ? Styles.active : undefined
                                     }
                                 >
-                                    Tasks
+                                    Blog
+                                </span>
+                                )}
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="contacts">
+                                {({ isActive }) => (
+                                <span
+                                    className={
+                                    isActive ? Styles.active : undefined
+                                    }
+                                >
+                                    Contacts
                                 </span>
                                 )}
                             </NavLink>
