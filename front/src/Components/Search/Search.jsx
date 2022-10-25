@@ -1,15 +1,17 @@
 import SearchModal from "./SearchModal";
+import React, {useState, useEffect} from 'react';
 
 
 
 function Search(props){
+    const [show, setShow] = useState(false)
     return(
-        <div class="header-action-btn f-right d-none d-lg-block">
-            <button>zaЛупа</button>
-            <a href="cart.html">Корзинка
-                <span>0</span>
-            </a>
-        </div>
+        <div className='search'>
+          <button onClick = {()=>setShow(true)}>
+            Лупа
+          </button>
+          <SearchModal onClose={()=>setShow(false)} show = {show}/>
+      </div>
     )
 }
 

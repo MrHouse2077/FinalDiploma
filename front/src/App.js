@@ -10,6 +10,7 @@ import Blog from './Components/Pages/Blog';
 import MainNav from './Components/MainNav/MainNav';
 import SearchModal from './Components/Search/SearchModal';
 import React, {useState, useEffect} from 'react';
+import Search from './Components/Search/Search';
 
 
 function App() {
@@ -30,7 +31,7 @@ function App() {
   ];
 
 
-  const [show, setShow] = useState(false)
+  
 
 
 
@@ -72,13 +73,9 @@ function App() {
           </Route>
           <Route path="blog" element={<Blog />} />
           <Route path="contacts" element={<Contacts />} />
+          <Route path="search" element={<Search />} />
         </Routes>
-        <div className='search'>
-          <button onClick = {()=>setShow(true)}>
-            Лупа
-          </button>
-          <SearchModal onClose={()=>setShow(false)} show = {show}/>
-      </div>
+        
         
       </section> 
         
