@@ -73,7 +73,7 @@ function App() {
           </Route>
           <Route path="blog" element={<Blog />} />
           <Route path="contacts" element={<Contacts />} />
-          <Route path="search" element={<Search />} />
+          {/* <Route path="search" element={<Search />} /> */}
         </Routes>
         
         

@@ -59,15 +59,7 @@ function MainNav(){
                         </li>
                         <li>
                             <NavLink to="search" className={Styles.nav_link}>
-                                {({ isActive }) => (
-                                <span
-                                    className={
-                                    isActive ? Styles.active : undefined
-                                    }
-                                >
-                                    <Search />
-                                </span>
-                                )}
+                                <Search />
                             </NavLink>
                         </li>
                     </ul>

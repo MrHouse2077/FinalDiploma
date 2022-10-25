@@ -1,4 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Teko:wght@300;400;500&display=swap');
 
+
+.Search{
+    button{
+        background-color: transparent;
+        font-size: 1.125rem;
+        text-transform: uppercase;
+        font-family: 'Teko', sans-serif;
+        font-weight: 500;
+        color: #fff;
+        border: none;
+    }
+}
 
 .SearchModal{
     position: fixed;
@@ -11,10 +24,11 @@
     align-items: center;
     justify-content: center;
     z-index: 999;
-    font-family: "Teko", sans-serif;
-    font-size: 15px;
-    font-weight: normal;
-    line-height: 28px;
+    font-size: 1.125rem;
+    text-transform: uppercase;
+    font-family: 'Teko', sans-serif;
+    font-weight: 500;
+    color: #fff;
 
 
     button{
