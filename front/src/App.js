@@ -8,6 +8,8 @@ import Shop from './Components/Pages/Shop';
 import Contacts from './Components/Pages/Contacts';
 import Blog from './Components/Pages/Blog';
 import MainNav from './Components/MainNav/MainNav';
+import SearchModal from './Components/Search/SearchModal';
+import React, {useState, useEffect} from 'react';
 
 
 function App() {
@@ -27,49 +29,60 @@ function App() {
     },
   ];
 
+
+  const [show, setShow] = useState(false)
+
+
+
   return (
     <div className="App">
+      <div className='wrap'>
+        <header>
 
-      <header>
-
-        <div className='header_fon'>
-          <ImageGallery items={images} />
-        </div>
-        
-
-
-        <div className='header_content'>
+          <div className='header_fon'>
+            <ImageGallery items={images} />
+          </div>
           
-          <img src="/logo.png" className='logo'/>
-          <SiteInfo/>
 
 
-          <MainNav/>
+          <div className='header_content'>
+            
+            <img src="/logo.png" className='logo'/>
+            <SiteInfo/>
+
+
+            <MainNav/>
+          </div>
+
+        </header>
+
+        <section className='content'>
+          <Routes>
+            <Route path="/" element={<Home />}/>
+            <Route path="shop" element={<Shop />}>
+
+              {/* <Route
+                path="messages"
+                element={<category1/>}
+              /> */}
+              {/* <Route
+                path="messages"
+                element={<category2/>}
+              /> */}
+
+            </Route>
+            <Route path="blog" element={<Blog />} />
+            <Route path="contacts" element={<Contacts />} />
+          </Routes>
+          
+        </section> 
+        <div className='search'>
+          <button onClick = {()=>setShow(true)}>
+            Лупа
+          </button>
+          <SearchModal onClose={()=>setShow(false)} show = {show}/>
         </div>
-
-      </header>
-
-      <section className='content'>
-        <Routes>
-          <Route path="/" element={<Home />}/>
-          <Route path="shop" element={<Shop />}>
-
-            {/* <Route
-              path="messages"
-              element={<category1/>}
-            /> */}
-            {/* <Route
-              path="messages"
-              element={<category2/>}
-            /> */}
-
-          </Route>
-          <Route path="blog" element={<Blog />} />
-          <Route path="contacts" element={<Contacts />} />
-        </Routes>
-      </section> 
-      
-    
+      </div>
     </div>
   );
 }
