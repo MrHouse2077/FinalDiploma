@@ -1,5 +1,6 @@
 import Styles from "./MainNav.module.scss";
 import { NavLink } from 'react-router-dom';
+import classNames from 'classnames';
 
 function MainNav(){
     return(
@@ -9,6 +10,7 @@ function MainNav(){
                         <li>
                             <NavLink
                                 to="/home"
+                                className={Styles.nav_link}
                                 style={({ isActive }) =>
                                 isActive ? Styles.active : undefined
                                 }
@@ -17,17 +19,20 @@ function MainNav(){
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink
-                                to="shop"
-                                className={({ isActive }) =>
-                                isActive ? Styles.active : undefined
-                                }
-                            >
-                                shop
+                            <NavLink to="shop" className={Styles.nav_link}>
+                                {({ isActive }) => (
+                                <span
+                                    className={
+                                    isActive ? Styles.active : undefined
+                                    }
+                                >
+                                    shop
+                                </span>
+                                )}
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink to="blog">
+                            <NavLink to="blog" className={Styles.nav_link}>
                                 {({ isActive }) => (
                                 <span
                                     className={
@@ -40,7 +45,7 @@ function MainNav(){
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink to="contacts">
+                            <NavLink to="contacts" className={Styles.nav_link}>
                                 {({ isActive }) => (
                                 <span
                                     className={

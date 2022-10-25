@@ -1,6 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Teko:wght@300;400;500&display=swap');
 .active{
     color:#f00;
 }
 .MainNav{
     width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #ffffff38;
+    font-size: 1.125rem;
+    text-transform: uppercase;
+    font-family: 'Teko', sans-serif;
+    font-weight: 500;
+    color: #fff;
 }
+.MainNav ul{
+   display: flex;
+   flex-wrap: wrap;
+   align-items: center;
+   justify-content: space-between;
+   margin: 0;
+   padding: 1.65em 0;
+   list-style: none;
+   width: 700px;
+}
+.MainNav ul li{
+    display:block;
+}
+
+.nav_link{
+    text-decoration: none;
+    color: #fff;
+}
+.nav_link:hover{
+    color: #f00;
+}
+
