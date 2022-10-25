@@ -14,26 +14,28 @@ function App() {
 
   const images = [
     {
-      original: 'https://picsum.photos/id/1018/1000/600/',
-      thumbnail: 'https://picsum.photos/id/1018/250/150/',
+      original: 'https://themepure.net/template/futexo-prev/futexo/assets/img/bg/hero-3.jpg',
+      //thumbnail: 'https://picsum.photos/id/1018/250/150/',
+      originalClass: "slider_div slid_1",
     },
     {
-      original: 'https://picsum.photos/id/1015/1000/600/',
-      thumbnail: 'https://picsum.photos/id/1015/250/150/',
+      original: 'https://themepure.net/template/futexo-prev/futexo/assets/img/bg/hero-2.jpg',
+      //thumbnail: 'https://picsum.photos/id/1015/250/150/',
+      originalClass: "slider_div slid_2",
     },
     {
-      original: 'https://picsum.photos/id/1019/1000/600/',
-      thumbnail: 'https://picsum.photos/id/1019/250/150/',
+      original: 'https://themepure.net/template/futexo-prev/futexo/assets/img/bg/hero-1.jpg',
+      //thumbnail: 'https://picsum.photos/id/1019/250/150/',
+      originalClass: "slider_div slid_3",
     },
   ];
 
   return (
     <div className="App">
-
       <header>
 
         <div className='header_fon'>
-          <ImageGallery items={images} />
+          <ImageGallery items={images} showFullscreenButton={false} showPlayButton={false} autoPlay={true} showThumbnails={false}/>
         </div>
         
 
@@ -54,22 +56,26 @@ function App() {
           <Route path="/" element={<Home />}/>
           <Route path="shop" element={<Shop />}>
 
-            {/* <Route
-              path="messages"
-              element={<category1/>}
-            /> */}
-            {/* <Route
-              path="messages"
-              element={<category2/>}
-            /> */}
+            
 
           </Route>
           <Route path="blog" element={<Blog />} />
           <Route path="contacts" element={<Contacts />} />
         </Routes>
-      </section> 
+      </section>
       
-    
+    <div><p>dhffffffffffffffffffffffffffffffdbo;jbv;bsv
+      fdinnnnnnnnnnnnnnnnnnnnnnnnnnnnn
+      ro</p></div>
+      <div><p>dhffffffffffffffffffffffffffffffdbo;jbv;bsv
+      fdinnnnnnnnnnnnnnnnnnnnnnnnnnnnn
+      ro</p></div>
+      <div><p>dhffffffffffffffffffffffffffffffdbo;jbv;bsv
+      fdinnnnnnnnnnnnnnnnnnnnnnnnnnnnn
+      ro</p></div>
+      <div><p>dhffffffffffffffffffffffffffffffdbo;jbv;bsv
+      fdinnnnnnnnnnnnnnnnnnnnnnnnnnnnn
+      ro</p></div>
     </div>
   );
 }
