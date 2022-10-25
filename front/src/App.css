@@ -20,3 +20,9 @@ header{
 section.content{
   position: relative;
 }
+.search{
+  position: relative;
+}
+.wrap{
+  display:flex;
+}
