@@ -1,6 +1,6 @@
 import Styles from "./MainNav.module.scss";
 import { NavLink } from 'react-router-dom';
-import classNames from 'classnames';
+
 
 function MainNav(){
     return(
