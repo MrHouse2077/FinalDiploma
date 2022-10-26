@@ -11,7 +11,7 @@ import MainNav from './Components/MainNav/MainNav';
 import SearchModal from './Components/Search/SearchModal';
 import React, {useState, useEffect} from 'react';
 import Search from './Components/Search/Search';
-
+import Background_glare from './Components/Background_glare/Background_glare';
 
 function App() {
 
@@ -41,6 +41,7 @@ function App() {
 
         <div className='header_fon'>
           <ImageGallery items={images} />
+          <Background_glare/>
         </div>
         
 
