@@ -1,0 +1,66 @@
+@import "~react-image-gallery/styles/css/image-gallery.css";
+.header_fone_slider{
+    overflow: hidden;
+  }
+  .slider_div{
+    width: 100vw;
+    height: 1030px;
+  }
+  .image-gallery-thumbnails-wrapper{
+    position: absolute;
+    top: 50%;
+    right: 30px;
+  
+  }
+  .image-gallery-thumbnails-wrapper nav{
+    display: flex;
+    flex-direction: column;
+    z-index: 10;
+  }
+  .image-gallery-thumbnails-wrapper nav button{
+    height: 15px;
+    width: 15px;
+    background: #fff;
+    border-radius: 50%;
+    margin:0 0 10px 2px;
+    box-sizing: border-box;
+  }
+  .image-gallery-thumbnails-wrapper nav button.active, .image-gallery-thumbnails-wrapper nav button:hover{
+    border: 1px solid #fff;
+    background: none;
+  }
+  .image-gallery-thumbnails-wrapper nav button:focus{
+    border: 1px solid #fff;
+  }
+  .image-gallery-thumbnails-wrapper nav button.active span, .image-gallery-thumbnails-wrapper nav button:hover span{
+    background: #fff;
+    height: 7px;
+    width: 7px;
+    border-radius: 50%;
+    margin: 3px 4px 3px 3px;
+  }
+  .image-gallery-thumbnails-wrapper nav button img{
+    display: none;
+  }
+  .slid_1{
+    background: url('https://themepure.net/template/futexo-prev/futexo/assets/img/bg/hero-1.jpg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+  }
+  .slid_2{
+    background: url('https://themepure.net/template/futexo-prev/futexo/assets/img/bg/hero-2.jpg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+  }
+  .slid_3{
+    background: url('https://themepure.net/template/futexo-prev/futexo/assets/img/bg/hero-3.jpg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+  }
+  .slider_div > img{
+    display: none;
+   
+  }

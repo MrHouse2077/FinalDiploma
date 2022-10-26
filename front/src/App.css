@@ -1,15 +1,20 @@
-@import "~react-image-gallery/styles/css/image-gallery.css";
 body{
   background-color: #fff;
   margin:0;
   padding:0;
+  position: relative;
 }
 header{
-  width: 1100px
-  
+  overflow: hidden;
+  position: relative;
+  height: 1030px;
 }
 .header_fon{
-  position: absolute;
+  /* position: absolute; */
+    top: 0;
+    left: 0;
+    right: 0;
+    box-sizing: border-box;
 }
 .header_content{
   position: relative;

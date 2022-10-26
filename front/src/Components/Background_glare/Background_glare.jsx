@@ -1,5 +1,5 @@
 import Styles from "./Background_glare.module.scss";
-import classNames from 'classnames';
+//import classNames from 'classnames';
 
 function Background_glare(){
     return(
