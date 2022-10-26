@@ -1,5 +1,8 @@
-$color1: #000;
+$color1: #fff;
 
 .SiteInfo{
     color: $color1;
+    display: flex;
+    width: 50%;
+    justify-content: end;
 }
