@@ -8,6 +8,7 @@ import Shop from './Components/Pages/Shop';
 import Contacts from './Components/Pages/Contacts';
 import Blog from './Components/Pages/Blog';
 import MainNav from './Components/MainNav/MainNav';
+import Background_glare from './Components/Background_glare/Background_glare';
 
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
 
         <div className='header_fon'>
           <ImageGallery items={images} />
+          <Background_glare/>
         </div>
         
 
