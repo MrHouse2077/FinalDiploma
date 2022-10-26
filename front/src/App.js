@@ -30,17 +30,25 @@ function App() {
         </div>
         <div className='header_content'>
           <div className='wrap'>
-          <div className='logo_info'>
-            <img src="/logo.png" className='logo'/>
-            <SiteInfo/>
-          </div>
-
+            <div className='logo_info'>
+              <img src="/logo.png" className='logo'/>
+              <SiteInfo/>
+            </div>
+            <MainNav/>
+            <div className='Login'>
+              <NavLink
+                  to="/login"
+                  className='loginBtn'
+              >
+              Login
+              </NavLink>
+            </div>
           </div>
         </div>
         
 
 
-        <div className='header_content'>
+        {/* <div className='header_content'>
 
           
           <img src="/logo.png" className='logo'/>
@@ -60,7 +68,7 @@ function App() {
             </div>
           </div>
           
-        </div>
+        </div> */}
 
       </header>
 
