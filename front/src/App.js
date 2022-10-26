@@ -8,6 +8,9 @@ import Shop from './Components/Pages/Shop';
 import Contacts from './Components/Pages/Contacts';
 import Blog from './Components/Pages/Blog';
 import MainNav from './Components/MainNav/MainNav';
+import SearchModal from './Components/Search/SearchModal';
+import React, {useState, useEffect} from 'react';
+import Search from './Components/Search/Search';
 
 
 function App() {
@@ -27,9 +30,13 @@ function App() {
     },
   ];
 
+
+  
+
+
+
   return (
     <div className="App">
-
       <header>
 
         <div className='header_fon'>
@@ -66,10 +73,13 @@ function App() {
           </Route>
           <Route path="blog" element={<Blog />} />
           <Route path="contacts" element={<Contacts />} />
+          {/* <Route path="search" element={<Search />} /> */}
         </Routes>
+        
+        
       </section> 
+        
       
-    
     </div>
   );
 }

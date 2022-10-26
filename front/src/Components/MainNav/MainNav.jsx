@@ -1,6 +1,8 @@
 import Styles from "./MainNav.module.scss";
 import { NavLink } from 'react-router-dom';
 
+import Search from "../Search/Search";
+
 
 function MainNav(){
     return(
@@ -55,6 +57,11 @@ function MainNav(){
                                     Contacts
                                 </span>
                                 )}
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="search" className={Styles.nav_link}>
+                                <Search />
                             </NavLink>
                         </li>
                     </ul>
