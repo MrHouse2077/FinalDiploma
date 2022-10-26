@@ -1,5 +1,6 @@
 
 import './App.css';
+
 import SiteInfo from './Components/SiteInfo/SiteInfo';
 import ImageGallery from 'react-image-gallery';
 import { Route, Routes } from 'react-router-dom';
@@ -11,6 +12,10 @@ import MainNav from './Components/MainNav/MainNav';
 import SearchModal from './Components/Search/SearchModal';
 import React, {useState, useEffect} from 'react';
 import Search from './Components/Search/Search';
+
+import { NavLink } from 'react-router-dom';
+import Login from './Components/Pages/Login/Login';
+import stateApp from './State';
 
 
 function App() {
@@ -44,14 +49,24 @@ function App() {
         </div>
         
 
-
         <div className='header_content'>
           
           <img src="/logo.png" className='logo'/>
           <SiteInfo/>
 
+          <div className='header_wrap_content'>
+            <MainNav/>
 
-          <MainNav/>
+            <div className='Login'>
+              <NavLink
+                  to="/login"
+                  className='loginBtn'
+              >
+              Login
+              </NavLink>
+            </div>
+          </div>
+          
         </div>
 
       </header>
@@ -59,7 +74,7 @@ function App() {
       <section className='content'>
         <Routes>
           <Route path="/" element={<Home />}/>
-          <Route path="shop" element={<Shop />}>
+          <Route path="shop" element={<Shop stateApp={stateApp.auth}/>}>
 
             {/* <Route
               path="messages"
@@ -73,6 +88,7 @@ function App() {
           </Route>
           <Route path="blog" element={<Blog />} />
           <Route path="contacts" element={<Contacts />} />
+          <Route path="login" element={<Login stateApp={stateApp.auth}/>}/>
           {/* <Route path="search" element={<Search />} /> */}
         </Routes>
         

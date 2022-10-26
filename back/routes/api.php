@@ -1,7 +1,11 @@
 <?php
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\ValidationException;
+use App\Http\Middleware\TokenAuth;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,4 +26,38 @@ Route::prefix('v1')->group(function () {
     Route::get('/main-menu', function () {
         return [1, 2, 3];
     });
+
+    Route::post('/login', function (Request $request) {
+
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
+
+        $user = User::where('email', $request->email)->first();
+
+        if (! $user || ! Hash::check($request->password, $user->password)) {
+            throw ValidationException::withMessages([
+                'email' => ['The provided credentials are incorrect.'],
+            ]);
+        }
+
+        return [
+                    "token" => $user->createToken("token_name")->plainTextToken,
+                    "name" => $user->name,
+                    "email" => $user->email,
+                ];
+                
+
+    });
+
+    Route::get('/logout', function () {
+        
+    });
+
+    Route::middleware([TokenAuth::class])->post('/lk', function () {
+        return "скрытая зона";
+    });
 });
+
+
