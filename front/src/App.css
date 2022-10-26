@@ -15,13 +15,22 @@ header{
     left: 0;
     right: 0;
     box-sizing: border-box;
+    z-index: 0;
+}
+.logo_info{
+  display: flex;
+  color: #fff;
+  height: 70px;
+  width: 100%;
+  justify-content: space-between;
+  margin-bottom: 20px;
 }
 .header_content{
-  position: relative;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  align-items:flex-start;
+  top: 0;
+  position: absolute;
+  width: 100vw;
+  z-index: 5;
+  height: 1000px;
 }
 section.content{
   position: relative;
@@ -30,5 +39,6 @@ section.content{
   position: relative;
 }
 .wrap{
-  display:flex;
+  width: 1100px;
+  margin: 0 auto;
 }
