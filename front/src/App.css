@@ -35,7 +35,8 @@ header{
 section.content{
   position: relative;
   margin:150px auto 0;
-  width: 1100px;
+  max-width: 1100px;
+  width: 90%;
   background-color: #fff;
   border:1px solid #000;
 }
@@ -43,7 +44,8 @@ section.content{
   position: relative;
 }
 .wrap{
-  width: 1100px;
+  max-width: 1100px;
+  width: 100%;
   margin: 0 auto;
 }
 .header_wrap_content{
