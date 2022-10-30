@@ -21,6 +21,19 @@ function MainNav(){
                             </NavLink>
                         </li>
                         <li>
+                            <NavLink to="about" className={Styles.nav_link}>
+                                {({ isActive }) => (
+                                <span
+                                    className={
+                                    isActive ? Styles.active : undefined
+                                    }
+                                >
+                                    about
+                                </span>
+                                )}
+                            </NavLink>
+                        </li>
+                        <li>
                             <NavLink to="shop" className={Styles.nav_link}>
                                 {({ isActive }) => (
                                 <span
