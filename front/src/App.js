@@ -15,7 +15,7 @@ import Search from './Components/Search/Search';
 
 import { NavLink } from 'react-router-dom';
 import Login from './Components/Pages/Login/Login';
-import stateApp from './State';
+import StateApp from './State';
 
 import Background_glare from './Components/Background_glare/Background_glare';
 import Slider from './Components/Slider/Slider';
@@ -24,14 +24,16 @@ import Pages from './Components/Pages/Pages';
 import Portfolio from './Components/Pages/Portfolio';
 import ContactUs from './Components/UI/Button/ContactUs';
 
-function App() {
-
-  // function renderHeaderFon(startImage){
-  //   switch(startImage){
-  //     case 'Home':
-  //   }
-       
-  // }
+function App(props) {
+	let stateApp = StateApp;
+	let [dataApp, setAuth] = useState(stateApp );
+		
+	function setAuthData(data){
+		let copy = Object.assign([], dataApp);
+			
+		copy.auth.token = data.token;
+		copy.auth.email = data.email;
+		copy.auth.name = data.name;
 
   return (
     <div className="App">
@@ -49,7 +51,6 @@ function App() {
               <SiteInfo/>
             </div>
             <MainNav/>
-            
             <div className='Login'>
               <NavLink
                   to="/login"
@@ -99,7 +100,11 @@ function App() {
           </Route>
           <Route path="blog" element={<Blog />} />
           <Route path="contacts" element={<Contacts />} />
-          <Route path="login" element={<Login stateApp={stateApp.auth}/>}/>
+          <Route path="login" element={<Login
+													startImage = {Login} 
+													auth={dataApp.auth} 
+													setAuthData={setAuthData}
+												/>}/>
           
         </Routes>
         
