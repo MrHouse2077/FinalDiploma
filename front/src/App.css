@@ -42,8 +42,8 @@ section.content{
   position: relative;
 }
 .wrap{
-  width: 1100px;
-  margin: 0 auto;
+  width: 80%;
+  margin: 0 35px 0 20px;
 }
 .header_wrap_content{
   width: 100%;
