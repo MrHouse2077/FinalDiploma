@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
 use App\Http\Middleware\TokenAuth;
+use App\Http\Validators\LoginValidator;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,10 +30,20 @@ Route::prefix('v1')->group(function () {
 
     Route::post('/login', function (Request $request) {
 
-        $request->validate([
-            'email' => 'required|email',
-            'password' => 'required',
-        ]);
+        // $request->validate([
+        //     'email' => 'required|email',
+        //     'password' => 'required',
+        // ]);
+
+        $validator = LoginValidator::loginCheck($request);
+
+        // if ($validator->fails()) {
+        //     return [
+        //                  "errors" => $validator->errors();
+        //                  "name" => $request->name,
+        //                  "email" => $request->email,
+        //              ];
+        // }
 
         $user = User::where('email', $request->email)->first();
 
