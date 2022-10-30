@@ -2,6 +2,7 @@ import Styles from "./MainNav.module.scss";
 import { NavLink } from 'react-router-dom';
 
 import Search from "../Search/Search";
+import ContactUs from "../UI/Button/ContactUs";
 
 
 function MainNav(){
@@ -34,6 +35,126 @@ function MainNav(){
                             </NavLink>
                         </li>
                         <li>
+                            <NavLink to="pages" className={Styles.nav_link}>
+                                {({ isActive }) => (
+                                <span
+                                    className={
+                                    isActive ? Styles.active : undefined
+                                    }
+                                >
+                                    pages+
+                                    <ul class={Styles.SubMenu}>
+                                       <li>
+                                            <NavLink to="classes" className={Styles.nav_link}>
+                                                {({ isActive }) => (
+                                                <span
+                                                    className={
+                                                    isActive ? Styles.active : undefined
+                                                    }
+                                                >
+                                                    classes
+                                                </span>
+                                                )}
+                                            </NavLink>
+                                       </li>
+                                       <li>
+                                            <NavLink to="ClassesDetails" className={Styles.nav_link}>
+                                                {({ isActive }) => (
+                                                <span
+                                                    className={
+                                                    isActive ? Styles.active : undefined
+                                                    }
+                                                >
+                                                    Classes Details
+                                                </span>
+                                                )}
+                                            </NavLink>
+                                       </li>
+                                       <li>
+                                            <NavLink to="TeamDetails" className={Styles.nav_link}>
+                                                {({ isActive }) => (
+                                                <span
+                                                    className={
+                                                    isActive ? Styles.active : undefined
+                                                    }
+                                                >
+                                                    Team Details
+                                                </span>
+                                                )}
+                                            </NavLink>
+                                       </li>
+                                       <li>
+                                            <NavLink to="Team" className={Styles.nav_link}>
+                                                {({ isActive }) => (
+                                                <span
+                                                    className={
+                                                    isActive ? Styles.active : undefined
+                                                    }
+                                                >
+                                                    Team
+                                                </span>
+                                                )}
+                                            </NavLink>
+                                       </li>
+                                       <li>
+                                            <NavLink to="PricingPlan" className={Styles.nav_link}>
+                                                {({ isActive }) => (
+                                                <span
+                                                    className={
+                                                    isActive ? Styles.active : undefined
+                                                    }
+                                                >
+                                                    Pricing Plan
+                                                </span>
+                                                )}
+                                            </NavLink>
+                                       </li>
+                                       <li>
+                                            <NavLink to="Cart" className={Styles.nav_link}>
+                                                {({ isActive }) => (
+                                                <span
+                                                    className={
+                                                    isActive ? Styles.active : undefined
+                                                    }
+                                                >
+                                                    Cart
+                                                </span>
+                                                )}
+                                            </NavLink>
+                                       </li>
+                                       <li>
+                                            <NavLink to="Checkout" className={Styles.nav_link}>
+                                                {({ isActive }) => (
+                                                <span
+                                                    className={
+                                                    isActive ? Styles.active : undefined
+                                                    }
+                                                >
+                                                    Checkout
+                                                </span>
+                                                )}
+                                            </NavLink>
+                                       </li>
+                                       <li>
+                                            <NavLink to="Wishlist" className={Styles.nav_link}>
+                                                {({ isActive }) => (
+                                                <span
+                                                    className={
+                                                    isActive ? Styles.active : undefined
+                                                    }
+                                                >
+                                                    Wishlist
+                                                </span>
+                                                )}
+                                            </NavLink>
+                                       </li>
+                                    </ul>
+                                </span>
+                                )}
+                                
+                            </NavLink>
+                        </li>
+                        <li>
                             <NavLink to="shop" className={Styles.nav_link}>
                                 {({ isActive }) => (
                                 <span
@@ -41,7 +162,76 @@ function MainNav(){
                                     isActive ? Styles.active : undefined
                                     }
                                 >
-                                    shop
+                                    shop+
+                                    <ul class={Styles.SubMenu}>
+                                       <li>
+                                            <NavLink to="shop" className={Styles.nav_link}>
+                                                {({ isActive }) => (
+                                                <span
+                                                    className={
+                                                    isActive ? Styles.active : undefined
+                                                    }
+                                                >
+                                                    shop
+                                                </span>
+                                                )}
+                                            </NavLink>
+                                        </li>
+                                        <li>
+                                            <NavLink to="ShopDetails" className={Styles.nav_link}>
+                                                {({ isActive }) => (
+                                                <span
+                                                    className={
+                                                    isActive ? Styles.active : undefined
+                                                    }
+                                                >
+                                                    shop details
+                                                </span>
+                                                )}
+                                            </NavLink>
+                                       </li>
+                                    </ul>
+                                </span>
+                                )}
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="portfolio" className={Styles.nav_link}>
+                                {({ isActive }) => (
+                                <span
+                                    className={
+                                    isActive ? Styles.active : undefined
+                                    }
+                                >
+                                    portfolio+
+                                    <ul class={Styles.SubMenu}>
+                                       <li>
+                                            <NavLink to="Portfolio" className={Styles.nav_link}>
+                                                {({ isActive }) => (
+                                                <span
+                                                    className={
+                                                    isActive ? Styles.active : undefined
+                                                    }
+                                                >
+                                                    portfolio
+                                                </span>
+                                                )}
+                                            </NavLink>
+                                        </li>
+                                        <li>
+                                            <NavLink to="ShopDetails" className={Styles.nav_link}>
+                                                {({ isActive }) => (
+                                                <span
+                                                    className={
+                                                    isActive ? Styles.active : undefined
+                                                    }
+                                                >
+                                                    portfolio details
+                                                </span>
+                                                )}
+                                            </NavLink>
+                                       </li>
+                                    </ul>
                                 </span>
                                 )}
                             </NavLink>
@@ -54,7 +244,7 @@ function MainNav(){
                                     isActive ? Styles.active : undefined
                                     }
                                 >
-                                    Blog
+                                    Blog+
                                 </span>
                                 )}
                             </NavLink>
@@ -67,7 +257,7 @@ function MainNav(){
                                     isActive ? Styles.active : undefined
                                     }
                                 >
-                                    Contacts
+                                    Contact
                                 </span>
                                 )}
                             </NavLink>
@@ -78,7 +268,9 @@ function MainNav(){
                             </NavLink>
                         </li>
                     </ul>
+                    
                     </nav>
+                    {/* <ContactUs/> */}
             </div>
         );
 }

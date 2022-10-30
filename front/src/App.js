@@ -20,6 +20,9 @@ import stateApp from './State';
 import Background_glare from './Components/Background_glare/Background_glare';
 import Slider from './Components/Slider/Slider';
 import About from './Components/Pages/About';
+import Pages from './Components/Pages/Pages';
+import Portfolio from './Components/Pages/Portfolio';
+import ContactUs from './Components/UI/Button/ContactUs';
 
 function App() {
 
@@ -46,6 +49,7 @@ function App() {
               <SiteInfo/>
             </div>
             <MainNav/>
+            
             <div className='Login'>
               <NavLink
                   to="/login"
@@ -85,16 +89,17 @@ function App() {
 
       <section className='content'>
         <Routes>
-          <Route path="/" element={<Home startImage = {Home}/>}/>
-          <Route path="about" element={<About startImage = {About}/>}/>
-          <Route path="shop" element={<Shop stateApp={stateApp.auth} startImage = {Shop}/>}>
-
+          <Route path="/" element={<Home />}/>
+          <Route path="about" element={<About />}/>
+          <Route path="pages" element={<Pages />}/>
+          <Route path="shop" element={<Shop stateApp={stateApp.auth}/>}>
+          <Route path="portfolio" element={<Portfolio />}/>
             
 
           </Route>
-          <Route path="blog" element={<Blog startImage = {Blog}/>} />
-          <Route path="contacts" element={<Contacts startImage = {Contacts}/>} />
-          <Route path="login" element={<Login stateApp={stateApp.auth} startImage = {Login}/>}/>
+          <Route path="blog" element={<Blog />} />
+          <Route path="contacts" element={<Contacts />} />
+          <Route path="login" element={<Login stateApp={stateApp.auth}/>}/>
           
         </Routes>
         

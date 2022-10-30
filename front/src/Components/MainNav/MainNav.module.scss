@@ -39,7 +39,7 @@
     color: #f00;
 }
 .MainNav ul ul{
-    display: block;
+    display: none;
     position: absolute;
     background: #fff;
     width: 10%;
@@ -58,6 +58,8 @@
 .MainNav ul ul .nav_link:hover{
     color: #f00;
 }
+
+
 
 
 
