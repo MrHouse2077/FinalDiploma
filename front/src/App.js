@@ -86,7 +86,7 @@ function App() {
       <section className='content'>
         <Routes>
           <Route path="/" element={<Home startImage = {Home}/>}/>
-          <Route path="about" element={<About startImage = {Home}/>}/>
+          <Route path="about" element={<About startImage = {About}/>}/>
           <Route path="shop" element={<Shop stateApp={stateApp.auth} startImage = {Shop}/>}>
 
             
@@ -95,7 +95,7 @@ function App() {
           <Route path="blog" element={<Blog startImage = {Blog}/>} />
           <Route path="contacts" element={<Contacts startImage = {Contacts}/>} />
           <Route path="login" element={<Login stateApp={stateApp.auth} startImage = {Login}/>}/>
-          {/* <Route path="search" element={<Search />} /> */}
+          
         </Routes>
         
         
