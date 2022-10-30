@@ -15,13 +15,24 @@ import Search from './Components/Search/Search';
 
 import { NavLink } from 'react-router-dom';
 import Login from './Components/Pages/Login/Login';
-import stateApp from './State';
+import StateApp from './State';
 
 import Background_glare from './Components/Background_glare/Background_glare';
 import Slider from './Components/Slider/Slider';
 
-function App() {
+function App(props) {
+  let stateApp = StateApp;
+  let [dataApp, setAuth] = useState(stateApp );
+    
+  function setAuthData(data){
+    let copy = Object.assign([], dataApp);
+    
+    copy.auth.token = data.token;
+    copy.auth.email = data.email;
+    copy.auth.name = data.name;
 
+    setAuth(copy);
+  }
   return (
     <div className="App">
       <header>
@@ -31,8 +42,8 @@ function App() {
         <div className='header_content'>
           <div className='wrap'>
             <div className='logo_info'>
-              <img src="/logo.png" className='logo'/>
-              <SiteInfo/>
+            	<img src="/logo.png" className='logo'/>
+              	<SiteInfo/>
             </div>
             <MainNav/>
             <div className='Login'>
@@ -74,16 +85,26 @@ function App() {
 
       <section className='content'>
         <Routes>
-          <Route path="/" element={<Home />}/>
-          <Route path="shop" element={<Shop stateApp={stateApp.auth}/>}>
+			<Route path="/" element={<Home />}/>
+			<Route path="shop" element={
+				<Shop auth={dataApp.auth}
+			
+				/>}>
 
-            
+				
 
-          </Route>
-          <Route path="blog" element={<Blog />} />
-          <Route path="contacts" element={<Contacts />} />
-          <Route path="login" element={<Login stateApp={stateApp.auth}/>}/>
-          {/* <Route path="search" element={<Search />} /> */}
+			</Route>
+			<Route path="blog" element={<Blog />} />
+			<Route path="contacts" element={<Contacts />} />
+			<Route path="login" 
+				element={
+					<Login 
+						auth={dataApp.auth}
+						setAuthData={setAuthData}
+					/>
+				}
+			/>
+			{/* <Route path="search" element={<Search />} /> */}
         </Routes>
         
         

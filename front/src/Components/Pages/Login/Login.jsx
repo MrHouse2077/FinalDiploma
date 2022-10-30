@@ -9,22 +9,7 @@ import Styles from "./Login.module.scss";
 
 
 function Login(props) {
-
-    let stateApp = props.stateApp;
-    let [auth, setAuth] = useState(stateApp);
-    
-    let setAuthData = (data)=>{
-        let copy = Object.assign([], auth);
-        
-        copy.token = data.token;
-        copy.email = data.email;
-        copy.name = data.name;
-
-        setAuth(copy);
-        console.log(copy);
-    }
-
-
+    let auth = props.auth;
     function onLk(){
         Requests(
           {
@@ -34,7 +19,7 @@ function Login(props) {
               callback: access
           }
         )
-      }
+    }
   
       function access(data){
         console.log(data);
@@ -47,7 +32,7 @@ function Login(props) {
                 method:'post', 
                 url: "/login",
                 data: {email: "admin@mail.ru", password: "123"},
-                callback: setAuthData
+                callback: props.setAuthData
             }
         )
             
