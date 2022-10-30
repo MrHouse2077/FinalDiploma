@@ -19,13 +19,24 @@ import stateApp from './State';
 
 import Background_glare from './Components/Background_glare/Background_glare';
 import Slider from './Components/Slider/Slider';
+import About from './Components/Pages/About';
 
 function App() {
+
+  // function renderHeaderFon(startImage){
+  //   switch(startImage){
+  //     case 'Home':
+  //   }
+       
+  // }
 
   return (
     <div className="App">
       <header>
         <div className='header_fon'>
+            
+              
+            
 			      <Slider/>
         </div>
         <div className='header_content'>
@@ -74,15 +85,16 @@ function App() {
 
       <section className='content'>
         <Routes>
-          <Route path="/" element={<Home />}/>
-          <Route path="shop" element={<Shop stateApp={stateApp.auth}/>}>
+          <Route path="/" element={<Home startImage = {Home}/>}/>
+          <Route path="about" element={<About startImage = {Home}/>}/>
+          <Route path="shop" element={<Shop stateApp={stateApp.auth} startImage = {Shop}/>}>
 
             
 
           </Route>
-          <Route path="blog" element={<Blog />} />
-          <Route path="contacts" element={<Contacts />} />
-          <Route path="login" element={<Login stateApp={stateApp.auth}/>}/>
+          <Route path="blog" element={<Blog startImage = {Blog}/>} />
+          <Route path="contacts" element={<Contacts startImage = {Contacts}/>} />
+          <Route path="login" element={<Login stateApp={stateApp.auth} startImage = {Login}/>}/>
           {/* <Route path="search" element={<Search />} /> */}
         </Routes>
         
