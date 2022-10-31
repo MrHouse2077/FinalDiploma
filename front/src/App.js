@@ -34,7 +34,7 @@ function App(props) {
 		copy.auth.token = data.token;
 		copy.auth.email = data.email;
 		copy.auth.name = data.name;
-
+  }
   return (
     <div className="App">
       <header>
@@ -88,30 +88,24 @@ function App(props) {
 
       </header>
 
-      <section className='content'>
-        <Routes>
-          <Route path="/" element={<Home />}/>
-          <Route path="about" element={<About />}/>
-          <Route path="pages" element={<Pages />}/>
-          <Route path="shop" element={<Shop stateApp={stateApp.auth}/>}>
-          <Route path="portfolio" element={<Portfolio />}/>
-            
-
-          </Route>
-          <Route path="blog" element={<Blog />} />
-          <Route path="contacts" element={<Contacts />} />
-          <Route path="login" element={<Login
+			<section className='content'>
+				<Routes>
+					<Route path="/" element={<Home startImage = {Home}/>}/>
+					<Route path="about" element={<About startImage = {About}/>}/>
+					<Route path="shop" element={<Shop auth={dataApp.auth} startImage = {Shop}/>}/>
+					<Route path="blog" element={<Blog startImage = {Blog}/>} />
+					<Route path="contacts" element={<Contacts startImage = {Contacts}/>} />
+					<Route path="login" element={<Login
 													startImage = {Login} 
 													auth={dataApp.auth} 
 													setAuthData={setAuthData}
 												/>}/>
-          
-        </Routes>
-        
-        
-      </section> 
-    </div>
-  );
+					{/* <Route path="search" element={<Search />} /> */}
+				</Routes>
+			</section> 
+    	</div>
+  	);
+
 }
 
 export default App;
