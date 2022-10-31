@@ -22,9 +22,9 @@ function Login(props) {
         )
     }
   
-      function access(data){
-        console.log(data);
-      } 
+    function access(data){
+      console.log(data);
+    } 
 
     function onLogin(){
 
