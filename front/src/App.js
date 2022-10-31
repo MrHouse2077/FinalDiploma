@@ -11,6 +11,7 @@ import MainNav from './Components/MainNav/MainNav';
 import SearchModal from './Components/Search/SearchModal';
 import React, {useState, useEffect} from 'react';
 import Search from './Components/Search/Search';
+import Login from './Components/Pages/Login/Login';
 
 
 function App() {
@@ -52,6 +53,8 @@ function App() {
 
 
           <MainNav/>
+
+          <Login/>
         </div>
 
       </header>
@@ -69,10 +72,10 @@ function App() {
               path="messages"
               element={<category2/>}
             /> */}
-
           </Route>
           <Route path="blog" element={<Blog />} />
           <Route path="contacts" element={<Contacts />} />
+          <Route path="login" element={<Login />} />
           {/* <Route path="search" element={<Search />} /> */}
         </Routes>
         

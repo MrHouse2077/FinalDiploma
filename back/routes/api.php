@@ -22,4 +22,14 @@ Route::prefix('v1')->group(function () {
     Route::get('/main-menu', function () {
         return [1, 2, 3];
     });
+    Route::get('/login', function () {
+        
+    });
+    Route::get('/logout', function () {
+        
+    });
+    Route::get('/lk', function () {
+        
+    });
+
 });
