@@ -35,7 +35,7 @@ function Validator(props){
                     //проверка на минимальную длинну
                     msg: "Длинна пароля не должна быть меньше четырёх символов!",
                     f: function(valueElement){
-                        return (valueElement.length < 4)? {status: true}: {status:false, msgFaild: this.msg};
+                        return (valueElement.length > 4)? {status: true}: {status:false, msgFaild: this.msg};
                     }
                 },
 
@@ -44,15 +44,31 @@ function Validator(props){
         formValid: false,
     });
 
+
+
     function onChangeElement(fieldElement, evt){
+        switch(fieldElement){
+            case 'fieldEmail': 
+            case 'fieldPassword': 
+                validationField(fieldElement, evt);
+
+            break;
+            default: break;
+
+        }
+    }
+
+
+    function validationField(fieldElement, evt){
         
         let copy = Object.assign({}, checkValues);
         copy[fieldElement].value = evt;
         copy[fieldElement].touched = true;
         for(let rule of copy[fieldElement].rules){
             if(!rule.f(evt).status){
-                copy[fieldElement].touched = false
+                copy[fieldElement].valid = false
                 copy[fieldElement].msgFaild = rule.f(evt).msgFaild;
+                
                 break;
             }
             copy[fieldElement].valid = rule.f(evt).status;
@@ -62,14 +78,6 @@ function Validator(props){
         checkSet(copy);
     }
 
-    function onChangePassword(evt){
-        console.log(evt);
-    }
-
-
-
-    
-   
     return (
 
         <div className="Login">
@@ -79,6 +87,20 @@ function Validator(props){
             placeholder="Введите email" 
             onChange = {(evt)=>
                 onChangeElement('fieldEmail', evt.target.value)}
+            onBlur = {(evt)=>
+                onChangeElement('fieldEmail', evt.target.value)}
+            className = {
+                
+                (!checkValues.fieldEmail.valid && checkValues.fieldEmail.touched)
+                ?
+                    Styles.error
+                :
+                    (checkValues.fieldEmail.valid)
+                    ?
+                        Styles.succes
+                    :
+                        ""
+            }
         />
 
         <InputText 
@@ -86,16 +108,42 @@ function Validator(props){
             placeholder="Введите пароль"
             onChange = {(evt)=>
                 onChangeElement('fieldPassword', evt.target.value)}
+            onBlur = {(evt)=>
+                onChangeElement('fieldPassword', evt.target.value)}
+                className = {
+                
+                    (!checkValues.fieldPassword.valid && checkValues.fieldPassword.touched)
+                    ?
+                        Styles.error
+                    :
+                        (checkValues.fieldPassword.valid)
+                        ?
+                            Styles.succes
+                        :
+                            ""
+                }
         />
 
-        <div  className={Styles.field}>
-            <Button onClick={()=>onLogin}>Log-in</Button>
+         <div 
+            
+            className={Styles.field}>
+            <Button 
+                disabled = {(checkValues.fieldEmail.valid && checkValues.fieldPassword.valid)? false: true}
+                onClick={onLogin} 
+            >
+                Log-in
+            </Button>
         </div>
         
-        <button onClick={onLk}>войти в лк</button>
+        <button 
+            onClick={onLk}
+            disabled = {(checkValues.fieldEmail.valid && checkValues.fieldPassword.valid)? false: true}
+        >
+            войти в лк 
+        </button>
       </div>
 
     );
 
-} 
+}
 export default Validator;

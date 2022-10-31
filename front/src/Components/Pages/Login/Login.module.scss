@@ -1,3 +1,16 @@
 .field{
     display: inline-block;
 }
+.error{
+    border: 1px solid #f00;
+}
+.error:focus
+.succes:focus{
+    outline-width: 0px;
+}
+.succes{
+    border: 1px solid #0f0;
+}
+input{
+    outline: none;
+}

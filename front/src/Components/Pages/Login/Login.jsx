@@ -3,6 +3,7 @@ import Requests from "../../Requests";
 import Button from "../../UI/Button/Button";
 import InputText from "../../UI/InputText/InputText";
 import Styles from "./Login.module.scss";
+import Validator from "./Validator";
 
 
 
@@ -26,14 +27,15 @@ function Login(props) {
 
 
     function onLk(){
-        Requests(
-          {
-              method:'post', 
-              url: "/lk",
-              data: {token: auth.token},
-              callback: access
-          }
-        )
+      console.log('onLk');
+        // Requests(
+        //   {
+        //       method:'post', 
+        //       url: "/lk",
+        //       data: {token: auth.token},
+        //       callback: access
+        //   }
+        // )
       }
   
       function access(data){
@@ -41,32 +43,22 @@ function Login(props) {
       } 
 
     function onLogin(){
-
-        Requests(
-            {
-                method:'post', 
-                url: "/login",
-                data: {email: "admin@mail.ru", password: "123"},
-                callback: setAuthData
-            }
-        )
+      console.log('onLogin');
+        // Requests(
+        //     {
+        //         method:'post', 
+        //         url: "/login",
+        //         data: {email: "admin@mail.ru", password: "123"},
+        //         callback: setAuthData
+        //     }
+        // )
             
     }
 
     
 
     return (
-      <div className="Login">
-        
-        <InputText type="text" placeholder="Введите email"/>
-        <InputText type="password" placeholder="Введите пароль"/>
-
-        <div onClick={onLogin} className={Styles.field}>
-            <Button>Log-in</Button>
-        </div>
-        
-        <button onClick={onLk}>войти в лк</button>
-      </div>
+      <Validator onLogin={onLogin} onLk={onLk}/>
     );
   }
   
