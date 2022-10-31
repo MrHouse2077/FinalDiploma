@@ -165,7 +165,7 @@ function MainNav(){
                                     shop+
                                     <ul class={Styles.SubMenu}>
                                        <li>
-                                            <NavLink to="shop" className={Styles.nav_link}>
+                                            <NavLink to="Shop" className={Styles.nav_link}>
                                                 {({ isActive }) => (
                                                 <span
                                                     className={
@@ -245,6 +245,34 @@ function MainNav(){
                                     }
                                 >
                                     Blog+
+                                    <ul class={Styles.SubMenu}>
+                                       <li>
+                                            <NavLink to="Blog" className={Styles.nav_link}>
+                                                {({ isActive }) => (
+                                                <span
+                                                    className={
+                                                    isActive ? Styles.active : undefined
+                                                    }
+                                                >
+                                                    Blog
+                                                </span>
+                                                )}
+                                            </NavLink>
+                                        </li>
+                                        <li>
+                                            <NavLink to="BlogDetails" className={Styles.nav_link}>
+                                                {({ isActive }) => (
+                                                <span
+                                                    className={
+                                                    isActive ? Styles.active : undefined
+                                                    }
+                                                >
+                                                    Blog details
+                                                </span>
+                                                )}
+                                            </NavLink>
+                                       </li>
+                                    </ul>
                                 </span>
                                 )}
                             </NavLink>
