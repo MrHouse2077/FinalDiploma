@@ -7,8 +7,11 @@ import { NavLink } from 'react-router-dom';
 import StateApp from './State';
 import Home from './Components/Pages/Home';
 import About from './Components/Pages/About/About';
+import Contacts from './Components/Pages/Contacts';
+
 import Login from './Components/Pages/Login/Login';
 import Dashboard from './Components/Admin/Pages/Dashboard/Dashboard';
+import Search from './Components/Search/Search';
 
 function App(props) {
   const navigate = useNavigate();
@@ -29,6 +32,7 @@ function App(props) {
 
     navigate('/admin/dashboard');
   }
+  
   return (
     <div className="App">
       <Routes>
@@ -46,9 +50,12 @@ function App(props) {
           setAuthData={setAuthData}
         />} />
         {/* <Route path="shop" element={<Shop auth={dataApp.auth} startImage={Shop} />} />
-        <Route path="blog" element={<Blog startImage={Blog} />} />
-        <Route path="contacts" element={<Contacts startImage={Contacts} />} />
-        <Route path="login" element={<Login
+        <Route path="blog" element={<Blog startImage={Blog} />} />*/
+        <Route path="contacts" element={<Contacts/>} />
+        // <Route path="search" element={<Search />} />
+
+        
+        /*<Route path="login" element={<Login
           startImage={Login}
           auth={dataApp.auth}
           setAuthData={setAuthData}

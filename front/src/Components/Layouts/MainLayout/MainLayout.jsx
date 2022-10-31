@@ -5,6 +5,7 @@ import { NavLink } from 'react-router-dom';
 import SiteInfo from '../../SiteInfo/SiteInfo';
 import Slider from '../../Slider/Slider';
 import MainNav from '../../MainNav/MainNav';
+import Search from '../../Search/Search';
 
 
 
@@ -23,6 +24,7 @@ function MainLayout(props) {
                             <SiteInfo />
                         </div>
                         <MainNav />
+                        
                         <div className='Login'>
                             <NavLink
                                 to="/login"

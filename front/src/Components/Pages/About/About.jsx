@@ -1,11 +1,11 @@
 import Styles from "./About.module.scss";
 
 
-import AboutShape from "../about-shape.png";
-import AboutOne from "../about-1.jpg";
-import Quote from "../quote.png";
-import Author from "../author.jpg";
-import AuthorPNG from "../about-bg-png.png";
+import AboutShape from "../../../images/about-shape.png";
+import AboutOne from "../../../images/about-1.jpg";
+import Quote from "../../../images/quote.png";
+import Author from "../../../images/author.jpg";
+import AuthorPNG from "../../../images/about-bg-png.png";
 import DefaultLayout from "../../Layouts/DefaultLayout/DefaultLayout";
 
 

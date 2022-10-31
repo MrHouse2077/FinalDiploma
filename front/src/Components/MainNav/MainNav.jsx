@@ -2,7 +2,6 @@ import Styles from "./MainNav.module.scss";
 import { NavLink } from 'react-router-dom';
 
 import Search from "../Search/Search";
-import ContactUs from "../UI/Button/ContactUs";
 
 
 function MainNav(){
@@ -298,7 +297,7 @@ function MainNav(){
                     </ul>
                     
                     </nav>
-                    {/* <ContactUs/> */}
+                    
             </div>
         );
 }

@@ -38,19 +38,6 @@ function SearchModal(props){
                   </form>
                </div>
             </div>
-         
-         
-         
-         
-         
-         {/* <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">×</span>
-         </button>
-         <div class="modal-dialog" role="document">
-            <div class="modal-content">
-               
-            </div>
-         </div> */}
       </div>
     )
 }
