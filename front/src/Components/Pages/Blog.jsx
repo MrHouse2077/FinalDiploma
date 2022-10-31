@@ -1,9 +1,9 @@
-
+import Styles from "./Pages.module.scss";
 
 
 function Blog() {
     return (
-      <div className="Blog">
+      <div className={Styles.Blog}>
         Blog
       </div>
     );

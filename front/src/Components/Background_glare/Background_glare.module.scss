@@ -1,0 +1,46 @@
+.bg_glare{
+    width: 100%;
+    height: 1030px;
+    position: absolute;
+    top: 0;
+}
+.bg_glare::before{
+    content: "";
+    width: 86%;
+    height: 120%;
+    background: rgba(0, 0, 0, 0.4);
+    position: absolute;
+    left: 0;
+    clip-path: polygon(0 0, 75% 0, 49% 100%, 0% 100%);
+    animation: m_left 3s linear 0s infinite alternate;
+}
+.bg_glare::after{
+    content: "";
+    width: 100%;
+    height: 120%;
+    background: rgba(0, 0, 0, 0.4);
+    position: absolute;
+    right: -25%;
+    clip-path: polygon(60% 0, 100% 0, 100% 100%, 38% 100%);
+    animation: m_right 3s linear 0s infinite alternate;
+    
+}
+
+@keyframes m_left {
+    from{
+        left: 0;
+    }
+    
+    to{
+        left: -14%;
+    }
+}
+
+@keyframes m_right {
+    from{
+        right: -25%;
+    }
+    to{
+        right: -11%;
+    }
+}
