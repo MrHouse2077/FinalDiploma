@@ -39,6 +39,9 @@
     color: #f00;
 }
 .MainNav ul ul{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     opacity: 0; 
     visibility: hidden;
     transition-property: opacity, visibility; 
@@ -51,6 +54,10 @@
     padding: 1em;
     border-top: 3px solid #f00;
     margin-top: 1.65em;
+}
+.MainNav ul ul li a span{
+    text-align: start;
+
 }
 
 .MainNav ul li:hover ul{

@@ -35,6 +35,7 @@ function App(props) {
 		copy.auth.email = data.email;
 		copy.auth.name = data.name;
   }
+  
   return (
     <div className="App">
       <header>
