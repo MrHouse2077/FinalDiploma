@@ -33,3 +33,4 @@ class IndexController extends Controller
         return RequestHelper::write(200, 'sucess', $data);
     }
 }
+ 

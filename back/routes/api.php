@@ -1,9 +1,6 @@
 <?php
 
-<<<<<<< HEAD
-=======
 use App\Http\Controllers\IndexController;
->>>>>>> 3d06e47a1287b5459cf39b745a8b8cc02c55e5cf
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -31,8 +28,7 @@ Route::prefix('v1')->group(function () {
     Route::get('/main-menu', function () {
         return [1, 2, 3];
     });
-<<<<<<< HEAD
-<<<<<<< HEAD
+
     Route::get('/login', function () {
         
     });
@@ -44,7 +40,7 @@ Route::prefix('v1')->group(function () {
     });
 
 });
-=======
+
 
     Route::post('/login', function (Request $request) {
 
@@ -79,10 +75,7 @@ Route::prefix('v1')->group(function () {
                 
 
     });
-=======
 
-    Route::post('/login', [IndexController::class, 'indexAction']);
->>>>>>> 3d06e47a1287b5459cf39b745a8b8cc02c55e5cf
 
     Route::get('/logout', function () {
         
@@ -91,10 +84,6 @@ Route::prefix('v1')->group(function () {
     Route::middleware([TokenAuth::class])->post('/lk', function () {
         return "скрытая зона";
     });
-});
 
 
-<<<<<<< HEAD
->>>>>>> c814f912058bd710df092d8fac7811caea552e5f
-=======
->>>>>>> 3d06e47a1287b5459cf39b745a8b8cc02c55e5cf
+
