@@ -1,5 +1,6 @@
 import ImageGallery from 'react-image-gallery';
 import "./Slider.css";
+
 function Slider(){
     const images = [
         {
@@ -21,6 +22,7 @@ function Slider(){
     return (
         <div className="header_fon">
             <ImageGallery className="header_fone_slider" items={images} showNav={false} showFullscreenButton={false} showPlayButton={false} autoPlay={true} showThumbnails={true}/>
+          
         </div>
         
     );
