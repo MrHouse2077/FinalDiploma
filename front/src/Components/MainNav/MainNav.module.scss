@@ -15,7 +15,8 @@
     color: #fff;
 }
 .MainNav nav{
-    width: 70%;
+    width: 100%;
+    margin-left: 10px;
 }
 .MainNav ul{
    display: flex;
@@ -26,6 +27,7 @@
    padding: 1.65em 0;
    list-style: none;
    width: 70%;
+   position: relative;
 }
 .MainNav ul li{
     display:block;
@@ -42,6 +44,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    z-index: 5;
     opacity: 0; 
     visibility: hidden;
     transition-property: opacity, visibility; 
