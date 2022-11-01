@@ -79,3 +79,27 @@ https://slider-react-component.vercel.app/demo/handle
 
 Карусель react:
 https://www.npmjs.com/package/react-image-gallery
+
+Команды для добавления иконок:
+npm i --save @fortawesome/fontawesome-svg-core
+
+npm i --save @fortawesome/free-solid-svg-icons
+
+npm i --save @fortawesome/free-regular-svg-icons
+
+npm i --save @fortawesome/react-fontawesome@latest
+
+npm install babel-plugin-macros
+
+Иконки font-awesome 6.2.0
+https://fontawesome.com/v6/icons?q=arrow&o=r&m=free&f=classi
+
+вставлять иконки по данному шаблону:
+
+### <FontAwesomeIcon icon={раздел('название иконки')} />
+###                        примеры
+### <FontAwesomeIcon icon={brands('twitter')} />
+### <FontAwesomeIcon icon={solid('home')} />
+Вставлять в файлы, где будут использоваться иконки
+import { FontAwesomeIcon } from '@fortawesomereact-fontawesome'
+import { solid, regular, brands, icon } from '@fortawesome/fontawesome-svg-core/import.macro'
