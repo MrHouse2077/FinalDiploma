@@ -7,7 +7,6 @@ body{
 header{
   overflow: hidden;
   position: relative;
-  height: 1030px;
 }
 .header_fon{
   /* position: absolute; */
@@ -42,9 +41,8 @@ section.content{
   position: relative;
 }
 .wrap{
-  max-width: 1100px;
-  width: 100%;
-  margin: 0 auto;
+  width: 80%;
+  margin: 0 35px 0 20px;
 }
 .header_wrap_content{
   width: 100%;

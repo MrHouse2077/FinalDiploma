@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\IndexController;
+use App\Http\Controllers\ShopController;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -28,39 +30,9 @@ Route::prefix('v1')->group(function () {
         return [1, 2, 3];
     });
 
-    Route::post('/login', function (Request $request) {
+    Route::post('/login', [IndexController::class, 'indexAction']);
 
-        // $request->validate([
-        //     'email' => 'required|email',
-        //     'password' => 'required',
-        // ]);
-
-        $validator = LoginValidator::loginCheck($request);
-
-        // if ($validator->fails()) {
-        //     return [
-        //                  "errors" => $validator->errors();
-        //                  "name" => $request->name,
-        //                  "email" => $request->email,
-        //              ];
-        // }
-
-        $user = User::where('email', $request->email)->first();
-
-        if (! $user || ! Hash::check($request->password, $user->password)) {
-            throw ValidationException::withMessages([
-                'email' => ['The provided credentials are incorrect.'],
-            ]);
-        }
-
-        return [
-                    "token" => $user->createToken("token_name")->plainTextToken,
-                    "name" => $user->name,
-                    "email" => $user->email,
-                ];
-                
-
-    });
+    Route::get('/products', [ShopController::class, 'listProductsAction']);
 
     Route::get('/logout', function () {
         

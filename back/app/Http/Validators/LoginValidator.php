@@ -10,13 +10,13 @@
         public static function loginCheck($request) {
             return Validator::make($request->all(),[
                                                         'email' => 'required|email:rfc,dns',
-                                                        'password' => 'required|min:4',
+                                                        'password' => 'required|min:3',
                                                     ],
                                                     [
                                                         'email.required' => 'Введите почту!',
                                                         'email.email:rfc,dns' => 'Введите почту!',
                                                         'password.required' => 'Введите пароль!',
-                                                        'password.min:4' => 'Ошибка!',
+                                                        'password.min:3' => 'Ошибка!',
                                                     ]
             );
         }
