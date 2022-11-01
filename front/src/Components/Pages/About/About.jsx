@@ -8,6 +8,7 @@ import Author from "../../../images/author.jpg";
 import AuthorPNG from "../../../images/about-bg-png.png";
 import DefaultLayout from "../../Layouts/DefaultLayout/DefaultLayout";
 import { NavLink } from "react-router-dom";
+import Footer from "../../Layouts/Footer/Footer";
 
 
 function About() {
@@ -95,6 +96,10 @@ function About() {
                         </div>
                     </div>
             </section>
+
+            <Footer>
+                
+            </Footer>
         </div>
     )
 }
