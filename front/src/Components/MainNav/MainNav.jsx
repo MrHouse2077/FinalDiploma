@@ -290,9 +290,7 @@ function MainNav(){
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink to="search" className={Styles.nav_link}>
-                                <Search />
-                            </NavLink>
+                            <Search />
                         </li>
                     </ul>
                     

@@ -7,7 +7,7 @@ import { NavLink } from 'react-router-dom';
 import StateApp from './State';
 import Home from './Components/Pages/Home';
 import About from './Components/Pages/About/About';
-import Contacts from './Components/Pages/Contacts';
+import Contacts from './Components/Pages/Contacts/Contacts';
 
 import Login from './Components/Pages/Login/Login';
 import Dashboard from './Components/Admin/Pages/Dashboard/Dashboard';
