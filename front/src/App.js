@@ -11,6 +11,7 @@ import Contacts from './Components/Pages/Contacts/Contacts';
 
 import Login from './Components/Pages/Login/Login';
 import Dashboard from './Components/Admin/Pages/Dashboard/Dashboard';
+import ListProducts from './Components/Pages/Shop/Pages/ListProducts/ListProducts';
 import Search from './Components/Search/Search';
 
 function App(props) {
@@ -49,6 +50,9 @@ function App(props) {
           auth={dataApp.auth}
           setAuthData={setAuthData}
         />} />
+
+        <Route path="shop" element={<ListProducts/>} />
+
         {/* <Route path="shop" element={<Shop auth={dataApp.auth} startImage={Shop} />} />
         <Route path="blog" element={<Blog startImage={Blog} />} />*/
         <Route path="contacts" element={<Contacts/>} />
