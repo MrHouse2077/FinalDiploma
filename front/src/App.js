@@ -29,7 +29,7 @@ function App(props) {
 
     setAuth(copy);
 
-    localStorage.setItem('token', copy.auth.token);
+    localStorage.setItem('token', dataApp.auth.token);
 
     navigate('/admin/dashboard');
   }
