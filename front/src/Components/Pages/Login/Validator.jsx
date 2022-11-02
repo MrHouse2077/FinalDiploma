@@ -43,7 +43,13 @@ function Validator(props){
         },
         formValid: false,
     });
-
+    function loginUser(){
+        let data = {
+            "email": checkValues.fieldEmail.value,
+            "password": checkValues.fieldPassword.value,
+        };
+        onLogin(data);
+    }
 
 
     function onChangeElement(fieldElement, evt){
@@ -129,7 +135,7 @@ function Validator(props){
             className={Styles.field}>
             <Button 
                 disabled = {(checkValues.fieldEmail.valid && checkValues.fieldPassword.valid)? false: true}
-                onClick={onLogin} 
+                onClick={ loginUser }
             >
                 Log-in
             </Button>
