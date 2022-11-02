@@ -30,6 +30,7 @@ Route::prefix('v1')->group(function () {
     });
 
     Route::post('/login', [IndexController::class, 'indexAction']);
+    Route::post('/chekToken', [IndexController::class, 'checkToken']);
 
     Route::get('/logout', function () {
         
