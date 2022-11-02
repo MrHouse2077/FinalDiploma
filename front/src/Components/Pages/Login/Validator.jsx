@@ -10,8 +10,8 @@ function Validator(props){
     
     let [checkValues, checkSet] = useState({
         fieldEmail: {
-            value: '',
-            msgFaild: '',
+            value: null,
+            msgFaild: null,
             valid: false,
             touched: false,
             rules:[
@@ -26,8 +26,8 @@ function Validator(props){
             ],
          },
          fieldPassword: {
-            value: '',
-            msgFaild: '',
+            value: null,
+            msgFaild: null,
             valid: false,
             touched: false,
             rules:[
@@ -35,7 +35,7 @@ function Validator(props){
                     //проверка на минимальную длинну
                     msg: "Длинна пароля не должна быть меньше четырёх символов!",
                     f: function(valueElement){
-                        return (valueElement.length > 4)? {status: true}: {status:false, msgFaild: this.msg};
+                        return (valueElement.length >= 3)? {status: true}: {status:false, msgFaild: this.msg};
                     }
                 },
 
@@ -83,10 +83,12 @@ function Validator(props){
         <div className="Login">
         
         <InputText 
+
             type="text" 
             placeholder="Введите email" 
-            onChange = {(evt)=>
-                onChangeElement('fieldEmail', evt.target.value)}
+            onChange = {(evt)=>{
+                onChangeElement('fieldEmail', evt.target.value)
+            }}
             onBlur = {(evt)=>
                 onChangeElement('fieldEmail', evt.target.value)}
             className = {
@@ -101,6 +103,8 @@ function Validator(props){
                     :
                         ""
             }
+            
+            checkValues = {checkValues.fieldEmail}
         />
 
         <InputText 
@@ -122,14 +126,14 @@ function Validator(props){
                         :
                             ""
                 }
+                
+                checkValues = {checkValues.fieldPassword}
         />
 
          <div 
             
             className={Styles.field}>
             <Button 
-                disabled = {(checkValues.fieldEmail.valid && checkValues.fieldPassword.valid)? false: true}
-                onClick={onLogin} 
             >
                 Log-in
             </Button>
