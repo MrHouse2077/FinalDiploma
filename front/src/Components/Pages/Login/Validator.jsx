@@ -35,7 +35,7 @@ function Validator(props){
                     //проверка на минимальную длинну
                     msg: "Длинна пароля не должна быть меньше четырёх символов!",
                     f: function(valueElement){
-                        return (valueElement.length > 4)? {status: true}: {status:false, msgFaild: this.msg};
+                        return (valueElement.length > 2)? {status: true}: {status:false, msgFaild: this.msg};
                     }
                 },
 

@@ -4,9 +4,18 @@ import { NavLink } from 'react-router-dom';
 
 import MainNav from '../../MainNav/MainNav';
 import SiteInfo from '../../SiteInfo/SiteInfo';
+import Filter from '../../UI/Filter/Filter';
 
 
 function DefaultLayout(props) {
+
+    let chengeStatusFilter = props.chengeStatusFilter;
+
+    let filter = {
+                minPriceProduct: props.filterParams.minPriceProduct,
+                maxPriceProduct: props.filterParams.maxPriceProduct,
+                secelctPriceProduct: props.filterParams.secelctPriceProduct
+            }
 
     return (
         <div className={Styles.DefaultLayout}>
@@ -38,6 +47,16 @@ function DefaultLayout(props) {
             </header>
 
             <section>
+
+                <aside>
+                    {
+                        (props.filterShow)?
+                            <Filter filterParams={filter} chengeStatusFilter={chengeStatusFilter}/>
+                        :
+                            ''
+                    }
+                </aside>
+                
                 {props.children}
             </section>
 
