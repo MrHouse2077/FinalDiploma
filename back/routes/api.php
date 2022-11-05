@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\ShopController;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -30,6 +31,9 @@ Route::prefix('v1')->group(function () {
     });
 
     Route::post('/login', [IndexController::class, 'indexAction']);
+    Route::post('/chekToken', [IndexController::class, 'checkToken']);
+
+    Route::get('/products', [ShopController::class, 'listProductsAction']);
 
     Route::get('/logout', function () {
         

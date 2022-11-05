@@ -1,0 +1,12 @@
+.product{
+    border:1px solid #ccc;
+    padding: 20px 30px;
+    width: 33.33%;
+    margin:10px 0;
+}
+.products{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 30px auto 0;
+
+}

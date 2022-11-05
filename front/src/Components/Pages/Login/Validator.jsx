@@ -35,7 +35,7 @@ function Validator(props){
                     //проверка на минимальную длинну
                     msg: "Длинна пароля не должна быть меньше четырёх символов!",
                     f: function(valueElement){
-                        return (valueElement.length > 4)? {status: true}: {status:false, msgFaild: this.msg};
+                        return (valueElement.length > 2)? {status: true}: {status:false, msgFaild: this.msg};
                     }
                 },
 
@@ -43,7 +43,13 @@ function Validator(props){
         },
         formValid: false,
     });
-
+    function loginUser(){
+        let data = {
+            "email": checkValues.fieldEmail.value,
+            "password": checkValues.fieldPassword.value,
+        };
+        onLogin(data);
+    }
 
 
     function onChangeElement(fieldElement, evt){
@@ -129,7 +135,7 @@ function Validator(props){
             className={Styles.field}>
             <Button 
                 disabled = {(checkValues.fieldEmail.valid && checkValues.fieldPassword.valid)? false: true}
-                onClick={onLogin} 
+                onClick={ loginUser }
             >
                 Log-in
             </Button>
