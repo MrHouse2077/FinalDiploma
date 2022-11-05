@@ -27,9 +27,11 @@ function App(props) {
     copy.auth.email = data.email;
     copy.auth.name = data.name;
 
+    localStorage.setItem('token', data.token);
+    
     setAuth(copy);
 
-    localStorage.setItem('token', copy.auth.token);
+    
 
     navigate('/admin/dashboard');
   }
@@ -39,23 +41,23 @@ function App(props) {
       <Routes>
         <Route path="/" element={<Home startImage={Home} />} />
   
-        <Route path="about" element={<About startImage={About} />} />
-        <Route path="login" element={<Login
+        <Route path="/about" element={<About startImage={About} />} />
+        <Route path="/login" element={<Login
           startImage={Login}
           auth={dataApp.auth}
           setAuthData={setAuthData}
         />} />
-        <Route path="admin/dashboard" element={<Dashboard
+        <Route path="/admin/dashboard" element={<Dashboard
           startImage={Login}
           auth={dataApp.auth}
           setAuthData={setAuthData}
         />} />
 
-        <Route path="shop" element={<ListProducts/>} />
+        <Route path="/shop" element={<ListProducts/>} />
 
         {/* <Route path="shop" element={<Shop auth={dataApp.auth} startImage={Shop} />} />
         <Route path="blog" element={<Blog startImage={Blog} />} />*/
-        <Route path="contacts" element={<Contacts/>} />
+        <Route path="/contacts" element={<Contacts/>} />
         // <Route path="search" element={<Search />} />
 
         

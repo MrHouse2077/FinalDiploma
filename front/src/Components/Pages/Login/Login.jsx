@@ -26,13 +26,13 @@ function Login(props) {
       console.log(data);
     } 
 
-    function onLogin(){
+    function onLogin(data){
 
         Requests(
             {
                 method:'post', 
                 url: "/login",
-                data: {email: "admin@mail.ru", password: "123"},
+                data: {email: data.email, password: data.password},
                 callback: props.setAuthData
             }
         )
