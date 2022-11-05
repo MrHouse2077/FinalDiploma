@@ -90,104 +90,106 @@ function Login(props) {
     
 
     return (
-      <div className="Login">
+      <div className={Styles.Login}>
+        <div className={Styles.wrap}>
         
-      <InputText 
-
-          type="text" 
-          placeholder="Введите email" 
-          onChange = {(evt)=>{
-            Validator(
-              {
-                fieldElement: "fieldEmail",
-                event: evt.target.value,
-                checkValues: checkValues,
-                callback: saveState,
-              }
-            )
-          }}
-          onBlur = {(evt)=>{
-            Validator(
-              {
-                fieldElement: "fieldEmail",
-                event: evt.target.value,
-                checkValues: checkValues,
-                callback: saveState,
-              }
-            )
-          }}
-          className = {
-              
-              (!checkValues.fieldEmail.valid && checkValues.fieldEmail.touched)
-              ?
-                  Styles.error
-              :
-                  (checkValues.fieldEmail.valid)
-                  ?
-                      Styles.succes
-                  :
-                      ""
-          }
-          
-          checkValues = {checkValues.fieldEmail}
-      />
-
-      <InputText 
-          type="password" 
-          placeholder="Введите пароль"
-          onChange = {(evt)=>{
-            Validator(
-              {
-                fieldElement: "fieldPassword",
-                event: evt.target.value,
-                checkValues: checkValues,
-                callback: saveState,
-              }
-            )
-          }}
-          onBlur = {(evt)=>{
-            Validator(
-              {
-                fieldElement: "fieldPassword",
-                event: evt.target.value,
-                checkValues: checkValues,
-                callback: saveState,
-              }
-            )
-          }}
-              className = {
-              
-                  (!checkValues.fieldPassword.valid && checkValues.fieldPassword.touched)
-                  ?
-                      Styles.error
-                  :
-                      (checkValues.fieldPassword.valid)
+              <InputText 
+                  type="text" 
+                  placeholder="Введите email" 
+                  onChange = {(evt)=>{
+                    Validator(
+                      {
+                        fieldElement: "fieldEmail",
+                        event: evt.target.value,
+                        checkValues: checkValues,
+                        callback: saveState,
+                      }
+                    )
+                  }}
+                  onBlur = {(evt)=>{
+                    Validator(
+                      {
+                        fieldElement: "fieldEmail",
+                        event: evt.target.value,
+                        checkValues: checkValues,
+                        callback: saveState,
+                      }
+                    )
+                  }}
+                  className = {
+                      
+                      (!checkValues.fieldEmail.valid && checkValues.fieldEmail.touched)
                       ?
-                          Styles.succes
+                          Styles.error
                       :
-                          ""
-              }
-              
-              checkValues = {checkValues.fieldPassword}
-      />
+                          (checkValues.fieldEmail.valid)
+                          ?
+                              Styles.succes
+                          :
+                              ""
+                  }
+                  
+                  checkValues = {checkValues.fieldEmail}
+              />
 
-       <div 
-          
-          className={Styles.field}>
-          <Button 
-          onClick={onLogin}
-          >
-              Log-in
-          </Button>
+              <InputText 
+                  type="password" 
+                  placeholder="Введите пароль"
+                  onChange = {(evt)=>{
+                    Validator(
+                      {
+                        fieldElement: "fieldPassword",
+                        event: evt.target.value,
+                        checkValues: checkValues,
+                        callback: saveState,
+                      }
+                    )
+                  }}
+                  onBlur = {(evt)=>{
+                    Validator(
+                      {
+                        fieldElement: "fieldPassword",
+                        event: evt.target.value,
+                        checkValues: checkValues,
+                        callback: saveState,
+                      }
+                    )
+                  }}
+                      className = {
+                      
+                          (!checkValues.fieldPassword.valid && checkValues.fieldPassword.touched)
+                          ?
+                              Styles.error
+                          :
+                              (checkValues.fieldPassword.valid)
+                              ?
+                                  Styles.succes
+                              :
+                                  ""
+                      }
+                      
+                      checkValues = {checkValues.fieldPassword}
+              />
+
+              <div 
+                  
+                  className={Styles.field}>
+                  <Button 
+                  onClick={onLogin}
+                  >
+                      Log-in
+                  </Button>
+              </div>
+              
+              <button 
+                  onClick={onLk}
+                  disabled = {(checkValues.fieldEmail.valid && checkValues.fieldPassword.valid)? false: true}
+              >
+                  войти в лк 
+              </button>
+        </div>
+
       </div>
-      
-      <button 
-          onClick={onLk}
-          disabled = {(checkValues.fieldEmail.valid && checkValues.fieldPassword.valid)? false: true}
-      >
-          войти в лк 
-      </button>
-    </div>
     );
   }
       
