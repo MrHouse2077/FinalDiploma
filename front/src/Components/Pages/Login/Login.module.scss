@@ -1,3 +1,4 @@
+@import 'Shape' from "/" 
 .Login{
     background-color: transparent;
     height: 100vh;
@@ -13,6 +14,7 @@
         background-color: transparent;
         padding: 5rem 3rem;
         position: relative;
+        background-image: Shape;
 
     }
     .wrap::after{
