@@ -42,6 +42,6 @@ Route::prefix('v1')->group(function () {
     Route::middleware([TokenAuth::class])->post('/lk', function () {
         return "скрытая зона";
     });
-});
 
+});
 

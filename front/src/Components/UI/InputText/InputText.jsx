@@ -8,7 +8,14 @@ function InputText(props) {
     let onChange = props.onChange;
     let className = props.className;
     let onBlur = props.onBlur;
+    let checkValues = props.checkValues;
+    // let msgFaildFlag = props.msgFaildFlag;
 
+    function checkProperty(){
+      if(!checkValues.valid)
+      console.log (checkValues.valid);
+      return false;
+    }
     return (
       <div className="InputText">
         
@@ -19,6 +26,23 @@ function InputText(props) {
           className= {className}
           onBlur = {onBlur}
         />
+        <p
+          className={
+
+            (checkValues.msgFaild === null)
+            ?
+              Styles.nonActive
+            :
+              (!checkValues.valid)
+              ?
+                Styles.active
+              :
+                Styles.nonActive
+
+          }  
+        >
+          {checkValues.msgFaild}
+        </p>
         
       </div>
     );
