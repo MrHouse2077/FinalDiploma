@@ -4,6 +4,7 @@ import Button from "../../UI/Button/Button";
 import InputText from "../../UI/InputText/InputText";
 import Styles from "./Login.module.scss";
 import Validator from "../../Validator";
+import Shape from "../../images/login/shape.png";
 
 function Login(props) {
 
@@ -90,104 +91,129 @@ function Login(props) {
     
 
     return (
-      <div className="Login">
-        
-      <InputText 
-
-          type="text" 
-          placeholder="Введите email" 
-          onChange = {(evt)=>{
-            Validator(
-              {
-                fieldElement: "fieldEmail",
-                event: evt.target.value,
-                checkValues: checkValues,
-                callback: saveState,
-              }
-            )
-          }}
-          onBlur = {(evt)=>{
-            Validator(
-              {
-                fieldElement: "fieldEmail",
-                event: evt.target.value,
-                checkValues: checkValues,
-                callback: saveState,
-              }
-            )
-          }}
-          className = {
-              
-              (!checkValues.fieldEmail.valid && checkValues.fieldEmail.touched)
-              ?
-                  Styles.error
-              :
-                  (checkValues.fieldEmail.valid)
-                  ?
-                      Styles.succes
-                  :
-                      ""
-          }
-          
-          checkValues = {checkValues.fieldEmail}
-      />
-
-      <InputText 
-          type="password" 
-          placeholder="Введите пароль"
-          onChange = {(evt)=>{
-            Validator(
-              {
-                fieldElement: "fieldPassword",
-                event: evt.target.value,
-                checkValues: checkValues,
-                callback: saveState,
-              }
-            )
-          }}
-          onBlur = {(evt)=>{
-            Validator(
-              {
-                fieldElement: "fieldPassword",
-                event: evt.target.value,
-                checkValues: checkValues,
-                callback: saveState,
-              }
-            )
-          }}
-              className = {
-              
-                  (!checkValues.fieldPassword.valid && checkValues.fieldPassword.touched)
-                  ?
-                      Styles.error
-                  :
-                      (checkValues.fieldPassword.valid)
-                      ?
+      <div className={Styles.Login}>
+        <div className={Styles.wrap}>
+          <div className={Styles.image}>
+            <img src={Shape} alt="" />
+          </div>
+          <div className={Styles.form}>
+            <InputText 
+                
+                type="text" 
+                placeholder="Введите email" 
+                onChange = {(evt)=>{
+                  Validator(
+                    {
+                      fieldElement: "fieldEmail",
+                      event: evt.target.value,
+                      checkValues: checkValues,
+                      callback: saveState,
+                    }
+                  )
+                }}
+                onBlur = {(evt)=>{
+                  Validator(
+                    {
+                      fieldElement: "fieldEmail",
+                      event: evt.target.value,
+                      checkValues: checkValues,
+                      callback: saveState,
+                    }
+                  )
+                }}
+                className = {
+                    
+                    (!checkValues.fieldEmail.valid && checkValues.fieldEmail.touched)
+                    ?
+                        Styles.error
+                    :
+                        (checkValues.fieldEmail.valid)
+                        ?
                           Styles.succes
-                      :
-                          ""
-              }
-              
-              checkValues = {checkValues.fieldPassword}
-      />
+                        :
+                          Styles.form_input
+                }
+                checkValues = {checkValues.fieldEmail}
 
-       <div 
-          
-          className={Styles.field}>
-          <Button 
-          onClick={onLogin}
-          >
-              Log-in
-          </Button>
+            />
+
+            <InputText 
+                type="password" 
+                placeholder="Введите пароль"
+                onChange = {(evt)=>{
+                  Validator(
+                    {
+                      fieldElement: "fieldPassword",
+                      event: evt.target.value,
+                      checkValues: checkValues,
+                      callback: saveState,
+                    }
+                  )
+                }}
+                onBlur = {(evt)=>{
+                  Validator(
+                    {
+                      fieldElement: "fieldPassword",
+                      event: evt.target.value,
+                      checkValues: checkValues,
+                      callback: saveState,
+                    }
+                  )
+                }}
+                    className = {
+                    
+                        (!checkValues.fieldPassword.valid && checkValues.fieldPassword.touched)
+                        ?
+                            Styles.error
+                        :
+                            (checkValues.fieldPassword.valid)
+                            ?
+                                Styles.succes
+                            :
+                                Styles.form_input
+                    }
+                    
+                checkValues = {checkValues.fieldPassword}
+            />
+            <div className={Styles.buttonfield}>
+              <div className={Styles.openAccess}>
+                  
+                  <Button 
+                  
+                  onClick={onLogin}
+                  >
+                      Log-in
+                  </Button>
+              </div>
+              <div 
+                className={
+                  (checkValues.fieldPassword.valid && checkValues.fieldEmail.valid)
+                  ?
+                    Styles.openAccess
+                  :
+                    Styles.field
+
+                }
+              
+              >
+                <Button 
+                  
+                  onClick={
+                    (checkValues.fieldPassword.valid && checkValues.fieldEmail.valid)
+                  ?
+                    onLk
+                  :
+                    null
+                  }
+                  >
+                      Войти
+                </Button>
+              </div>
+            </div>
+          </div>   
+        </div>
+
       </div>
-      
-      <button 
-          onClick={onLk}
-          disabled = {(checkValues.fieldEmail.valid && checkValues.fieldPassword.valid)? false: true}
-      >
-          войти в лк 
-      </button>
-    </div>
     );
   }
       
