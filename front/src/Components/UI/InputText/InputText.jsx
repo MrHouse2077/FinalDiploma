@@ -9,13 +9,9 @@ function InputText(props) {
     let className = props.className;
     let onBlur = props.onBlur;
     let checkValues = props.checkValues;
-    // let msgFaildFlag = props.msgFaildFlag;
+   
 
-    function checkProperty(){
-      if(!checkValues.valid)
-      console.log (checkValues.valid);
-      return false;
-    }
+  
     return (
       <div className={Styles.InputText}>
         
