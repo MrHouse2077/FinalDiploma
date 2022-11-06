@@ -17,7 +17,7 @@ function InputText(props) {
       return false;
     }
     return (
-      <div className="InputText">
+      <div className={Styles.InputText}>
         
         <input 
           type={type} 

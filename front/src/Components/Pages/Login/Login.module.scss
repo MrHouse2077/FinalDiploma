@@ -1,6 +1,5 @@
-@import 'Shape' from "/" 
 .Login{
-    background-color: transparent;
+    background-color: #000;
     height: 100vh;
     width: 100vw;
     display: flex;
@@ -8,46 +7,98 @@
     align-items: center;
     font-size: 2rem;
 
+
     .wrap{
         margin: 0 auto;
-        width: 600px;
-        background-color: transparent;
+        width: 32rem;
         padding: 5rem 3rem;
-        position: relative;
-        background-image: Shape;
-
+        max-height: 40rem;
     }
-    .wrap::after{
+    .image{
+        width: 100%;
+        position: relative;
+    }
+    .image img{
         display: block;
-        width: 10rem;
-        height: 10rem;
-        position: relative;
-        background-color: #ea1b29;
-        top: 10rem;
-        left: 10rem;
+        width: 100%;
+        height: auto;
     }
-    .field{
-        display: inline-block;
 
+    .field{
+        display: block;
+        background-color: #ea1b29;
+        padding: 0.5rem;
+        font-size: 2rem;
+        color: #fff;
+        box-sizing: border-box;
+        border: 1px solid #1f1f1f;
+        cursor: pointer;
     }
     .error{
-        border: 1px solid #f00;
+        border: .3rem solid #ea1b29;
         font-size: 2rem;
         width: 100%;
     }
-    .error:focus
+    .form_input:focus,
+    .error:focus,
     .succes:focus{
-        outline-width: 0px;
+        outline: 0px solid;
+        padding: 0;
     }
+    .form_input:focus,
+    .error:focus-visible,
+    .succes:focus-visible{
+        outline: 0px solid;
+        padding: 0;
+    }
+
     .succes{
-        border: 1px solid #0f0;
+        border: 1px solid #ccc;
+        background-color: #1f1f1f;
+        color: #ccc;
         font-size: 2rem;
         width: 100%;
     }
-    input{
-        display: block;
+    .form{
+        position:relative;
         outline: none;
-        font-size: 2rem;
         width: 100%;
+        z-index: 3;
+        top: -20rem;
     }
+    .form_input,
+    .error{
+        background-color: #ccc;
+        border: .3rem solid #ccc;
+    }
+
+    .form_input,
+    .error,
+    .succes{
+        width: 100%;
+        font-size: 2rem;
+        margin-bottom: 3rem;
+        position: relative;
+        border-radius: 1rem 0 1rem 0;
+    }
+
+   
+    .buttonfield{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+    }
+
+    .openAccess{
+        display: block;
+        background-color: #1f1f1f;
+        padding: 0.5rem;
+        font-size: 2rem;
+        color: #ccc;
+        box-sizing: border-box;
+        border: 2px solid #ccc;
+        cursor: pointer;
+    }
+
+
 }
