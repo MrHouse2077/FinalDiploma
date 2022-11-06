@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Requests from "../../../Requests";
 
 
-function Dashboard(){
+function Dashboard(props){
     const navigate = useNavigate();
     useEffect(() => {
 
@@ -21,6 +21,7 @@ function Dashboard(){
 
     return (
         <div>
+            {console.log(props)}
             Dashboard
         </div>
     );
