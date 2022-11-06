@@ -23,12 +23,12 @@ function App(props) {
   function setAuthData(data){
     let copy = Object.assign([], dataApp);
     	
-    copy.auth.token = data.token;
-    copy.auth.email = data.email;
-    copy.auth.name = data.name;
+    copy.auth.token = data.data.token;
+    copy.auth.email = data.data.email;
+    copy.auth.name = data.data.name;
 
-    localStorage.setItem('token', data.token);
-    
+    localStorage.setItem('token', data.data.token);
+   
     setAuth(copy);
 
     

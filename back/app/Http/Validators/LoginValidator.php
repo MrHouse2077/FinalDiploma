@@ -17,7 +17,6 @@
                                                         'email.email:rfc,dns' => 'Введите почту!',
                                                         'password.required' => 'Введите пароль!',
                                                         'password.min:3' => 'Ошибка!',
-
                                                     ]
             );
         }
