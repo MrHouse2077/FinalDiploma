@@ -6,7 +6,7 @@ import SiteInfo from '../../SiteInfo/SiteInfo';
 import Slider from '../../Slider/Slider';
 import MainNav from '../../MainNav/MainNav';
 import Search from '../../Search/Search';
-
+import classNames from 'classnames';
 
 
 function MainLayout(props) {
@@ -29,7 +29,10 @@ function MainLayout(props) {
                             <div className='Login'>
                                 <NavLink
                                     to="/login"
-                                    className={Styles.login}
+             
+                                    //</div></div>className={'loginBtn'+(localStorage.getItem('bgc'))? ' '+localStorage.getItem('bgc'):'' }
+                                    className={classNames(Styles.login, localStorage.getItem('bgc'))}
+                                
                                 >
                                     Login
                                 </NavLink>

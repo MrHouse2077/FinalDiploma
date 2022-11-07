@@ -10,6 +10,7 @@ import Filter from '../../UI/Filter/Filter';
 function DefaultLayout(props) {
 
     let chengeStatusFilter = props.chengeStatusFilter;
+    let onFilterResult = props.onFilterResult;
 
     let filter = {
                 minPriceProduct: props.filterParams.minPriceProduct,
@@ -34,9 +35,11 @@ function DefaultLayout(props) {
                         <div className='Login'>
                             <NavLink
                                 to="/login"
+
                                 className='loginBtn'
+
                             >
-                                Login
+                                Login1
                             </NavLink>
                         </div>
                     </div>
@@ -51,7 +54,9 @@ function DefaultLayout(props) {
                 <aside>
                     {
                         (props.filterShow)?
-                            <Filter filterParams={filter} chengeStatusFilter={chengeStatusFilter}/>
+                            <Filter filterParams={filter} 
+                            chengeStatusFilter={chengeStatusFilter}
+                            onFilterResult={onFilterResult}/>
                         :
                             ''
                     }

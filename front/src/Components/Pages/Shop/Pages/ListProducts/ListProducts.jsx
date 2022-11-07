@@ -28,7 +28,7 @@ function ListProducts(){
         loader: true,
         filter:{
             minPriceProduct: 0,
-            maxPriceProduct: 0,
+            maxPriceProduct: 300000,
             secelctPriceProduct: 0,
         }
         
@@ -40,10 +40,24 @@ function ListProducts(){
         setProducts(copy);
     }
 
+    function onFilterResult(){
+
+        let copy = Object.assign([], products);
+        copy.loader = true;
+        setProducts(copy);
+
+        Requests({
+            method: 'post', 
+            url: '/products',
+            data: {filter: products.filter},
+            callback:renderProducts 
+        });
+    }
+
 
     useEffect(()=>{
         Requests({
-                    method: 'get', 
+                    method: 'post', 
                     url: '/products',
                     callback:renderProducts 
                 });
@@ -79,9 +93,9 @@ function ListProducts(){
         
 
         let copy = Object.assign([], products);
-        copy.filter.minPriceProduct = min;
-        copy.filter.maxPriceProduct = max;
-        copy.filter.secelctPriceProduct = max;
+        //copy.filter.minPriceProduct = min;
+        //copy.filter.maxPriceProduct = max;
+        //copy.filter.secelctPriceProduct = max;
         setProducts(copy);
     }
 
@@ -89,7 +103,11 @@ function ListProducts(){
         <div>
             
 
-            <DefaultLayout filterShow='true' filterParams={products.filter} chengeStatusFilter={chengeStatusFilter}>
+            <DefaultLayout filterShow='true' 
+            filterParams={products.filter} 
+            chengeStatusFilter={chengeStatusFilter}
+            onFilterResult={onFilterResult}
+            >
 
                 {(products.loader)? "Loading....": ''}
 
@@ -106,7 +124,28 @@ function ListProducts(){
                                     </div>
                                 )
                             }
+                            {
+                                /*
+                                    1. сделать вывод карточек товаров через отдельные компоненты
+                                    2. постраничную навигацию
 
+                                {
+Статьи: 10
+номер страницы: 1
+}
+
+{
+Статьи: []   
+номер выбранной страницы: 1
+сколько статей в базе: 2500,
+всего страниц: 556
+}
+
+1 2 3 4 ... 10
+
+
+                                */
+                            }
                         </div>
 
                         :''

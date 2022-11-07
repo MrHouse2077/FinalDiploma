@@ -14,8 +14,24 @@ function AddCategory(){
     let [categories, setCategories] = useState({
         categories:[],
         loader: true,
-
     })
+
+    let [bgcFonApp, setbgcFonApp] = useState(
+        {
+            activeBGC: 0,
+            bgc: [
+                {msg: "Красный", code: "bgc1"},
+                {msg: "Синий", code: "bgc2"},
+            ]
+        }
+    );
+
+    function onChangeActiveBGC(indexBGC){
+        localStorage.setItem('bgc', bgcFonApp.bgc[indexBGC].code);
+    }
+
+
+
     useEffect(()=>{
         Requests({
                     method: 'get', 
@@ -67,12 +83,22 @@ function AddCategory(){
                                 <div class="ms-auto">
                                     <div class="btn-group">
                                         <button type="button" class="btn btn-light">Settings</button>
-                                        <button type="button" class="btn btn-light dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown">	<span class="visually-hidden">Toggle Dropdown</span>
+                                        <button type="button" class="btn btn-light dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown">	<span class="visually-hidden">Фон</span>
                                         </button>
-                                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-end">	<a class="dropdown-item" href="javascript:;">Action</a>
-                                            <a class="dropdown-item" href="javascript:;">Another action</a>
-                                            <a class="dropdown-item" href="javascript:;">Something else here</a>
-                                            <div class="dropdown-divider"></div>	<a class="dropdown-item" href="javascript:;">Separated link</a>
+                                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-end">
+                                            {
+                                                bgcFonApp.bgc.map((el, index)=>
+                                                
+                                                    <span className="dropdown-item" key={index} onClick={
+                                                        ()=>{
+                                                            onChangeActiveBGC(index)
+                                                        }
+                                                    }>
+                                                        {el.msg}
+                                                    </span>
+                                                )
+                                            }
+                                            
                                         </div>
                                     </div>
                                 </div>

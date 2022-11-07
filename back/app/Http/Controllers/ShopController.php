@@ -13,11 +13,18 @@ use App\Models\Category;
 
 class ShopController extends Controller
 {
-    public function listProductsAction(){
+    public function listProductsAction(Request $request){
 
-        //$products = Product::get();
+        //return $request;
 
-        $products = ProductResource::collection(Product::all());
+        if(isset($request['filter']['secelctPriceProduct']) && !empty($request['filter']['secelctPriceProduct'])){
+            $products = ProductResource::collection(Product::where("price", "<", $request['filter']['secelctPriceProduct'])->get());
+        }
+        else{
+            $products = ProductResource::collection(Product::all());
+        }
+
+        
 
         return RequestHelper::write(200, 'sucess', $products);
 
