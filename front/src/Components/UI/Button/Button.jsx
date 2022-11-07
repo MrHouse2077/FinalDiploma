@@ -3,19 +3,19 @@ import Styles from "./Button.module.scss";
 
 function Button(props) {
     
-  let disabled = props.disabled
   let onClick = props.onClick
+  let className = props.className
 
     return (
-      <div className="Button">
+      <div className={Styles.Button}>
         
-        <button 
-          disabled = {disabled}
+        <div
+          className={className}
           onClick = {onClick}
         >
           {props.children}
            
-        </button>
+        </div>
         
       </div>
     );

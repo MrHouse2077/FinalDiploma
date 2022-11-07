@@ -1,10 +1,11 @@
-import './MainLayout.module.scss';
+import Styles from "./MainLayout.module.scss";
 
 import { NavLink } from 'react-router-dom';
 
 import SiteInfo from '../../SiteInfo/SiteInfo';
 import Slider from '../../Slider/Slider';
 import MainNav from '../../MainNav/MainNav';
+import Search from '../../Search/Search';
 
 
 
@@ -22,14 +23,17 @@ function MainLayout(props) {
                             <img src="/logo.png" className='logo' />
                             <SiteInfo />
                         </div>
-                        <MainNav />
-                        <div className='Login'>
-                            <NavLink
-                                to="/login"
-                                className='loginBtn'
-                            >
-                                Login
-                            </NavLink>
+                        <div className={Styles.NavBar}>
+                            <MainNav />
+                            
+                            <div className='Login'>
+                                <NavLink
+                                    to="/login"
+                                    className={Styles.login}
+                                >
+                                    Login
+                                </NavLink>
+                            </div>
                         </div>
                     </div>
 

@@ -2,7 +2,6 @@ import Styles from "./MainNav.module.scss";
 import { NavLink } from 'react-router-dom';
 
 import Search from "../Search/Search";
-import ContactUs from "../UI/Button/ContactUs";
 
 
 function MainNav(){
@@ -22,7 +21,7 @@ function MainNav(){
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink to="about" className={Styles.nav_link}>
+                            <NavLink to="/about" className={Styles.nav_link}>
                                 {({ isActive }) => (
                                 <span
                                     className={
@@ -35,7 +34,7 @@ function MainNav(){
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink to="pages" className={Styles.nav_link}>
+                            <NavLink to="/pages" className={Styles.nav_link}>
                                 {({ isActive }) => (
                                 <span
                                     className={
@@ -45,7 +44,7 @@ function MainNav(){
                                     pages+
                                     <ul class={Styles.SubMenu}>
                                        <li>
-                                            <NavLink to="classes" className={Styles.nav_link}>
+                                            <NavLink to="/classes" className={Styles.nav_link}>
                                                 {({ isActive }) => (
                                                 <span
                                                     className={
@@ -58,7 +57,7 @@ function MainNav(){
                                             </NavLink>
                                        </li>
                                        <li>
-                                            <NavLink to="ClassesDetails" className={Styles.nav_link}>
+                                            <NavLink to="/ClassesDetails" className={Styles.nav_link}>
                                                 {({ isActive }) => (
                                                 <span
                                                     className={
@@ -71,7 +70,7 @@ function MainNav(){
                                             </NavLink>
                                        </li>
                                        <li>
-                                            <NavLink to="TeamDetails" className={Styles.nav_link}>
+                                            <NavLink to="/TeamDetails" className={Styles.nav_link}>
                                                 {({ isActive }) => (
                                                 <span
                                                     className={
@@ -84,7 +83,7 @@ function MainNav(){
                                             </NavLink>
                                        </li>
                                        <li>
-                                            <NavLink to="Team" className={Styles.nav_link}>
+                                            <NavLink to="/Team" className={Styles.nav_link}>
                                                 {({ isActive }) => (
                                                 <span
                                                     className={
@@ -97,7 +96,7 @@ function MainNav(){
                                             </NavLink>
                                        </li>
                                        <li>
-                                            <NavLink to="PricingPlan" className={Styles.nav_link}>
+                                            <NavLink to="/PricingPlan" className={Styles.nav_link}>
                                                 {({ isActive }) => (
                                                 <span
                                                     className={
@@ -110,7 +109,7 @@ function MainNav(){
                                             </NavLink>
                                        </li>
                                        <li>
-                                            <NavLink to="Cart" className={Styles.nav_link}>
+                                            <NavLink to="/Cart" className={Styles.nav_link}>
                                                 {({ isActive }) => (
                                                 <span
                                                     className={
@@ -123,7 +122,7 @@ function MainNav(){
                                             </NavLink>
                                        </li>
                                        <li>
-                                            <NavLink to="Checkout" className={Styles.nav_link}>
+                                            <NavLink to="/Checkout" className={Styles.nav_link}>
                                                 {({ isActive }) => (
                                                 <span
                                                     className={
@@ -136,7 +135,7 @@ function MainNav(){
                                             </NavLink>
                                        </li>
                                        <li>
-                                            <NavLink to="Wishlist" className={Styles.nav_link}>
+                                            <NavLink to="/Wishlist" className={Styles.nav_link}>
                                                 {({ isActive }) => (
                                                 <span
                                                     className={
@@ -155,7 +154,7 @@ function MainNav(){
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink to="shop" className={Styles.nav_link}>
+                            <NavLink to="/shop" className={Styles.nav_link}>
                                 {({ isActive }) => (
                                 <span
                                     className={
@@ -165,7 +164,7 @@ function MainNav(){
                                     shop+
                                     <ul class={Styles.SubMenu}>
                                        <li>
-                                            <NavLink to="Shop" className={Styles.nav_link}>
+                                            <NavLink to="/Shop" className={Styles.nav_link}>
                                                 {({ isActive }) => (
                                                 <span
                                                     className={
@@ -178,7 +177,7 @@ function MainNav(){
                                             </NavLink>
                                         </li>
                                         <li>
-                                            <NavLink to="ShopDetails" className={Styles.nav_link}>
+                                            <NavLink to="/ShopDetails" className={Styles.nav_link}>
                                                 {({ isActive }) => (
                                                 <span
                                                     className={
@@ -196,7 +195,7 @@ function MainNav(){
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink to="portfolio" className={Styles.nav_link}>
+                            <NavLink to="/portfolio" className={Styles.nav_link}>
                                 {({ isActive }) => (
                                 <span
                                     className={
@@ -206,7 +205,7 @@ function MainNav(){
                                     portfolio+
                                     <ul class={Styles.SubMenu}>
                                        <li>
-                                            <NavLink to="Portfolio" className={Styles.nav_link}>
+                                            <NavLink to="/Portfolio" className={Styles.nav_link}>
                                                 {({ isActive }) => (
                                                 <span
                                                     className={
@@ -219,7 +218,7 @@ function MainNav(){
                                             </NavLink>
                                         </li>
                                         <li>
-                                            <NavLink to="ShopDetails" className={Styles.nav_link}>
+                                            <NavLink to="/ShopDetails" className={Styles.nav_link}>
                                                 {({ isActive }) => (
                                                 <span
                                                     className={
@@ -237,7 +236,7 @@ function MainNav(){
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink to="blog" className={Styles.nav_link}>
+                            <NavLink to="/blog" className={Styles.nav_link}>
                                 {({ isActive }) => (
                                 <span
                                     className={
@@ -247,7 +246,7 @@ function MainNav(){
                                     Blog+
                                     <ul class={Styles.SubMenu}>
                                        <li>
-                                            <NavLink to="Blog" className={Styles.nav_link}>
+                                            <NavLink to="/Blog" className={Styles.nav_link}>
                                                 {({ isActive }) => (
                                                 <span
                                                     className={
@@ -260,7 +259,7 @@ function MainNav(){
                                             </NavLink>
                                         </li>
                                         <li>
-                                            <NavLink to="BlogDetails" className={Styles.nav_link}>
+                                            <NavLink to="/BlogDetails" className={Styles.nav_link}>
                                                 {({ isActive }) => (
                                                 <span
                                                     className={
@@ -278,7 +277,7 @@ function MainNav(){
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink to="contacts" className={Styles.nav_link}>
+                            <NavLink to="/contacts" className={Styles.nav_link}>
                                 {({ isActive }) => (
                                 <span
                                     className={
@@ -291,14 +290,12 @@ function MainNav(){
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink to="search" className={Styles.nav_link}>
-                                <Search />
-                            </NavLink>
+                            <Search />
                         </li>
                     </ul>
                     
                     </nav>
-                    {/* <ContactUs/> */}
+                    
             </div>
         );
 }

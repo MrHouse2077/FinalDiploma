@@ -5,6 +5,7 @@ import { Route, Routes } from 'react-router-dom';
 import Slider from '../Slider/Slider';
 import SiteInfo from '../SiteInfo/SiteInfo';
 import MainNav from '../MainNav/MainNav';
+import SliderText from '../SliderText/SliderText';
 import MainLayout from '../Layouts/MainLayout/MainLayout';
 
 
@@ -31,14 +32,7 @@ function Home() {
 
       <MainLayout>
 
-        <div>
-          <span>Fitness Area</span>
-          <h2>Fitness Made</h2>
-          <p>Hardest part is walking out in the front door</p>
-          <div>
-            <a>explore More</a>
-          </div>
-        </div>
+       <SliderText />
 
       </MainLayout>
 
