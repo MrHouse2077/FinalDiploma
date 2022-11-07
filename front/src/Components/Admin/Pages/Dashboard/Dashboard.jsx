@@ -7,6 +7,7 @@ import Requests from "../../../Requests";
 
 import classNames from 'classnames';
 import AddCategory from "./AddCategory";
+import Loader from "../../../Loader/Loader";
 
 
 
@@ -31,6 +32,7 @@ function Dashboard(props){
             <div>Dashboard
             {console.log(props)}
                 <AddCategory/>
+                <Loader/>
             </div>
     );
 }
