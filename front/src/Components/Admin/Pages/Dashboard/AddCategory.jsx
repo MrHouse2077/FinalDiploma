@@ -4,8 +4,6 @@ import { NavLink } from "react-router-dom";
 import { useState } from "react";
 
 import Requests from "../../.././Requests";
-// import './Style.css';
-
 import classNames from 'classnames';
 import Styles from "./AddCategory.module.scss";
 
@@ -39,20 +37,6 @@ function AddCategory(){
 
 
 
-    const navigate = useNavigate();
-    // useEffect(() => {
-
-        
-        
-    //     let token = localStorage.getItem('token');
-
-    //     if(!token){
-    //         navigate('/login');
-    //     }
-
-    //     //Requests()
-
-    // });
     
 
     return (

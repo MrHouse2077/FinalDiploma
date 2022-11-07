@@ -6,6 +6,8 @@ use App\Helpers\RequestHelper;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Http\Resources\ProductResource;
+use App\Http\Resources\CategoryResource;
+
 use Illuminate\Support\Facades\Validator;
 use App\Models\Category;
 
@@ -23,7 +25,7 @@ class ShopController extends Controller
     public function categoriesAction(){
 
         // $categories = Category::get();
-        $categories = Category::get();
+        $categories = CategoryResource::collection(Category::all());
 
 
         return RequestHelper::write(200, 'sucess', $categories);
