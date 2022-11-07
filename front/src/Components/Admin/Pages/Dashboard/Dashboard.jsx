@@ -1,6 +1,13 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+
 import Requests from "../../../Requests";
+// import './Style.css';
+
+import classNames from 'classnames';
+import AddCategory from "./AddCategory";
+
 
 
 function Dashboard(props){
@@ -20,10 +27,11 @@ function Dashboard(props){
     });
 
     return (
-        <div>
+
+            <div>Dashboard
             {console.log(props)}
-            Dashboard
-        </div>
+                <AddCategory/>
+            </div>
     );
 }
 

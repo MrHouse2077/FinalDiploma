@@ -34,6 +34,10 @@ Route::prefix('v1')->group(function () {
     Route::post('/chekToken', [IndexController::class, 'checkToken']);
 
     Route::get('/products', [ShopController::class, 'listProductsAction']);
+    Route::get('/categories', [ShopController::class, 'categoriesAction']);
+    // Route::post('/addcategoryform', [ShopController::class, 'addproductformAction']);
+
+
 
     Route::get('/logout', function () {
         
