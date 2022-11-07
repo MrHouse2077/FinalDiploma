@@ -1,9 +1,16 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+
 import Requests from "../../../Requests";
+// import './Style.css';
+
+import classNames from 'classnames';
+import AddCategory from "./AddCategory";
 
 
-function Dashboard(){
+
+function Dashboard(props){
     const navigate = useNavigate();
     useEffect(() => {
 
@@ -20,9 +27,11 @@ function Dashboard(){
     });
 
     return (
-        <div>
-            Dashboard
-        </div>
+
+            <div>Dashboard
+            {console.log(props)}
+                <AddCategory/>
+            </div>
     );
 }
 

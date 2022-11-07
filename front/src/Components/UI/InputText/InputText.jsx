@@ -8,9 +8,12 @@ function InputText(props) {
     let onChange = props.onChange;
     let className = props.className;
     let onBlur = props.onBlur;
+    let checkValues = props.checkValues;
+   
 
+  
     return (
-      <div className="InputText">
+      <div className={Styles.InputText}>
         
         <input 
           type={type} 
@@ -19,6 +22,23 @@ function InputText(props) {
           className= {className}
           onBlur = {onBlur}
         />
+        <p
+          className={
+
+            (checkValues.msgFaild === null)
+            ?
+              Styles.nonActive
+            :
+              (!checkValues.valid)
+              ?
+                Styles.active
+              :
+                Styles.nonActive
+
+          }  
+        >
+          {checkValues.msgFaild}
+        </p>
         
       </div>
     );
