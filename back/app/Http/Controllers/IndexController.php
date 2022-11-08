@@ -3,11 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Helpers\RequestHelper;
+
 use App\Http\Validators\LoginValidator;
-use App\Models\User;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
+
+use App\Models\User;
+
+use Illuminate\Support\Facades\Hash;
+
 use Illuminate\Http\Request;
+
 
 
 class IndexController extends Controller
@@ -48,5 +53,7 @@ class IndexController extends Controller
         ];
         return RequestHelper::write(200, 'sucess', $data);
     }
+
+    
 }
  
