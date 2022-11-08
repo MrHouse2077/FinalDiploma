@@ -11,7 +11,7 @@
             return Validator::make($request->all(),[
                                                         'name' => 'required|min:2',
                                                         'email' => 'required|email:rfc,dns',
-                                                        'msg' => 'required|min:4',
+                                                        'msg' => 'required|min:3',
                                                     ],
                                                     [
                                                         'name.required' => 'Введите имя!',

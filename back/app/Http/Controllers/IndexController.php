@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Helpers\RequestHelper;
 
+use App\Http\Validators\FeedbackValidator;
 use App\Http\Validators\LoginValidator;
 use Illuminate\Validation\ValidationException;
 
@@ -12,6 +13,8 @@ use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 
 use Illuminate\Http\Request;
+
+use App\Jobs\FeedbackJob;
 
 
 
@@ -37,6 +40,7 @@ class IndexController extends Controller
 
         return RequestHelper::write(200, 'sucess', $data);
     }
+
     function checkToken(Request $request){
         $token = \Laravel\Sanctum\PersonalAccessToken::findToken($request->token);
         if(!$token){
@@ -52,6 +56,22 @@ class IndexController extends Controller
             "email" => $user->email,
         ];
         return RequestHelper::write(200, 'sucess', $data);
+    }
+
+    function feedbackAction(Request $request){
+        
+        $validator = FeedbackValidator::feedbackCheck($request);
+        if ($validator->fails()) {
+            return ['flag' => 0, 'msg' => 'Ошибка!'];
+        }
+        
+        FeedbackJob::dispatch($request->name, $request->email, $request->msg);
+
+        return ['flag' => 1, 'msg' => 'Все отлично!'];
+        
+
+        
+      
     }
 
     
