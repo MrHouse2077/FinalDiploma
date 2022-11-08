@@ -103,3 +103,7 @@ https://fontawesome.com/v6/icons?q=arrow&o=r&m=free&f=classi
 Вставлять в файлы, где будут использоваться иконки
 import { FontAwesomeIcon } from '@fortawesomereact-fontawesome'
 import { solid, regular, brands, icon } from '@fortawesome/fontawesome-svg-core/import.macro'
+
+
+запустить команду npm install перед запуском реакта(если будет ошибка всё ещё, запустить строчку ниже)
+npm install @mui/material @emotion/react @emotion/styled
