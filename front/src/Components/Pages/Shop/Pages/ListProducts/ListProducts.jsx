@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import DefaultLayout from "../../../../Layouts/DefaultLayout/DefaultLayout";
 import Requests from "../../../../Requests";
+import Pagination from "../../../../UI/Pagination/Pagination";
 import Styles from './ListProducts.module.scss';
 
 function ListProducts(){
@@ -22,6 +23,8 @@ function ListProducts(){
                 "updated_at": null
             }
 */
+
+    let quantity = 3;
 
     let [products, setProducts] = useState({
         products: [],
@@ -142,15 +145,20 @@ function ListProducts(){
 }
 
 1 2 3 4 ... 10
-
+                            
+                            
 
                                 */
+
+                                
                             }
                         </div>
 
                         :''
                     }
                 </div>
+
+                <Pagination quantity={quantity}/>
 
             </DefaultLayout>
 
