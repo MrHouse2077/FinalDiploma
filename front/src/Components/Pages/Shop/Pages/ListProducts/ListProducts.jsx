@@ -29,14 +29,16 @@ function ListProducts(){
         filter:{
             minPriceProduct: 0,
             maxPriceProduct: 300000,
-            secelctPriceProduct: 0,
+            secelctMinPriceProduct: 0,
+            secelctMaxPriceProduct: 300000,
         }
         
     });
 
-    function chengeStatusFilter(secelctPriceProduct){
+    function chengeStatusFilter(secelctMinPrice, secelctMaxPrice){
         let copy = Object.assign([], products);
-        copy.filter.secelctPriceProduct = secelctPriceProduct;
+        copy.filter.secelctMinPriceProduct = secelctMinPrice;
+        copy.filter.secelctMaxPriceProduct = secelctMaxPrice;
         setProducts(copy);
     }
 
