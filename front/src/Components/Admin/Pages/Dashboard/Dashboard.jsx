@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import Requests from "../../../Requests";
 
 
@@ -21,8 +21,12 @@ function Dashboard(props){
 
     return (
         <div>
-            {console.log(props)}
+            
             Dashboard
+
+            <NavLink to="/admin/add-product">
+                Добавить продукт
+            </NavLink>
         </div>
     );
 }
