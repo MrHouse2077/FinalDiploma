@@ -99,7 +99,7 @@ function Contacts() {
       };
 
       function onFeedback(data){
-
+        let data = createObject();
         Requests(
             {
                 method:'post', 
@@ -380,7 +380,7 @@ function Contacts() {
                                                     onClick={ 
                                                         (checkValues.fieldName.valid && checkValues.fieldEmail.valid && checkValues.fieldMsg.valid)
                                                         ?
-                                                        onFeedback(createObject())
+                                                        onFeedback
                                                         :
                                                         null
                                                         
