@@ -42,7 +42,7 @@ section.content{
 }
 .wrap{
   width: 80%;
-  margin: 0 35px 0 20px;
+  margin: 0 auto;
 }
 .header_wrap_content{
   width: 100%;
