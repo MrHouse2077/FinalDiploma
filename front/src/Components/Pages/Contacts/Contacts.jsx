@@ -98,7 +98,7 @@ function Contacts() {
         }
       };
 
-      function onFeedback(data){
+      function onFeedback(){
         let data = createObject();
         Requests(
             {
