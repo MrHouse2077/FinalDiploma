@@ -13,6 +13,7 @@ import Login from './Components/Pages/Login/Login';
 import Dashboard from './Components/Admin/Pages/Dashboard/Dashboard';
 import ListProducts from './Components/Pages/Shop/Pages/ListProducts/ListProducts';
 import Search from './Components/Search/Search';
+import Product from './Components/Pages/Shop/Pages/Product/Product';
 
 function App(props) {
   const navigate = useNavigate();
@@ -54,6 +55,8 @@ function App(props) {
         />} />
 
         <Route path="/shop" element={<ListProducts/>} />
+
+        <Route path="/shop/:indexProduct" element={<Product/>} />
 
         {/* <Route path="shop" element={<Shop auth={dataApp.auth} startImage={Shop} />} />
         <Route path="blog" element={<Blog startImage={Blog} />} />*/

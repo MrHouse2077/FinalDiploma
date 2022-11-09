@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import DefaultLayout from "../../../../Layouts/DefaultLayout/DefaultLayout";
 import Loader from "../../../../Loader/Loader";
 import Requests from "../../../../Requests";
@@ -122,8 +122,11 @@ function ListProducts(){
                             {
                                 products.products.map((product)=>
                                     <div key={product.id} className={Styles.product}>
-                                        <h3>{product.name }</h3>
+                                        <NavLink to={'/shop/'+product.id}>
+                                            <h3>{product.name }</h3>
+                                        </NavLink>
                                         <p>{product.price} руб.</p>
+                                        
                                     </div>
                                 )
                             }

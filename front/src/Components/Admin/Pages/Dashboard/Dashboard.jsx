@@ -8,6 +8,7 @@ import Requests from "../../../Requests";
 import classNames from 'classnames';
 import AddCategory from "./AddCategory";
 import Loader from "../../../Loader/Loader";
+import Graph from "../Graph/Graph";
 
 
 
@@ -30,7 +31,9 @@ function Dashboard(props){
     return (
 
             <div>Dashboard
-            {console.log(props)}
+          
+                <Graph/>
+
                 <AddCategory/>
                 
             </div>
