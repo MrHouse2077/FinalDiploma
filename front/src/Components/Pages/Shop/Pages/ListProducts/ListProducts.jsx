@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import DefaultLayout from "../../../../Layouts/DefaultLayout/DefaultLayout";
+import Loader from "../../../../Loader/Loader";
 import Requests from "../../../../Requests";
 import Styles from './ListProducts.module.scss';
 
@@ -111,7 +112,7 @@ function ListProducts(){
             onFilterResult={onFilterResult}
             >
 
-                {(products.loader)? "Loading....": ''}
+                {(products.loader)? <Loader/>: ''}
 
                 <div>
                     {
