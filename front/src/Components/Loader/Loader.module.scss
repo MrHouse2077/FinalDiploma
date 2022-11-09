@@ -1,79 +1,139 @@
-$w: 96px;
-$h: 112px;
-$xspace: $w/2;
-$yspace: $h/4 - 1;
-$speed: 1.5s;
 
-.tetrominos {
-  position: absolute;
-  top: 50%; left: 50%;
-  transform: translate(-$h, -$w);
+@import url("https://fonts.googleapis.com/css?family=Oxygen:700&display=swap");
+
+body {
+  margin: 0;
 }
 
-.tetromino {
-  width: $w;
-  height: $h;
-  position: absolute;
-  transition: all ease .3s;
-  background: url('data:image/svg+xml;utf-8,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 612 684"%3E%3Cpath fill="%23010101" d="M305.7 0L0 170.9v342.3L305.7 684 612 513.2V170.9L305.7 0z"/%3E%3Cpath fill="%23fff" d="M305.7 80.1l-233.6 131 233.6 131 234.2-131-234.2-131"/%3E%3C/svg%3E') no-repeat top center;
-}
+$bg: #fff;
+$c-01: #7c1578;
+$c-02: #e8a6ee;
 
-.box1 {
-  animation: tetromino1 $speed ease-out infinite;
-}
-.box2 {
-  animation: tetromino2 $speed ease-out infinite;
-}
-.box3 {
-  animation: tetromino3 $speed ease-out infinite;
-  z-index: 2;
-}
-.box4 {
-  animation: tetromino4 $speed ease-out infinite;
-}
+$font-01: "Oxygen", sans-serif;
 
-@keyframes tetromino1 {
-  0%, 40% { 
-    /* compose logo *//* 1 on 3 *//* L-shape */
-    transform: translate(0,0);
-  } 50% {
-    /* pre-box */
-    transform: translate($xspace,-$yspace);
-  } 60%, 100% {
-    /* box *//* compose logo */
-    transform: translate($xspace*2,0);
-  }
-}
+.content {
+  width: 100%;
+  //height: 100vh;
+  background-color: $bg;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 50px;
 
-@keyframes tetromino2 {
-  0%, 20% { 
-    /* compose logo *//* 1 on 3 */
-    transform: translate($xspace*2, 0px);
-  } 40%, 100% { 
-    /* L-shape *//* box *//* compose logo */
-    transform: translate($xspace*3, $yspace);
-  }
-}
+  .loading {
+     width: 80px;
+     height: 50px;
+     position: relative;
 
-@keyframes tetromino3 {
-  0% { 
-    /* compose logo */
-    transform: translate($xspace*3, $yspace);
-  } 20%, 60% { 
-    /* 1 on 3 *//* L-shape *//* box */
-    transform: translate($xspace*2, $yspace*2);
-  } 90%, 100% { 
-    /* compose logo */
-    transform: translate($xspace, $yspace);
-  }
-}
+     p {
+        top: 0;
+        padding: 0;
+        margin: 0;
+        color: $c-01;
+        font-family: $font-01;
+        animation: text 3.5s ease both infinite;
+        font-size: 12px;
+        letter-spacing: 1px;
 
-@keyframes tetromino4 {
-  0%, 60% {
-    /* compose logo *//* 1 on 3 *//* L-shape *//* box */
-    transform: translate($xspace, $yspace);
-  } 90%, 100% { 
-    /* compose logo */
-    transform: translate(0, 0);
+        @keyframes text {
+           0% {
+              letter-spacing: 1px;
+              transform: translateX(0px);
+           }
+
+           40% {
+              letter-spacing: 2px;
+              transform: translateX(26px);
+           }
+
+           80% {
+              letter-spacing: 1px;
+              transform: translateX(32px);
+           }
+
+           90% {
+              letter-spacing: 2px;
+              transform: translateX(0px);
+           }
+
+           100% {
+              letter-spacing: 1px;
+              transform: translateX(0px);
+           }
+        }
+     }
+     span {
+        background-color: $c-01;
+        border-radius: 50px;
+        display: block;
+        height: 16px;
+        width: 16px;
+        bottom: 0;
+        position: absolute;
+        transform: translateX(64px);
+        animation: loading 3.5s ease both infinite;
+
+        &:before {
+           position: absolute;
+           content: "";
+           width: 100%;
+           height: 100%;
+           background-color: $c-02;
+           border-radius: inherit;
+           animation: loading2 3.5s ease both infinite;
+        }
+
+        @keyframes loading {
+           0% {
+              width: 16px;
+              transform: translateX(0px);
+           }
+
+           40% {
+              width: 100%;
+              transform: translateX(0px);
+           }
+
+           80% {
+              width: 16px;
+              transform: translateX(64px);
+           } 
+
+           90% {
+              width: 100%;
+              transform: translateX(0px);
+           }
+
+           100% {
+              width: 16px;
+              transform: translateX(0px);
+           }
+        }
+        @keyframes loading2 {
+           0% {
+              transform: translateX(0px);
+              width: 16px;
+           }
+
+           40% {
+              transform: translateX(0%);
+              width: 80%;
+           }
+
+          80% {
+              width: 100%;
+              transform: translateX(0px);
+           }
+
+           90% {
+              width: 80%;
+           transform: translateX(15px);
+           }
+           100% {
+              transform: translateX(0px);
+              width: 16px;
+           }
+        }
+     }
   }
 }

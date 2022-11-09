@@ -6,6 +6,7 @@ import { useState } from "react";
 import Requests from "../../.././Requests";
 import classNames from 'classnames';
 import Styles from "./AddCategory.module.scss";
+import Loader from "../../../Loader/Loader";
 
 
 
@@ -35,7 +36,7 @@ function AddCategory(){
     useEffect(()=>{
         Requests({
                     method: 'get', 
-                    url: '/categories',
+                    url: '/categoriess',
                     callback:renderCategories,
                 });
     }, []);
@@ -58,7 +59,7 @@ function AddCategory(){
     return (
 
         <div>
-            {(categories.loader)? "Loading....": ''}
+            {(categories.loader)? <Loader/>: ''}
             <div>
 
                 {

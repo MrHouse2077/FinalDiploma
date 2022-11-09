@@ -32,7 +32,7 @@ function Dashboard(props){
             <div>Dashboard
             {console.log(props)}
                 <AddCategory/>
-                <Loader/>
+                
             </div>
     );
 }
