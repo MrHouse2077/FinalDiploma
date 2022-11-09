@@ -11,6 +11,11 @@ import Loader from "../../../Loader/Loader";
 
 
 function AddCategory(){
+    let [category, setNewCategory] = useState({
+        name: "",
+        id: "",
+        description: "",
+    });
 
     let [categories, setCategories] = useState({
         categories:[],
@@ -36,7 +41,7 @@ function AddCategory(){
     useEffect(()=>{
         Requests({
                     method: 'get', 
-                    url: '/categoriess',
+                    url: '/categories',
                     callback:renderCategories,
                 });
     }, []);
@@ -46,10 +51,26 @@ function AddCategory(){
 
             
             let copy = Object.assign([], categories);
-            copy.categories = serverRequest.data
+            copy.categories = serverRequest.data;
             copy.loader = false;
             setCategories(copy);
         }
+    }
+
+    function addNewCategory(category){
+        let copy = Object.assign([], category);
+        copy.category.name = category.name;
+        setCategories(copy);
+
+        Requests({
+            method: 'post',
+            url: '/addNewCategory',
+            data: category,
+            callback:addNewCategory,
+        })
+
+
+
     }
 
 
@@ -118,10 +139,10 @@ function AddCategory(){
                                             <div class="card border shadow-none w-100">
                                                 <div class="card-body">
                                                     <form class="row g-3" method="POST" action="/admin/add-category">
-                                                        <input type="hidden" name="_token" value="Yq9Rj2hU4bD7sxSmhZj86jOUHbILCFT108eeSQMf"/>                    
+                                                        <input type="hidden" name="id"/>                    
                                                         <div class="col-12">
                                                             <label class="form-label">Название</label>
-                                                            <input type="text" class="form-control" name="name" placeholder="Category name"/>
+                                                            <input type="text" class="form-control" name="name" placeholder="Category name" />
                                                         </div>
                                                 
                                                         <div class="col-12">
@@ -140,7 +161,9 @@ function AddCategory(){
                                                         </div>
                                                         <div class="col-12">
                                                             <div class="d-grid">
-                                                                <button class="btn btn-primary">Add Category</button>
+                                                                <button className = {classNames("btn", "btn-primary")} onClick={()=>{
+                                                                    addNewCategory(category)
+                                                                }}>Add Category</button>
                                                             </div>
                                                         </div>
                                                     </form>

@@ -39,32 +39,32 @@ class ShopController extends Controller
         
     }
 
-    // public function addcategoryAction(Request $request){
+    public function addNewCategoryction(Request $request){
 
-    //     $validated = Validator::make($request->all(),[
-    //         'name' => 'required|min:2|max:200',
-    //         'description' => 'max:1000',
-    //     ],
-    //     [
-    //         'name.required' => 'Название категории обязательно для заполнения',
-    //         'name.min:2' => 'Название категории минимум 2 символа',
-    //         'name.max:200' => 'Название категории максимум 200 символов',
-    //         'description.max:1000' => 'Превышена максимальная длина описани. Максимум 1000 символов'
-    //     ]
-    //     );
+        $validated = Validator::make($request->all(),[
+            'name' => 'required|min:2|max:200',
+            'description' => 'max:1000',
+        ],
+        [
+            'name.required' => 'Название категории обязательно для заполнения',
+            'name.min:2' => 'Название категории минимум 2 символа',
+            'name.max:200' => 'Название категории максимум 200 символов',
+            'description.max:1000' => 'Превышена максимальная длина описани. Максимум 1000 символов'
+        ]
+        );
 
-    //     // if ($validated->fails()) {
-    //     //     return redirect()->route('admin_categories')->withErrors($validated)->with('error', 'Ошибка! Категория не добавлена')->withInput();
-    //     // }
+        // if ($validated->fails()) {
+        //     return redirect()->route('admin_categories')->withErrors($validated)->with('error', 'Ошибка! Категория не добавлена')->withInput();
+        // }
 
-    //     $category = new Category;
+        $category = new Category;
 
-    //     $category->name = $request->name;
-    //     $category->description = $request->description;
+        $category->name = $request->name;
+        $category->description = $request->description;
     
-    //     $category->save();
+        $category->save();
 
-    //     return $category;
-    //     //redirect()->route('admin_categories')->with('success', 'Ок! Категория успешно добавлена');
-    // }
+        return $category;
+        //redirect()->route('admin_categories')->with('success', 'Ок! Категория успешно добавлена');
+    }
 }
