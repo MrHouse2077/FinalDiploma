@@ -2,25 +2,21 @@ import React, {useState, useEffect, useCallback} from 'react';
 import Styles from "./Search.module.scss";
 
 function SearchModal(props){
-
+   let [dataSearch, setSearch] = useState({
+      fieldSearch: {
+         value: null,
+      },
+      rezaltSerch: [],
+   });
    if(!props.show){
       return null
    }
+   function onSearch(data){
+      let copy = Object.assign({}, dataSearch);
+      copy.fieldSearch.value = data.fieldSearch.value;
+      setSearch(copy);
 
-   // const { OnClose } = props;
-   // const closeOnEscapeKeyDown = useCallback((e) => {
-   //    if ((e.charCode || e.keyCode) === 27) {
-   //       OnClose();
-   // }
-   // }, [OnClose]);
-
-   // useEffect(() => {
-   //    document.body.addEventListener("keydown", closeOnEscapeKeyDown);
-   //    return function cleanup() {
-   //       document.body.removeEventListener("keydown", closeOnEscapeKeyDown);
-   //    };
-   // }, [closeOnEscapeKeyDown]);
-
+   }
     return(
         <div className={Styles.SearchModal} onClick = {props.onClose}>
             <div className = {Styles.ModalContent} onClick = {e=>e.stopPropagation()}>
@@ -28,12 +24,12 @@ function SearchModal(props){
                   <span aria-hidden="true">×</span>
                </button>
                <div className = {Styles.ModalBody}>
-                  
                   <form>
                         <input type="text" placeholder="Search here..."/>
-                        <button>
-                           Лупа
-                           <i class="fa fa-search"></i>
+                        <button onClick={onSearch}>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                           <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                        </svg>
                         </button>
                   </form>
                </div>

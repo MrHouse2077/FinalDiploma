@@ -13,6 +13,7 @@ import Login from './Components/Pages/Login/Login';
 import Dashboard from './Components/Admin/Pages/Dashboard/Dashboard';
 import ListProducts from './Components/Pages/Shop/Pages/ListProducts/ListProducts';
 import Search from './Components/Search/Search';
+import SearchPage from './Components/Search/SearchPage';
 
 function App(props) {
   const navigate = useNavigate();
@@ -40,6 +41,7 @@ function App(props) {
     <div className="App">
       <Routes>
         <Route path="/" element={<Home startImage={Home} />} />
+        <Route path="/search" element={<SearchPage startImage={SearchPage} />} />
   
         <Route path="/about" element={<About startImage={About} />} />
         <Route path="/login" element={<Login

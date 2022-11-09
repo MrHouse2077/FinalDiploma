@@ -99,7 +99,7 @@ function Contacts() {
       };
 
       function onFeedback(data){
-        let data = createObject();
+        //let data = createObject();
         Requests(
             {
                 method:'post', 

@@ -6,6 +6,7 @@ use App\Helpers\RequestHelper;
 
 use App\Http\Validators\FeedbackValidator;
 use App\Http\Validators\LoginValidator;
+use App\Http\Validators\SearchValidator;
 use Illuminate\Validation\ValidationException;
 
 use App\Models\User;
@@ -15,8 +16,8 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 
 use App\Jobs\FeedbackJob;
-
-
+use App\Models\Category;
+use App\Models\Product;
 
 class IndexController extends Controller
 {
@@ -73,7 +74,20 @@ class IndexController extends Controller
         
       
     }
-
+    function searchAction(Request $request){
+        $validator = SearchValidator::searchCheck($request);
+        if ($validator->fails()) {
+            return RequestHelper::write(402, 'Not data for search');
+        }
+        $products = Product::where('name', 'like', '%' . $request["msg"] . '%')->get();
+        $category = Category::where('name', 'like', '%' . $request["msg"] . '%')->get();
+        if($products === null && $category === null){
+            $data = null;
+            return RequestHelper::write(200, 'sucess', $data);
+        }
+        $data = ["products" => $products, "categories" => $category];
+        return RequestHelper::write(200, 'sucess', $data);
+    }
     
 }
  
