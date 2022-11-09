@@ -36,7 +36,7 @@ function AddCategory(){
     useEffect(()=>{
         Requests({
                     method: 'get', 
-                    url: '/categoriess',
+                    url: '/categories',
                     callback:renderCategories,
                 });
     }, []);
