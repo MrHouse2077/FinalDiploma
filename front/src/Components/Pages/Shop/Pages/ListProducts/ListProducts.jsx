@@ -24,7 +24,6 @@ function ListProducts(){
             }
 */
 
-    let quantity = 3;
 
     let [products, setProducts] = useState({
         products: [],
@@ -102,6 +101,10 @@ function ListProducts(){
         setProducts(copy);
     }
 
+    
+    let quantity = 7;
+    let activePage = 1;
+
     return (
         <div>
             
@@ -158,7 +161,7 @@ function ListProducts(){
                     }
                 </div>
 
-                <Pagination quantity={quantity}/>
+                <Pagination quantity={quantity} activePage={activePage}/>
 
             </DefaultLayout>
 
