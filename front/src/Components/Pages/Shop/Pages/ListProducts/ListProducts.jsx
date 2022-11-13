@@ -5,6 +5,7 @@ import DefaultLayout from "../../../../Layouts/DefaultLayout/DefaultLayout";
 import Loader from "../../../../Loader/Loader";
 import Requests from "../../../../Requests";
 import Pagination from "../../../../UI/Pagination/Pagination";
+import Product from "../Product/Product";
 import Styles from './ListProducts.module.scss';
 
 function ListProducts(){
@@ -25,7 +26,6 @@ function ListProducts(){
             }
 */
 
-    let quantity = 3;
 
     let [products, setProducts] = useState({
         products: [],
@@ -105,6 +105,10 @@ function ListProducts(){
         setProducts(copy);
     }
 
+    
+    // let quantity = 7;
+    // let activePage = 1;
+
     return (
         <div>
             
@@ -156,15 +160,19 @@ function ListProducts(){
 
                                 */
 
-                                
+                               
                             }
                         </div>
 
                         :''
                     }
+                    
                 </div>
-
-                <Pagination quantity={quantity}/>
+                <div className={Styles.product}>
+                    <Product /> 
+                </div>
+                
+                {/* <Pagination quantity={quantity} activePage={activePage}/> */}
 
             </DefaultLayout>
 

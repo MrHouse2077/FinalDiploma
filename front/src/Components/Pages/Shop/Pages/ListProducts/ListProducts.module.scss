@@ -1,12 +1,11 @@
 .product{
     border:1px solid #ccc;
-    padding: 20px 30px;
+    padding: 0 0.5rem;
     width: 33.33%;
-    margin:10px 0;
+    margin:0 1rem 0 0;
 }
 .products{
     display: flex;
     flex-wrap: wrap;
     margin: 30px auto 0;
-
 }
