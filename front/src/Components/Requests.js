@@ -12,7 +12,7 @@ let domen = "http://localhost:8000";
 let APIversion = "api/v1";
 
 function Requests(parametrsRequest) {
-    
+
     switch(parametrsRequest.method){
         case 'get': 
             getRequest(parametrsRequest.url, parametrsRequest.callback);
