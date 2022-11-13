@@ -8,7 +8,7 @@ let parametrsRequest = {
 }
 */
 
-let domen = "http://localhost:8000"
+let domen = "http://localhost:8000";
 let APIversion = "api/v1";
 
 function Requests(parametrsRequest) {

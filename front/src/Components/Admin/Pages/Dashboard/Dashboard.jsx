@@ -33,7 +33,7 @@ function Dashboard(props){
 
             <div>Dashboard
           
-               
+                <Graph/>
                 <UsersMap/>
 
                 <AddCategory/>
