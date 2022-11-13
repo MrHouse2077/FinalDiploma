@@ -43,8 +43,10 @@ Route::prefix('v1')->group(function () {
     Route::post('/products', [ShopController::class, 'listProductsAction']);
     Route::get('/categories', [ShopController::class, 'categoriesAction']);
     // Route::post('/addcategoryform', [ShopController::class, 'addproductformAction']);
-
-
+    Route::get('/ip', [IndexController::class, 'ipAction']);
+    Route::get('/get-users', function(){
+        return User::get();
+    });
 
     Route::get('/logout', function () {
         

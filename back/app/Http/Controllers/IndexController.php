@@ -73,7 +73,33 @@ class IndexController extends Controller
         
       
     }
+    function ipAction(){
+        $client  = @$_SERVER['HTTP_CLIENT_IP'];
+        $forward = @$_SERVER['HTTP_X_FORWARDED_FOR'];
+        $remote  = @$_SERVER['REMOTE_ADDR'];
+        $result  = array('countryName'=>'', 'countryCode'=>'');
+        
+        if(filter_var($client, FILTER_VALIDATE_IP)) 
+            $ip = $client;
+        elseif(filter_var($forward, FILTER_VALIDATE_IP)) 
+            $ip = $forward;
+        else 
+            $ip = $remote;
 
+        $ip = '31.134.188.52';//на данный момент айпи статический, чтобы проверять работоспособность
+
+        $ip_data = @json_decode(file_get_contents("http://www.geoplugin.net/json.gp?ip=".$ip));    
+        if($ip_data && $ip_data->geoplugin_countryName != null)
+        {
+            $result = [ 
+                        'name' => $ip_data->geoplugin_countryName,
+                        'code' => $ip_data->geoplugin_countryCode,
+                      ];
+        }
+        
+        return $result;
+    }
+    
     
 }
  

@@ -10,6 +10,7 @@ import AddCategory from "./AddCategory";
 import Loader from "../../../Loader/Loader";
 import Graph from "../Graph/Graph";
 
+import UsersMap from "./UsersMap";
 
 
 function Dashboard(props){
@@ -32,9 +33,12 @@ function Dashboard(props){
 
             <div>Dashboard
           
-                <Graph/>
+               
+                <UsersMap/>
 
                 <AddCategory/>
+
+                
                 
             </div>
     );
