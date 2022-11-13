@@ -1,3 +1,4 @@
+
 .BlockTitle{
     text-align: center;
     position: absolute;
@@ -67,239 +68,248 @@
     
 }
 
-.MapArea{
-    padding-bottom: 110px;
-    iframe{
-        
-        width: 100%;
-        min-height: 600px;
-        box-sizing: border-box;
-    }
-}
 
-.ContactsInfo{
-    position: relative;
-    .customeContainer{
-        width: 1170px;
-        
+.ContentContacts{
+    display: block;
+    .Contacts{
 
-        .ContactInfo{
-            display: flex; 
-            .svInner{
-                position: relative;
-                display: inline-block;
-
-                &::after {
-                    position: absolute;
-                    content: "";
-                    height: 75px;
-                    width: 75px;
-                    border-radius: 5px;
-                    border-bottom-right-radius: 30px;
-                    background-color: #ffe3e3;
-                    top: -8px;
-                    left: -8px;
-                    z-index: 1;
-                }
-
-                .servicesIcon{
-                    position: relative;
-                    height: 75px;
-                    width: 75px;
-                    border-radius: 5px;
-                    border-bottom-right-radius: 30px;
-                    line-height: 90px;
-                    background: #ea1b29;
-                    text-align: center;
-                    margin: 0 auto;
-                    margin-bottom: 35px;
-                    z-index: 2;
-                    transition: 0.3s;
-
-                    i {
-                        font-size: 35px;
-                        color: #ffffff;
-                        transition: 0.3s;
-                        display: inline-block;
-                    }
-                }
-            }
-
-            .ContactInfoText{
-                margin-left: 30px;
-
-                .ContactInfoTitle{
-                    font-size: 30px;
-                    line-height: 1;
-                    margin-bottom: 5px;
-                    font-family: "Teko", sans-serif;
-                    color: #010101;
-                    margin-top: 0px;
-                    font-weight: 500;
-                }
-                p{
-                    font-size: 22px;
-                    color: #ea1b29;
-
-                    .navLink{
-                        color: inherit;
-                        outline: none;
-                        border: none;
-                        background: transparent;
-                        text-decoration: none;
-                    }
-                }
-            }
-        }
-    }
-
-    .ContactShape{
-        position: absolute;
-        z-index: -1;
-        right: 0;
-        top: -120px;
-        animation: top_bot 1.5s ease 0s infinite normal;
-        animation-delay: 1s;
-        
-    }
-}
-
-
-.supportArea{
-    position: relative;
-    font-family: "Teko", sans-serif;
-    padding: 60px 0 90px 0;
-    .customeContainer{
-        padding: 0  0 0 90px;
-        .SupImage{
-            margin-bottom: 30px;
-            img{
+        .MapArea{
+            padding-bottom: 110px;
+            iframe{
+                
                 width: 100%;
+                min-height: 600px;
+                box-sizing: border-box;
             }
         }
-        .supportInfoTwo{
-            margin-left: 80px;
-            margin-bottom: 35px;
-            .SectionWrap{
-                max-width: 570px;
-                margin-bottom: 35px;
+        
 
-                .TpsubTitle{
-                    font-size: 22px;
-                    color: #ea1b29;
-                    text-transform: uppercase;
-                    line-height: 1.2;
-                    display: block;
-                    margin-bottom: 10px;
+        .ContactsInfo{
+            position: relative;
+            .customeContainer{
+                width: 1170px;
+                
 
-                }
-                .SectionTitle{
-                    font-size: 60px;
-                    line-height: 1;
-                    margin-bottom: 20px;
-
-                }
-                .SectionBorder{
-                    position: relative;
-                    display: block;
-                    margin-bottom: 30px;
-
-                    &::before {
-                        position: absolute;
-                        content: "";
-                        width: 95px;
-                        height: 2px;
-                        background: #ea1b29;
-                        top: 35%;
-                        left: 25px;
-                        
-                    }
-                    i{
-                        color: #ea1b29;
-                        font-size: 15px;
-                    }
-                }
-            }
-            form{
-                margin-top: 50px;
-
-                .SupportFormField{
-                    margin-bottom: 20px;
-
-                    input, textarea{
-                        color: #6a6b71;
-                        font-size: 16px;
-                        display: block;
-                        width: 100%;
-                        height: 60px;
-                        background: #ffffff;
-                        font-weight: 400;
-                        border: 1px solid #e3e6e7;
-                        outline: none;
-                        padding: 0px 25px;
-                        width: 100%;
-                        border-radius: 50px;
-                        font-family: "Roboto", sans-serif;
-                    }
-                    textarea{
-                        height: 170px;
-                        padding: 20px;
-                        border-radius: 30px;
-                        resize: none;
-                    }
-                }
-                .SupportBtn{
-                    .TpBtnRound{
-                        padding: 0 44px;
-                        background: #ea1b29;
-                        font-family: "Teko", sans-serif;
-                        font-size: 18px;
-                        color: #ffffff;
-                        display: inline-block;
-                        font-weight: 500;
-                        text-transform: uppercase;
-                        transition: 0.3s;
-                        display: inline-block;
-                        border-radius: 30px;
-                        overflow: hidden;
+                .ContactInfo{
+                    display: flex; 
+                    .svInner{
                         position: relative;
-                        border: 2px solid transparent;
-                        height: 60px;
-                        line-height: 60px;
-                        text-decoration: none;
+                        display: inline-block;
 
-                        &:before {
-                            background-color: #fff;
-                            content: "";
-                            height: 150px;
-                            left: -75px;
+                        &::after {
                             position: absolute;
-                            top: -35px;
-                            transform: rotate(35deg);
-                            transition: all 1600ms cubic-bezier(0.19, 1, 0.22, 1);
-                            width: 40px;
-                            opacity: 0;
+                            content: "";
+                            height: 75px;
+                            width: 75px;
+                            border-radius: 5px;
+                            border-bottom-right-radius: 30px;
+                            background-color: #ffe3e3;
+                            top: -8px;
+                            left: -8px;
+                            z-index: 1;
                         }
-                        i{
-                            margin-left: 10px;
-                            font-size: 15px;
+
+                        .servicesIcon{
+                            position: relative;
+                            height: 75px;
+                            width: 75px;
+                            border-radius: 5px;
+                            border-bottom-right-radius: 30px;
+                            line-height: 90px;
+                            background: #ea1b29;
+                            text-align: center;
+                            margin: 0 auto;
+                            margin-bottom: 35px;
+                            z-index: 2;
+                            transition: 0.3s;
+
+                            i {
+                                font-size: 35px;
+                                color: #ffffff;
+                                transition: 0.3s;
+                                display: inline-block;
+                            }
+                        }
+                    }
+
+                    .ContactInfoText{
+                        margin-left: 30px;
+
+                        .ContactInfoTitle{
+                            font-size: 30px;
+                            line-height: 1;
+                            margin-bottom: 5px;
+                            font-family: "Teko", sans-serif;
+                            color: #010101;
+                            margin-top: 0px;
+                            font-weight: 500;
+                        }
+                        p{
+                            font-size: 22px;
+                            color: #ea1b29;
+
+                            .navLink{
+                                color: inherit;
+                                outline: none;
+                                border: none;
+                                background: transparent;
+                                text-decoration: none;
+                            }
                         }
                     }
                 }
             }
+
+            .ContactShape{
+                position: absolute;
+                z-index: -1;
+                right: 0;
+                top: -120px;
+                animation: top_bot 1.5s ease 0s infinite normal;
+                animation-delay: 1s;
+                
+            }
         }
-    }
 
-    
 
-    .SupportShape{
-        position: absolute;
-        z-index: -1;
-        right: 0;
-        bottom: 0;
-        animation: hape-animation 6s linear infinite alternate;
-        img{
-            transition: all 0.3s ease-out 0s;
+        .supportArea{
+            position: relative;
+            font-family: "Teko", sans-serif;
+            padding: 60px 0 90px 0;
+            .customeContainer{
+                padding: 0  0 0 90px;
+                .SupImage{
+                    margin-bottom: 30px;
+                    img{
+                        width: 100%;
+                    }
+                }
+                .supportInfoTwo{
+                    margin-left: 80px;
+                    margin-bottom: 35px;
+                    .SectionWrap{
+                        max-width: 570px;
+                        margin-bottom: 35px;
+
+                        .TpsubTitle{
+                            font-size: 22px;
+                            color: #ea1b29;
+                            text-transform: uppercase;
+                            line-height: 1.2;
+                            display: block;
+                            margin-bottom: 10px;
+
+                        }
+                        .SectionTitle{
+                            font-size: 60px;
+                            line-height: 1;
+                            margin-bottom: 20px;
+
+                        }
+                        .SectionBorder{
+                            position: relative;
+                            display: block;
+                            margin-bottom: 30px;
+
+                            &::before {
+                                position: absolute;
+                                content: "";
+                                width: 95px;
+                                height: 2px;
+                                background: #ea1b29;
+                                top: 35%;
+                                left: 25px;
+                                
+                            }
+                            i{
+                                color: #ea1b29;
+                                font-size: 15px;
+                            }
+                        }
+                    }
+                    form{
+                        margin-top: 50px;
+
+                        .SupportFormField{
+                            margin-bottom: 20px;
+
+                            input, textarea{
+                                color: #6a6b71;
+                                font-size: 16px;
+                                display: block;
+                                width: 100%;
+                                height: 60px;
+                                background: #ffffff;
+                                font-weight: 400;
+                                border: 1px solid #e3e6e7;
+                                outline: none;
+                                padding: 0px 25px;
+                                width: 100%;
+                                border-radius: 50px;
+                                font-family: "Roboto", sans-serif;
+                            }
+                            textarea{
+                                height: 170px;
+                                padding: 20px;
+                                border-radius: 30px;
+                                resize: none;
+                            }
+                            
+                        }
+                        .SupportBtn{
+                            .TpBtnRound{
+                                padding: 0 44px;
+                                background: #ea1b29;
+                                font-family: "Teko", sans-serif;
+                                font-size: 18px;
+                                color: #ffffff;
+                                display: inline-block;
+                                font-weight: 500;
+                                text-transform: uppercase;
+                                transition: 0.3s;
+                                display: inline-block;
+                                border-radius: 30px;
+                                overflow: hidden;
+                                position: relative;
+                                border: 2px solid transparent;
+                                height: 60px;
+                                line-height: 60px;
+                                text-decoration: none;
+
+                                &:before {
+                                    background-color: #fff;
+                                    content: "";
+                                    height: 150px;
+                                    left: -75px;
+                                    position: absolute;
+                                    top: -35px;
+                                    transform: rotate(35deg);
+                                    transition: all 1600ms cubic-bezier(0.19, 1, 0.22, 1);
+                                    width: 40px;
+                                    opacity: 0;
+                                }
+                                i{
+                                    margin-left: 10px;
+                                    font-size: 15px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            
+
+            .SupportShape{
+                position: absolute;
+                z-index: -1;
+                right: 0;
+                bottom: 0;
+                animation: hape-animation 6s linear infinite alternate;
+                img{
+                    transition: all 0.3s ease-out 0s;
+                }
+            }
         }
     }
 }

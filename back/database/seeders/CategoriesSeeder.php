@@ -16,7 +16,7 @@ class CategoriesSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('category')->insertOrIgnore([
+        DB::table('category')->insert([
             'name' => Str::random(10),
             'description' => Str::random(10),
         ]);

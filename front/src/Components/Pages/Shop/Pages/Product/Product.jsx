@@ -1,10 +1,12 @@
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 
 
 function Product(){
 
+    let params = useParams();
+    console.log(params);
 
     return (
         <div>

@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import DefaultLayout from "../../../../Layouts/DefaultLayout/DefaultLayout";
+import Loader from "../../../../Loader/Loader";
 import Requests from "../../../../Requests";
 import Pagination from "../../../../UI/Pagination/Pagination";
 import Styles from './ListProducts.module.scss';
@@ -32,14 +33,16 @@ function ListProducts(){
         filter:{
             minPriceProduct: 0,
             maxPriceProduct: 300000,
-            secelctPriceProduct: 0,
+            secelctMinPriceProduct: 0,
+            secelctMaxPriceProduct: 300000,
         }
         
     });
 
-    function chengeStatusFilter(secelctPriceProduct){
+    function chengeStatusFilter(secelctMinPrice, secelctMaxPrice){
         let copy = Object.assign([], products);
-        copy.filter.secelctPriceProduct = secelctPriceProduct;
+        copy.filter.secelctMinPriceProduct = secelctMinPrice;
+        copy.filter.secelctMaxPriceProduct = secelctMaxPrice;
         setProducts(copy);
     }
 
@@ -112,7 +115,7 @@ function ListProducts(){
             onFilterResult={onFilterResult}
             >
 
-                {(products.loader)? "Loading....": ''}
+                {(products.loader)? <Loader/>: ''}
 
                 <div>
                     {
@@ -122,8 +125,11 @@ function ListProducts(){
                             {
                                 products.products.map((product)=>
                                     <div key={product.id} className={Styles.product}>
-                                        <h3>{product.name }</h3>
+                                        <NavLink to={'/shop/'+product.id}>
+                                            <h3>{product.name }</h3>
+                                        </NavLink>
                                         <p>{product.price} руб.</p>
+                                        
                                     </div>
                                 )
                             }
