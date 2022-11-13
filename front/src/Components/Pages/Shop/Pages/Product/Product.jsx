@@ -7,6 +7,9 @@ import ProductImage from "../../../../images/product/product-5.jpg"
 
 function Product(){
 
+    function sendProductToCard(){
+
+    }
 
     return (
 
@@ -28,7 +31,10 @@ function Product(){
                     <h6 className={Styles.price}>Price</h6>
 
                 </div>
-                <div className={Styles.button}>
+                <div 
+                    className={Styles.button}
+                    onClick={sendProductToCard}    
+                >
                     <span>Buy Now </span>
                     <FontAwesomeIcon className={Styles.btnArrows} icon={solid('angles-right')} />
                 </div>
