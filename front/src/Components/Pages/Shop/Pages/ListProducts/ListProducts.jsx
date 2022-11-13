@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import DefaultLayout from "../../../../Layouts/DefaultLayout/DefaultLayout";
 import Requests from "../../../../Requests";
 import Pagination from "../../../../UI/Pagination/Pagination";
+import Product from "../Product/Product";
 import Styles from './ListProducts.module.scss';
 
 function ListProducts(){
@@ -102,8 +103,8 @@ function ListProducts(){
     }
 
     
-    let quantity = 7;
-    let activePage = 1;
+    // let quantity = 7;
+    // let activePage = 1;
 
     return (
         <div>
@@ -153,15 +154,19 @@ function ListProducts(){
 
                                 */
 
-                                
+                               
                             }
                         </div>
 
                         :''
                     }
+                    
                 </div>
-
-                <Pagination quantity={quantity} activePage={activePage}/>
+                <div className={Styles.product}>
+                    <Product /> 
+                </div>
+                
+                {/* <Pagination quantity={quantity} activePage={activePage}/> */}
 
             </DefaultLayout>
 
