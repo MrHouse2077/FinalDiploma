@@ -10,23 +10,6 @@ import Styles from './ListProducts.module.scss';
 import Sorting from "../../../../Sorting/Sorting";
 function ListProducts(){
 
-/*
-    {
-                "id": 1,
-                "name": "Название 1",
-                "description": null,
-                "main_photo": null,
-                "price": 41265,
-                "count": 1,
-                "old_price": null,
-                "category_id": 2,
-                "category_name": "Категория 2",
-                "created_at": null,
-                "updated_at": null
-            }
-*/
-
-
     let [products, setProducts] = useState({
         products: [],
         loader: true,
@@ -146,11 +129,7 @@ function ListProducts(){
                                     
                                     products.products.map((product)=>
                                         <div key={product.id} className={Styles.product}>
-                                            <NavLink to={'/shop/'+product.id}>
-                                                <h3>{product.name }</h3>
-                                            </NavLink>
-                                            <p>{product.price} руб.</p>
-                                            
+                                            <Product to={'/shop/'+product.id} product={product}/>
                                         </div>
                                     )
                                 }

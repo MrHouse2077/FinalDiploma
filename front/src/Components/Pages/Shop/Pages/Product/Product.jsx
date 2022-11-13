@@ -5,7 +5,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { solid, regular, brands, icon } from '@fortawesome/fontawesome-svg-core/import.macro'
 import ProductImage from "../../../../images/product/product-5.jpg"
 
-function Product(){
+function Product(props){
+
+    let product = props.product;
 
     function sendProductToCard(){
 
@@ -19,21 +21,24 @@ function Product(){
                     <img src={ProductImage} alt="" />
                 </div>
             </NavLink>
-
-            <div className={Styles.tag}>
-                Tag
-            </div>
+            {(product.tag != null)?
+                <div className={Styles.tag}>
+                    {product.tag}
+                </div>
+                :""
+            }
             <div className={Styles.wrap_bottom}>
                 <div className={Styles.product_info}>
                     <NavLink className={Styles.product_link}>
-                        <h5 className={Styles.product_name}>Prodct name</h5>
+                        <h5 className={Styles.product_name}>{product.name}</h5>
                     </NavLink>
-                    <h6 className={Styles.price}>Price</h6>
+                    <h6 className={Styles.price}>{product.price} руб</h6>
 
                 </div>
                 <div 
                     className={Styles.button}
-                    onClick={sendProductToCard}    
+                    onClick={sendProductToCard}
+                    data-id = {product.id}    
                 >
                     <span>Buy Now </span>
                     <FontAwesomeIcon className={Styles.btnArrows} icon={solid('angles-right')} />
