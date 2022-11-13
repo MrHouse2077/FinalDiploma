@@ -168,9 +168,9 @@ function ListProducts(){
                     }
                     
                 </div>
-                <div className={Styles.product}>
+                {/* <div className={Styles.product}>
                     <Product /> 
-                </div>
+                </div> */}
                 
                 {/* <Pagination quantity={quantity} activePage={activePage}/> */}
 
