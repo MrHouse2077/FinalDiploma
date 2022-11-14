@@ -20,7 +20,8 @@ function ListProducts(){
             secelctMaxPriceProduct: 300000,
         },
         sortBy: "priceUp",
-        
+        productsInPage: 10,
+        activePage: 1,
     });
 
     function chengeStatusFilter(secelctMinPrice, secelctMaxPrice){
@@ -61,7 +62,6 @@ function ListProducts(){
             let copy = Object.assign([], products);
             copy.products = serverRequest.data
             copy.loader = false;
-            // copy.products = 
             SortProducts(copy);
             setProducts(copy);
             
@@ -97,11 +97,6 @@ function ListProducts(){
         return arr;
         
     }
-
- 
-    
-    // let quantity = 7;
-    // let activePage = 1;
 
     return (
         <div>
