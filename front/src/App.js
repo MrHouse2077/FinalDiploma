@@ -41,7 +41,7 @@ function App(props) {
     <div className="App">
       <Routes>
         <Route path="/" element={<Home startImage={Home} />} />
-        <Route path="/search" element={<SearchPage startImage={SearchPage} />} />
+        <Route path="/search/:request" element={<SearchPage startImage={SearchPage} />} />
   
         <Route path="/about" element={<About startImage={About} />} />
         <Route path="/login" element={<Login
