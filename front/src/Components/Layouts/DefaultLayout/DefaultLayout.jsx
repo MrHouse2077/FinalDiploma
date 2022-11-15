@@ -6,7 +6,8 @@ import { NavLink } from 'react-router-dom';
 import MainNav from '../../MainNav/MainNav';
 import SiteInfo from '../../SiteInfo/SiteInfo';
 
-import Filter from '../../UI/Filter/Filter'
+import Filter from '../../UI/Filter/Filter';
+import classNames from 'classnames';
 
 function DefaultLayout(props) {
     
@@ -34,17 +35,23 @@ function DefaultLayout(props) {
                             <img src="/logo.png" className='logo' />
                             <SiteInfo />
                         </div>
+                        <div className={Styles.NavBar}>
                         <MainNav />
-                        
                         <div className='Login'>
-                            <NavLink
-                                to="/login"
-
-                                className='loginBtn'
-
-                            >
-                                Login1
-                            </NavLink>
+                                <NavLink
+                                    to="/login"
+                                    className={classNames(Styles.login, localStorage.getItem('bgc'))}
+                                
+                                >
+                                    Login
+                                    <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-double-right" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd" d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                        <path fill-rule="evenodd" d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                    </svg>
+                                    </span>
+                                </NavLink>
+                        </div>
                         </div>
                     </div>
 

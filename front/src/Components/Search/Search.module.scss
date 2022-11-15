@@ -98,6 +98,7 @@
 }
 .SearchPage{
     box-sizing: border-box;
+    position: relative;
     >div{
         display: flex;
         aside{
@@ -107,6 +108,7 @@
         }
         .searchRez{
             width: 80%;
+            position: relative;
                 .categorySer{
                     margin-top: 15px;
                     h3{

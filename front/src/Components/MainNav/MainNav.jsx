@@ -12,12 +12,16 @@ function MainNav(){
                         <li>
                             <NavLink
                                 to="/home"
-                                className={Styles.nav_link}
-                                style={({ isActive }) =>
-                                isActive ? Styles.active : undefined
-                                }
-                            >
-                            home
+                                className={Styles.nav_link}>
+                                {({ isActive }) => (
+                                <span
+                                    className={
+                                    isActive ? Styles.active : undefined
+                                    }
+                                >
+                                    home
+                                </span>
+                                )}
                             </NavLink>
                         </li>
                         <li>

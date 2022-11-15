@@ -1,44 +1,16 @@
-
 import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Route, Routes } from 'react-router-dom';
-import Slider from '../Slider/Slider';
-import SiteInfo from '../SiteInfo/SiteInfo';
-import MainNav from '../MainNav/MainNav';
-import SliderText from '../SliderText/SliderText';
 import MainLayout from '../Layouts/MainLayout/MainLayout';
-
-
-// import StateApp from './State';
-// import SiteInfo from './Components/SiteInfo/SiteInfo';
-// import Shop from './Components/Pages/Shop';
-// import Contacts from './Components/Pages/Contacts';
-// import Blog from './Components/Pages/Blog';
-// import MainNav from './Components/MainNav/MainNav';
-// import SearchModal from './Components/Search/SearchModal';
-// import Search from './Components/Search/Search';
-// import Login from './Components/Pages/Login/Login';
-// import Background_glare from './Components/Background_glare/Background_glare';
-// import Slider from './Components/Slider/Slider';
-// import About from './Components/Pages/About';
-// import Pages from './Components/Pages/Pages';
-// import Portfolio from './Components/Pages/Portfolio';
-// import ContactUs from './Components/UI/Button/ContactUs';
+import SliderText from '../SliderText/SliderText';
 
 
 function Home() {
   return (
-    <div className="Home">
-
+    <div>
       <MainLayout>
-
-       <SliderText />
-
+        <SliderText />
       </MainLayout>
-
-      <section className='content'>
-        123
-      </section>
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import React, {useState, useEffect, useCallback} from 'react';
 import { useParams } from 'react-router-dom';
 import DefaultLayout from '../Layouts/DefaultLayout/DefaultLayout';
+import Loader from '../Loader/Loader';
 import Requests from '../Requests';
 import Styles from "./Search.module.scss";
 
@@ -35,10 +36,10 @@ function SearchPage(props){
                     <div>aside</div>
                 </aside>
                 <div className={Styles.searchRez}>
-                        {(dataRezSearch.loader)? "Loading....": ""}
+                        {(dataRezSearch.loader)? <Loader className={Styles.Loader} /> : ""}
                         {
                                     (!dataRezSearch.loader)?
-                                            (dataRezSearch.rezSearch === null)?
+                                            (dataRezSearch.rezSearch.length == 0)?
                                             "Not found for "+params.request 
                                             : dataRezSearch.rezSearch.map((arrElement, index)=>
                                                 <div className={Styles.categorySer} key={index}>
@@ -54,7 +55,7 @@ function SearchPage(props){
                                                     </div>
                                                 </div>
                                         )
-                                    : "rjytw"
+                                    : ""
                                 }
                 </div>
             </div>

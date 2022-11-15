@@ -202,32 +202,8 @@ function Login(props) {
                             
                             }
                   >
-                      Log-in
-                  </Button>
-              </div>
-              <div 
-                className={
-                  (checkValues.fieldPassword.valid && checkValues.fieldEmail.valid)
-                  ?
-                    Styles.openAccess
-                  :
-                    Styles.field
-
-                }
-              
-              >
-                <Button 
-                  
-                  onClick={
-                    (checkValues.fieldPassword.valid && checkValues.fieldEmail.valid)
-                  ?
-                    onLk
-                  :
-                    null
-                  }
-                  >
                       Войти
-                </Button>
+                  </Button>
               </div>
             </div>
           </div>   

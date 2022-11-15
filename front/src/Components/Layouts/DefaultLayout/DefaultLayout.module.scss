@@ -1,7 +1,36 @@
 @import url('https://fonts.googleapis.com/css2?family=Teko:wght@300;400;500&display=swap');
 // @import Breadcam from "../../images/breadcam-bg.jpg";
 
-
+.NavBar{
+    display: flex;
+  
+}
+.login{
+    width: 190px;
+    padding: 0 40px;
+    margin-right: 20px;
+    //background: #ea1b29;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 500;
+    font-family: "Teko", sans-serif;
+    text-transform: uppercase;
+    transition: 0.3s;
+    position: relative;
+    display: inline-block;
+    height: -webkit-fill-available;
+    text-align: center;
+    line-height: 88px;
+    text-decoration: none;
+    margin-left: 10px;
+    svg{
+        margin-left: 10px;
+        width: 25px;
+        height: 20px;
+        color: #fff;
+        font-weight: bold;
+    }
+}
 .DefaultLayout{
     font-family: 'Teko', sans-serif;
 
