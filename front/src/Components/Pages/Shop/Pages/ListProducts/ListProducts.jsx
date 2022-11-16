@@ -8,6 +8,7 @@ import Pagination from "../../../../UI/Pagination/Pagination";
 import Product from "../Product/Product";
 import Styles from './ListProducts.module.scss';
 import Sorting from "../../../../Sorting/Sorting";
+import Filter from "../../../../UI/Filter/Filter";
 function ListProducts(){
 
     let [products, setProducts] = useState({
@@ -105,75 +106,74 @@ function ListProducts(){
 
     return (
         <div>
-            
-
-            <DefaultLayout filterShow='true' 
-            filterParams={products.filter} 
-            chengeStatusFilter={chengeStatusFilter}
-            onFilterResult={onFilterResult}
-            >
-
-                {(products.loader)? <Loader/>: ''}
-
-                <div>
-                    {
-                        (!products.loader)?
-                        <div>    
-                           
-                            <div className={Styles.Sorting}>
-                            <Sorting active={products.sortBy} getSortingMethod={getSortingMethod}/>
-                            </div>
-                            <div className={Styles.products}>
-                                
-                                {   
+            <DefaultLayout>
+                <div className={Styles.wrapper+" wrap"}>
+                    <aside>
+                        {
+                                <Filter filterParams={products.filter} 
+                                chengeStatusFilter={chengeStatusFilter}
+                                onFilterResult={onFilterResult}/>
+                        }
+                    </aside>
+                    <div className={Styles.content}>
+                        {
+                            // content
+                        }
+                        {(products.loader)? <Loader/>: ''}  
+                        {
+                            (!products.loader)?
+                            <div>    
+                            
+                                <div className={Styles.Sorting}>
+                                <Sorting active={products.sortBy} getSortingMethod={getSortingMethod}/>
+                                </div>
+                                <div className={Styles.products}>
                                     
-                                    products.products.map((product)=>
-                                        <div key={product.id} className={Styles.product}>
-                                            <Product to={'/shop/'+product.id} product={product}/>
-                                        </div>
-                                    )
-                                }
-                                {
-                                    /*
-                                        1. сделать вывод карточек товаров через отдельные компоненты
-                                        2. постраничную навигацию
-
-                                    {
-    Статьи: 10
-    номер страницы: 1
-    }
-
-    {
-    Статьи: []   
-    номер выбранной страницы: 1
-    сколько статей в базе: 2500,
-    всего страниц: 556
-    }
-
-    1 2 3 4 ... 10
-                                
-                                
-
-                                    */
-
-                                
-                                }
+                                    {   
+                                        
+                                        products.products.map((product)=>
+                                            <div key={product.id} className={Styles.product}>
+                                                <Product to={'/shop/'+product.id} product={product}/>
+                                            </div>
+                                        )
+                                    }
+                                </div>
                             </div>
-                        </div>
-                        :''
-                    }
-                    
-                </div>
+                            :''
+                        }
+                        
+                    </div>
                 {/* <div className={Styles.product}>
                     <Product /> 
                 </div> */}
                 
                 {/* <Pagination quantity={quantity} activePage={activePage}/> */}
-
+            </div>
             </DefaultLayout>
 
             
         </div>
+        /*
+            1. сделать вывод карточек товаров через отдельные компоненты
+            2. постраничную навигацию
+
+            {
+            Статьи: 10
+            номер страницы: 1
+            }
+
+            {
+            Статьи: []   
+            номер выбранной страницы: 1
+            сколько статей в базе: 2500,
+            всего страниц: 556
+            }
+
+            1 2 3 4 ... 10
+                                    
+                                    
+
+        */                 
     );
 }
 

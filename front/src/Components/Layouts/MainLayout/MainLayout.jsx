@@ -8,6 +8,7 @@ import MainNav from '../../MainNav/MainNav';
 import Search from '../../Search/Search';
 import classNames from 'classnames';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import SliderText from "../../SliderText/SliderText";
 
 
 function MainLayout(props) {
@@ -50,13 +51,17 @@ function MainLayout(props) {
                     </div>
 
                     <div>
-                        {props.children}
+                        <SliderText />
                     </div>
 
                 </div>
 
             </header>
-
+            <main>
+                <div className="wrap">
+                    {props.children}
+                </div>
+            </main>
             
 
         </div>

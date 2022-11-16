@@ -9,7 +9,7 @@ function Home() {
   return (
     <div>
       <MainLayout>
-        <SliderText />
+        1
       </MainLayout>
     </div>
   );

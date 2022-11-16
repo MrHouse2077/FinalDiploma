@@ -15,29 +15,6 @@ function About() {
     return (
         <div>
             <DefaultLayout>
-                <div className = {Styles.BlockTitle}>
-                    <h3>about us</h3>
-                    <ul>
-                        <li>
-                            <NavLink to="/home"
-                                    className={Styles.nav_link}
-                                    style={({ isActive }) =>
-                                    isActive ? Styles.active : undefined
-                                    }
-                                >
-                                <span>
-                                    Home 
-                                </span>
-
-                            </NavLink>
-                        </li>
-                        <li>
-                            <span>
-                                About 
-                            </span>
-                        </li>
-                    </ul>
-                </div>
                 
                 
             </DefaultLayout>

@@ -11,18 +11,6 @@ import classNames from 'classnames';
 
 function DefaultLayout(props) {
     
-   
-    let chengeStatusFilter = props.chengeStatusFilter;
-    let onFilterResult = props.onFilterResult;
- 
-
-    let filter = {
-                minPriceProduct: props.filterParams.minPriceProduct,
-                maxPriceProduct: props.filterParams.maxPriceProduct,
-                secelctMinPriceProduct: props.filterParams.secelctMinPriceProduct,
-                secelctMaxPriceProduct: props.filterParams.secelctMaxPriceProduct,
-            }
-    
     return (
         <div className={Styles.DefaultLayout}>
             <header>
@@ -53,6 +41,29 @@ function DefaultLayout(props) {
                                 </NavLink>
                         </div>
                         </div>
+                        <div className = {Styles.BlockTitle}>
+                            <h3>about us</h3>
+                            <ul>
+                                <li>
+                                    <NavLink to="/home"
+                                            className={Styles.nav_link}
+                                            style={({ isActive }) =>
+                                            isActive ? Styles.active : undefined
+                                            }
+                                        >
+                                        <span>
+                                            Home 
+                                        </span>
+
+                                    </NavLink>
+                                </li>
+                                <li>
+                                    <span>
+                                        About 
+                                    </span>
+                                </li>
+                            </ul>
+                    </div>
                     </div>
 
                     
@@ -60,22 +71,9 @@ function DefaultLayout(props) {
                 
             </header>
             
-            <section>
-
-                <aside>
-                    {
-                        (props.filterShow)?
-                            <Filter filterParams={filter} 
-                            chengeStatusFilter={chengeStatusFilter}
-                            onFilterResult={onFilterResult}/>
-                           
-                        :
-                            ''
-                    }
-                </aside>
-                
+            <main>
                 {props.children}
-            </section>
+            </main>
 
             {/* <footer>
                 подвал
