@@ -207,7 +207,7 @@ function MainNav(){
                                     }
                                 >
                                     portfolio+
-                                    <ul class={Styles.SubMenu}>
+                                    <ul className={Styles.SubMenu}>
                                        <li>
                                             <NavLink to="/Portfolio" className={Styles.nav_link}>
                                                 {({ isActive }) => (
@@ -289,6 +289,19 @@ function MainNav(){
                                     }
                                 >
                                     Contact
+                                </span>
+                                )}
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="/infor" className={Styles.nav_link}>
+                                {({ isActive }) => (
+                                <span
+                                    className={
+                                    isActive ? Styles.active : undefined
+                                    }
+                                >
+                                    Infor
                                 </span>
                                 )}
                             </NavLink>
