@@ -1,23 +1,19 @@
 
-import Styles from "./TextArea.module.scss";
+import Styles from "./Select.module.scss";
 
-function TextArea(props) {
+function Select(props) {
     
-    let placeholder = props.placeholder;
-    let onChange = props.onChange;
+    let selected = props.selected;
     let className = props.className;
-    let onBlur = props.onBlur;
+    let selectList = props.selectList;
     let checkValues = props.checkValues;
   
     return (
-      <div className={Styles.small_textarea}>
+      <div className={Styles.small_select}>
         
-        <textarea 
-          placeholder={placeholder}
-          onChange = {onChange}
+        <select
           className= {className}
-          onBlur = {onBlur}
-        ></textarea>
+        ></select>
         
         <p
           className={
@@ -41,5 +37,5 @@ function TextArea(props) {
     );
   }
   
-  export default TextArea;
+  export default Select;
   

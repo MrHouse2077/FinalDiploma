@@ -5,4 +5,62 @@
     margin-top: 60px;
     padding-right: 15px;
     padding-left: 255px;
+
+
+
+
+    
+    width: 1100px;
+    height: 1000px;
+    padding: 1.5rem;
+    background-color: rgba(93, 93, 145, 0.493);
+
+    .title{
+        width: 100%;
+        color: #fff;
+        font-size: 1.5rem;
+        padding: 0 0 1.5rem 0;
+        margin: 0 0 1.5rem 0;
+        border-bottom: 1px solid #ccc;
+        background-color: transparent;
+    }
+    .wrap_add_field{
+        background-color: transparent;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    .product_description,
+    .product_params{
+        border: 2px solid #ccc;
+        border-radius: 4px;
+        padding: 1.5rem;
+        box-sizing: border-box;
+    }
+    .product_description{
+        width: 62%;
+    }
+    .product_params{
+        width: 35%;
+    }
+    .parametr_title{
+        color: #fff;
+        font-size: 1rem;
+        margin: 0 0 1rem 0;
+        width: 100%;
+        padding: 0;
+    }
+    .parametr_wrap{
+        width: 100%;
+    }
+    .parametr_wrap_flex{
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+
 }

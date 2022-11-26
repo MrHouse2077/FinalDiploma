@@ -88,28 +88,15 @@ function Login(props) {
     checkSet(copy);
   }
 
-  function createObject(){
-    if(checkValues.fieldPassword.valid && checkValues.fieldEmail.valid){
-      let objectForRequest = {
-        email: checkValues.fieldEmail.value,
-        password: checkValues.fieldPassword.value,
-      };
-      return objectForRequest;
-    }
-  }
-
-
     
 
     return (
-
       <div className={Styles.Login}>
         <div className={Styles.wrap}>
           <div className={Styles.image}>
             <img src={Shape} alt="" />
           </div>
           <div className={Styles.form}>
-
             <InputText 
                 
                 type="text" 
@@ -193,14 +180,7 @@ function Login(props) {
                   
                   <Button 
                   
-                  onClick={ 
-                            (checkValues.fieldPassword.valid && checkValues.fieldEmail.valid)
-                            ?
-                              onLogin(createObject())
-                            :
-                              null
-                            
-                            }
+                  onClick={onLogin}
                   >
                       Log-in
                   </Button>
