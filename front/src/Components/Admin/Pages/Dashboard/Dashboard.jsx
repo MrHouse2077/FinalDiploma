@@ -118,8 +118,8 @@ function Dashboard(props){
             </div>
             
           
-                <Graph/>
-                <UsersMap/>
+                {/* <Graph/>
+                <UsersMap/> */}
 
                 
             
