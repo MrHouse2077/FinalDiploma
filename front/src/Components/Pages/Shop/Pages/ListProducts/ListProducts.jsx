@@ -1,28 +1,14 @@
 import { useState } from "react";
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import DefaultLayout from "../../../../Layouts/DefaultLayout/DefaultLayout";
 import Loader from "../../../../Loader/Loader";
 import Requests from "../../../../Requests";
+import Pagination from "../../../../UI/Pagination/Pagination";
+import Product from "../Product/Product";
 import Styles from './ListProducts.module.scss';
-
+import Sorting from "../../../../Sorting/Sorting";
 function ListProducts(){
-
-/*
-    {
-                "id": 1,
-                "name": "Название 1",
-                "description": null,
-                "main_photo": null,
-                "price": 41265,
-                "count": 1,
-                "old_price": null,
-                "category_id": 2,
-                "category_name": "Категория 2",
-                "created_at": null,
-                "updated_at": null
-            }
-*/
 
     let [products, setProducts] = useState({
         products: [],
@@ -30,20 +16,24 @@ function ListProducts(){
         filter:{
             minPriceProduct: 0,
             maxPriceProduct: 300000,
-            secelctPriceProduct: 0,
-        }
+            secelctMinPriceProduct: 0,
+            secelctMaxPriceProduct: 300000,
+        },
+        sortBy: "priceUp",
         
     });
 
-    function chengeStatusFilter(secelctPriceProduct){
+    function chengeStatusFilter(secelctMinPrice, secelctMaxPrice){
         let copy = Object.assign([], products);
-        copy.filter.secelctPriceProduct = secelctPriceProduct;
+        copy.filter.secelctMinPriceProduct = secelctMinPrice;
+        copy.filter.secelctMaxPriceProduct = secelctMaxPrice;
         setProducts(copy);
     }
 
     function onFilterResult(){
 
         let copy = Object.assign([], products);
+        console.log(copy.sortBy);
         copy.loader = true;
         setProducts(copy);
 
@@ -71,34 +61,47 @@ function ListProducts(){
             let copy = Object.assign([], products);
             copy.products = serverRequest.data
             copy.loader = false;
+            // copy.products = 
+            SortProducts(copy);
             setProducts(copy);
-            maxAndMinPrice(copy);
+            
         }
     }
-
-
-    function maxAndMinPrice(products){
-        let max = 0;
-        products.products.forEach(product => {
-            if(product.price > max){
-                max = product.price;
-            }
-        });
-
-        let min = 0;
-        products.products.forEach(product => {
-            if(product.price < min){
-                min = product.price;
-            }
-        });
-        
-
+    function getSortingMethod(method){
         let copy = Object.assign([], products);
-        //copy.filter.minPriceProduct = min;
-        //copy.filter.maxPriceProduct = max;
-        //copy.filter.secelctPriceProduct = max;
+        copy.sortBy = method;
+        copy.products = SortProducts(copy);
         setProducts(copy);
     }
+    function SortProducts(data){
+        let copy = Object.assign([], data);
+        let arr;
+        switch(copy.sortBy){
+                case 'priceUp':
+                         arr = copy.products.sort((a, b) => a.price - b.price);
+                    break;
+                case 'priceDown':
+                         arr = copy.products.sort((a, b) => b.price - a.price);
+                    break;
+                case 'alphabetUp':
+                         arr = copy.products.sort((a, b) => a.name > b.name ? 1 : -1,);
+                    break;
+                case 'alphabetDown':
+                         arr = copy.products.sort((a, b) => a.name > b.name ? -1 : 1,);
+                    break;
+                default:
+                    console.log('error, wrong sort method!');
+                    break;
+        }
+        copy.products = arr;
+        return arr;
+        
+    }
+
+ 
+    
+    // let quantity = 7;
+    // let activePage = 1;
 
     return (
         <div>
@@ -115,43 +118,57 @@ function ListProducts(){
                 <div>
                     {
                         (!products.loader)?
-
-                        <div className={Styles.products}>
-                            {
-                                products.products.map((product)=>
-                                    <div key={product.id} className={Styles.product}>
-                                        <h3>{product.name }</h3>
-                                        <p>{product.price} руб.</p>
-                                    </div>
-                                )
-                            }
-                            {
-                                /*
-                                    1. сделать вывод карточек товаров через отдельные компоненты
-                                    2. постраничную навигацию
-
+                        <div>    
+                           
+                            <div className={Styles.Sorting}>
+                            <Sorting active={products.sortBy} getSortingMethod={getSortingMethod}/>
+                            </div>
+                            <div className={Styles.products}>
+                                
+                                {   
+                                    
+                                    products.products.map((product)=>
+                                        <div key={product.id} className={Styles.product}>
+                                            <Product to={'/shop/'+product.id} product={product}/>
+                                        </div>
+                                    )
+                                }
                                 {
-Статьи: 10
-номер страницы: 1
-}
+                                    /*
+                                        1. сделать вывод карточек товаров через отдельные компоненты
+                                        2. постраничную навигацию
 
-{
-Статьи: []   
-номер выбранной страницы: 1
-сколько статей в базе: 2500,
-всего страниц: 556
-}
+                                    {
+    Статьи: 10
+    номер страницы: 1
+    }
 
-1 2 3 4 ... 10
+    {
+    Статьи: []   
+    номер выбранной страницы: 1
+    сколько статей в базе: 2500,
+    всего страниц: 556
+    }
 
+    1 2 3 4 ... 10
+                                
+                                
 
-                                */
-                            }
+                                    */
+
+                                
+                                }
+                            </div>
                         </div>
-
                         :''
                     }
+                    
                 </div>
+                {/* <div className={Styles.product}>
+                    <Product /> 
+                </div> */}
+                
+                {/* <Pagination quantity={quantity} activePage={activePage}/> */}
 
             </DefaultLayout>
 

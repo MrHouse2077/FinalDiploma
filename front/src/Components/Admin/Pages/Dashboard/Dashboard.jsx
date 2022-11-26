@@ -15,7 +15,9 @@ import Logo from "../../../../images/brand-white.svg"
 
 // import { FontAwesomeIcon } from '@fortawesomereact-fontawesome';
 // import { solid, regular, brands, icon } from '@fortawesome/fontawesome-svg-core/import.macro';
+import Graph from "../Graph/Graph";
 
+import UsersMap from "./UsersMap";
 
 
 function Dashboard(props){

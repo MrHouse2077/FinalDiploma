@@ -15,6 +15,8 @@ import ListProducts from './Components/Pages/Shop/Pages/ListProducts/ListProduct
 import Search from './Components/Search/Search';
 import AddCategory from './Components/Admin/Pages/Dashboard/AddCategory';
 import AddPrduct from './Components/Admin/Pages/AddProduct/AddProduct';
+import Product from './Components/Pages/Shop/Pages/Product/Product';
+import SearchPage from './Components/Search/SearchPage';
 
 function App(props) {
   const navigate = useNavigate();
@@ -42,6 +44,7 @@ function App(props) {
     <div className="App">
       <Routes>
         <Route path="/" element={<Home startImage={Home} />} />
+        <Route path="/search/:request" element={<SearchPage startImage={SearchPage} />} />
   
         <Route path="/about" element={<About startImage={About} />} />
         <Route path="/login" element={<Login
@@ -58,6 +61,8 @@ function App(props) {
         <Route path = "/admin/addproduct" element = {<AddPrduct/>}/>
 
         <Route path="/shop" element={<ListProducts/>} />
+
+        <Route path="/shop/:indexProduct" element={<Product/>} />
 
         {/* <Route path="shop" element={<Shop auth={dataApp.auth} startImage={Shop} />} />
         <Route path="blog" element={<Blog startImage={Blog} />} />*/

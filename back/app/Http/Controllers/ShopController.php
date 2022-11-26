@@ -17,8 +17,13 @@ class ShopController extends Controller
 
         //return $request;
 
-        if(isset($request['filter']['secelctPriceProduct']) && !empty($request['filter']['secelctPriceProduct'])){
-            $products = ProductResource::collection(Product::where("price", "<", $request['filter']['secelctPriceProduct'])->get());
+        if(isset($request['filter']['secelctMinPriceProduct']) 
+            && isset($request['filter']['secelctMaxPriceProduct']) 
+            && !empty($request['filter']['secelctMaxPriceProduct'])){
+             
+             $products = ProductResource::collection(Product::where([["price", "<", $request['filter']['secelctMaxPriceProduct']], 
+                                                                     ["price", ">", $request['filter']['secelctMinPriceProduct']]])->get());
+            
         }
         else{
             $products = ProductResource::collection(Product::all());

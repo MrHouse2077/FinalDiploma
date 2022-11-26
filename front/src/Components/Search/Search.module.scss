@@ -4,6 +4,7 @@
 .Search{
     position: absolute;
     right:-29%;
+    top: 35%;
     button{
         background-color: transparent;
         font-size: 1.125rem;
@@ -36,7 +37,7 @@
     color: #fff;
 
 
-    button{
+    button, a{
         background-color: transparent;
         color: #fff;
         top: 50px;
@@ -79,7 +80,7 @@
                 font-size: 35px;
                 color: rgba(255, 255, 255, 0.938);
             }
-            button {
+            button, a {
                 position: absolute;
                 right: 0;
                 margin-bottom: 3px;
@@ -90,7 +91,46 @@
                 cursor: pointer;
                 top: 11px;
             }
+
         }
         
+    }
+}
+.SearchPage{
+    box-sizing: border-box;
+    >div{
+        display: flex;
+        aside{
+            width: 20%;
+            padding: 10px;
+            margin: 0;
+        }
+        .searchRez{
+            width: 80%;
+                .categorySer{
+                    margin-top: 15px;
+                    h3{
+                        background-color: rgb(243, 101, 88);
+                        padding: 5px;
+                    }
+                    .elements{
+                        display: flex;
+                        flex-wrap: wrap;
+                        .element{
+                            width: 150px;
+                            border: 1px solid #000;
+                            box-sizing: border-box;
+                            padding: 5px;
+                            margin: 5px;
+                            h3{
+                                background-color: rgb(243, 101, 88);
+                                padding: 5px;
+                                font-size: 16px;
+                            }
+
+                        }
+                    }
+                }     
+        }
     }
 }

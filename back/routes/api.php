@@ -1,4 +1,4 @@
-<?php
+ <?php
 
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\ShopController;
@@ -9,6 +9,13 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
 use App\Http\Middleware\TokenAuth;
 use App\Http\Validators\LoginValidator;
+
+
+use Illuminate\Support\Facades\Mail;
+
+use App\Mail\Feedback;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -32,17 +39,22 @@ Route::prefix('v1')->group(function () {
 
     Route::post('/login', [IndexController::class, 'indexAction']);
     Route::post('/chekToken', [IndexController::class, 'checkToken']);
+    
+    Route::post('/search', [IndexController::class, 'searchAction']);
 
     Route::post('/products', [ShopController::class, 'listProductsAction']);
     Route::post('/categories', [ShopController::class, 'categoriesAction']);
     //Route::post('/addNewcategory', [ShopController::class, 'addNewCategoryAction']);
     Route::post('/addNewcategory', [ShopController::class, 'addNewCategoryAction']);
-
-
+    Route::get('/ip', [IndexController::class, 'ipAction']);
+    Route::get('/get-users', function(){
+        return User::get();
+    });
 
     Route::get('/logout', function () {
         
     });
+    Route::post('/feedback', [IndexController::class, 'feedbackAction']);
 
     Route::middleware([TokenAuth::class])->post('/lk', function () {
         return "скрытая зона";
