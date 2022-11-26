@@ -13,6 +13,8 @@ import Login from './Components/Pages/Login/Login';
 import Dashboard from './Components/Admin/Pages/Dashboard/Dashboard';
 import ListProducts from './Components/Pages/Shop/Pages/ListProducts/ListProducts';
 import Search from './Components/Search/Search';
+import AddCategory from './Components/Admin/Pages/Dashboard/AddCategory';
+import AddPrduct from './Components/Admin/Pages/AddProduct/AddProduct';
 
 function App(props) {
   const navigate = useNavigate();
@@ -52,6 +54,8 @@ function App(props) {
           auth={dataApp.auth}
           setAuthData={setAuthData}
         />} />
+        <Route path = "/admin/addcategory" element = {<AddCategory/>}/>
+        <Route path = "/admin/addproduct" element = {<AddPrduct/>}/>
 
         <Route path="/shop" element={<ListProducts/>} />
 

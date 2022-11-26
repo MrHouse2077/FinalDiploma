@@ -8,19 +8,78 @@ import classNames from 'classnames';
 import Styles from "./AddCategory.module.scss";
 import Loader from "../../../Loader/Loader";
 
+import Dashboard from "./Dashboard";
+
 
 
 function AddCategory(){
     let [category, setNewCategory] = useState({
-        name: "",
-        id: "",
-        description: "",
+        category:{
+            name: "",
+            description:"",
+        }
+        
     });
+
 
     let [categories, setCategories] = useState({
         categories:[],
         loader: true,
     })
+
+
+
+    function onChangeField(fieldElement, value){
+        
+        switch(fieldElement){
+            case 'name':
+            case 'description': 
+                addNewCategory(fieldElement, value);
+                break;
+            default:
+                break;
+        }
+       
+        
+    }
+
+    // function validationField(fieldElement, value){
+    //     let copy = Object.assign([], category);
+    //     copy[fieldElement].value = value;
+    //     copy[fieldElement].touched = true;
+    //     for(let rule of copy[fieldElement].valid = category[fieldElement].rules){
+    //         if(!rule.f(value).status){
+    //             copy[fieldElement].valid = false;
+    //             copy[fieldElement].msgFaild = rule.f(value).msg;
+    //             break;
+    //         }
+    //         copy[fieldElement].valid = rule.f(value).status;
+    //         copy[fieldElement].msgFaild = "";
+    //     }
+        
+    //     setNewCategory(copy);
+    // }
+    function addNewCategory(fieldElement, value){
+        let copy = Object.assign([], category);
+        copy.category[fieldElement] = value;
+        setNewCategory(copy);
+    }
+    function sendNewCategory(category){
+        
+        console.log(category);
+        Requests({
+            method: 'post', 
+            url: '/addNewcategory',
+            data: category,
+            callback:renderCategories 
+        });
+    }
+
+    
+   
+
+
+
 
     let [bgcFonApp, setbgcFonApp] = useState(
         {
@@ -40,7 +99,7 @@ function AddCategory(){
 
     useEffect(()=>{
         Requests({
-                    method: 'get', 
+                    method: 'post', 
                     url: '/categories',
                     callback:renderCategories,
                 });
@@ -56,30 +115,34 @@ function AddCategory(){
             setCategories(copy);
         }
     }
+  
+    // function addNewCategory(category){
+    //     let copy = Object.assign([], category);
+    //     copy.category.name = category.name;
+    //     setCategories(copy);
+    //     console.log(copy);
 
-    function addNewCategory(category){
-        let copy = Object.assign([], category);
-        copy.category.name = category.name;
-        setCategories(copy);
-
-        Requests({
-            method: 'post',
-            url: '/addNewCategory',
-            data: category,
-            callback:addNewCategory,
-        })
+    //     Requests({
+    //         method: 'post',
+    //         url: '/addNewCategory',
+    //         data: copy,
+    //         callback:addNewCategory,
+    //     })
 
 
 
-    }
+    // }
+    
 
 
 
     
 
     return (
+        
 
         <div>
+            <Dashboard></Dashboard>
             {(categories.loader)? <Loader/>: ''}
             <div>
 
@@ -138,11 +201,11 @@ function AddCategory(){
                                         <div class="col-12 col-lg-4 d-flex">
                                             <div class="card border shadow-none w-100">
                                                 <div class="card-body">
-                                                    <form class="row g-3" method="POST" action="/admin/add-category">
+                                                    
                                                         <input type="hidden" name="id"/>                    
                                                         <div class="col-12">
                                                             <label class="form-label">Название</label>
-                                                            <input type="text" class="form-control" name="name" placeholder="Category name" />
+                                                            <input type="text" class="form-control" name="name" placeholder="Category name" onChange= {(evt)=>{onChangeField('name', evt.target.value)}}/>
                                                         </div>
                                                 
                                                         <div class="col-12">
@@ -157,16 +220,20 @@ function AddCategory(){
 
                                                         <div class="col-12">
                                                             <label class="form-label">Описание</label>
-                                                            <textarea class="form-control" rows="3" cols="3" placeholder="Product Description" name="description"></textarea>
+                                                            <textarea class="form-control" rows="3" cols="3" placeholder="Product Description" name="description" onChange= {(evt)=>{onChangeField('description', evt.target.value)}}/>
                                                         </div>
                                                         <div class="col-12">
                                                             <div class="d-grid">
-                                                                <button className = {classNames("btn", "btn-primary")} onClick={()=>{
-                                                                    addNewCategory(category)
-                                                                }}>Add Category</button>
+                                                                {
+                                                                    <button className = {classNames("btn", "btn-primary")} onClick = {
+                                                                        ()=>{
+                                                                            sendNewCategory(category);}
+                                                                        }>Add Category
+                                                                    </button>
+                                                                }
                                                             </div>
                                                         </div>
-                                                    </form>
+                                                    
                                                 </div>
                                             </div>
                                         </div>

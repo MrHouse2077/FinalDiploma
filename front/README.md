@@ -100,6 +100,7 @@ https://fontawesome.com/v6/icons?q=arrow&o=r&m=free&f=classi
 ###                        примеры
 ### <FontAwesomeIcon icon={brands('twitter')} />
 ### <FontAwesomeIcon icon={solid('home')} />
+<FontAwesomeIcon icon={regular('bell')} />
 Вставлять в файлы, где будут использоваться иконки
 import { FontAwesomeIcon } from '@fortawesomereact-fontawesome'
 import { solid, regular, brands, icon } from '@fortawesome/fontawesome-svg-core/import.macro'

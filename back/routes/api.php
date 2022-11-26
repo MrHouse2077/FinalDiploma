@@ -34,8 +34,9 @@ Route::prefix('v1')->group(function () {
     Route::post('/chekToken', [IndexController::class, 'checkToken']);
 
     Route::post('/products', [ShopController::class, 'listProductsAction']);
-    Route::get('/categories', [ShopController::class, 'categoriesAction']);
-    Route::post('/addNewcategory', [ShopController::class, 'addNewCategoryction']);
+    Route::post('/categories', [ShopController::class, 'categoriesAction']);
+    //Route::post('/addNewcategory', [ShopController::class, 'addNewCategoryAction']);
+    Route::post('/addNewcategory', [ShopController::class, 'addNewCategoryAction']);
 
 
 

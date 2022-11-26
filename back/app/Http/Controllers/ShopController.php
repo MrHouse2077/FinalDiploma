@@ -39,7 +39,8 @@ class ShopController extends Controller
         
     }
 
-    public function addNewCategoryction(Request $request){
+    public function addNewCategoryAction(Request $request){
+        dd($request);
 
         $validated = Validator::make($request->all(),[
             'name' => 'required|min:2|max:200',
@@ -59,8 +60,8 @@ class ShopController extends Controller
 
         $category = new Category;
 
-        $category->name = $request->name;
-        $category->description = $request->description;
+        $category->name = $request->fieldName;
+        $category->description = $request->fieldDescription;
     
         $category->save();
 
