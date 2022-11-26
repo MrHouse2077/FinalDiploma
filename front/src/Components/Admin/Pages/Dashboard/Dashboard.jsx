@@ -117,6 +117,12 @@ function Dashboard(props){
                 </div>
             </div>
             
+          
+                <Graph/>
+                <UsersMap/>
+
+                
+            
         </div>
     );
 }
