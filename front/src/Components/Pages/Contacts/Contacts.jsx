@@ -118,35 +118,8 @@ function Contacts() {
         <div>
       
             <DefaultLayout 
-                filterShow={false} 
-                filterParams={{}} 
-                chengeStatusFilter={0}
-                onFilterResult={0}
+                title="Contacts"
             >
-            
-                <div className = {Styles.BlockTitle}>
-                    <h3>Contact us</h3>
-                    <ul>
-                        <li>
-                            <NavLink to="/home"
-                                    className={Styles.nav_link}
-                                    style={({ isActive }) =>
-                                    isActive ? Styles.active : undefined
-                                    }
-                                >
-                                <span>
-                                    Home 
-                                </span>
-
-                            </NavLink>
-                        </li>
-                        <li>
-                            <span>
-                                Contact 
-                            </span>
-                        </li>
-                    </ul>
-                </div>
                     
                     
             </DefaultLayout>

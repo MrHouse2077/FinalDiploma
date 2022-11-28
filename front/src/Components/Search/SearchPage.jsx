@@ -1,7 +1,10 @@
 import React, {useState, useEffect, useCallback} from 'react';
 import { useParams } from 'react-router-dom';
 import DefaultLayout from '../Layouts/DefaultLayout/DefaultLayout';
+import Loader from '../Loader/Loader';
+import Product from '../Pages/Shop/Pages/Product/Product';
 import Requests from '../Requests';
+import Element from './Element';
 import Styles from "./Search.module.scss";
 
 function SearchPage(props){
@@ -29,36 +32,40 @@ function SearchPage(props){
     }, []);
     return (
         <div>
-        <div className={Styles.SearchPage}>
-            <div className='wrap'>
-                <aside>
-                    <div>aside</div>
-                </aside>
-                <div className={Styles.searchRez}>
-                        {(dataRezSearch.loader)? "Loading....": ""}
-                        {
-                                    (!dataRezSearch.loader)?
-                                            (dataRezSearch.rezSearch === null)?
-                                            "Not found for "+params.request 
-                                            : dataRezSearch.rezSearch.map((arrElement, index)=>
-                                                <div className={Styles.categorySer} key={index}>
-                                                    <h3>{arrElement[0]}</h3>
-                                                    <div className={Styles.elements}>
-                                                    {arrElement[1].map((element)=>
-                                                    <div key={element.id} className={Styles.element}>
-                                                        <h3>{element.name}</h3>
-                                                        <p>{(element.price != undefined && element.price != null)? element.price+" руб." : ""}</p>
-                                                    </div>
-                                                        
-                                                    )}
-                                                    </div>
-                                                </div>
-                                        )
-                                    : "rjytw"
-                                }
+            <DefaultLayout title="Search">
+                <div className={Styles.SearchPage}>
+                    <div className='wrap'>
+                        <aside>
+                            <div>aside</div>
+                        </aside>
+                        <div className={Styles.searchRez}>
+                                {(dataRezSearch.loader)? <Loader className={Styles.Loader} /> : ""}
+                                {
+                                            (!dataRezSearch.loader)?
+                                                    (dataRezSearch.rezSearch.length == 0)?
+                                                    "Not found for "+params.request 
+                                                    : dataRezSearch.rezSearch.map((arrElement, index)=>
+                                                        <div className={Styles.categorySer} key={index}>
+                                                            <h3>{arrElement[0]}</h3>
+                                                            <div className={Styles.elements}>
+                                                            { arrElement[1].map((element)=>
+                                                                (arrElement[0]=="products")?
+                                                                <div key={element.id} className={Styles.element}>
+                                                                    <Product to={'/shop/'+element.id} product={element}/>
+                                                                </div>
+                                                                : <div key={element.id} className={Styles.element}>
+                                                                    <Element to={'/blog/'+element.id} product={element} />
+                                                                  </div>  
+                                                            )}
+                                                            </div>
+                                                        </div>
+                                                )
+                                            : ""
+                                        }
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
+            </DefaultLayout>
         </div>
     );
 }
