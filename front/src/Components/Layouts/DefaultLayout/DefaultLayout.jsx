@@ -10,7 +10,7 @@ import Filter from '../../UI/Filter/Filter';
 import classNames from 'classnames';
 
 function DefaultLayout(props) {
-    
+    let titlePage = props.title;
     return (
         <div className={Styles.DefaultLayout}>
             <header>
@@ -42,7 +42,7 @@ function DefaultLayout(props) {
                         </div>
                         </div>
                         <div className = {Styles.BlockTitle}>
-                            <h3>about us</h3>
+                            <h3>{titlePage}</h3>
                             <ul>
                                 <li>
                                     <NavLink to="/home"
@@ -59,7 +59,7 @@ function DefaultLayout(props) {
                                 </li>
                                 <li>
                                     <span>
-                                        About 
+                                        {titlePage}
                                     </span>
                                 </li>
                             </ul>

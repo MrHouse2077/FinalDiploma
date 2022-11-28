@@ -12,9 +12,10 @@ import Footer from "../../Layouts/Footer/Footer";
 
 
 function About() {
+    let titlePage = "About us"
     return (
         <div>
-            <DefaultLayout>
+            <DefaultLayout title={titlePage}>
                 
                 
             </DefaultLayout>

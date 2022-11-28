@@ -106,7 +106,7 @@ function ListProducts(){
 
     return (
         <div>
-            <DefaultLayout>
+            <DefaultLayout title="Shop">
                 <div className={Styles.wrapper+" wrap"}>
                     <aside>
                         {
