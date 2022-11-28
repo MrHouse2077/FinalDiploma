@@ -5,7 +5,7 @@ import Styles from "./SliderText.module.scss";
 function SliderText(){
   
     return(
-
+    <div className='wrap'>
           <div className={Styles.textWrap}>
           <span className={Styles.title}>Fitness Area</span>
           <h2 className={Styles.subTitle}>Fitness Made</h2>
@@ -26,7 +26,7 @@ function SliderText(){
             </NavLink>
           </div>
           </div>
-      
+    </div>  
     )
 }
 

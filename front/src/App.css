@@ -17,12 +17,13 @@ header{
     z-index: 0;
 }
 .logo_info{
+  margin: 15px 20px 15px 10px;
+  padding-right: 20px;
   display: flex;
   color: #fff;
   height: 70px;
   width: 100%;
   justify-content: space-between;
-  margin-bottom: 20px;
 }
 .header_content{
   top: 0;
@@ -41,7 +42,8 @@ section.content{
   position: relative;
 }
 .wrap{
-  width: 80%;
+  max-width: 1650px;
+  width: 99%;
   margin: 0 auto;
 }
 .header_wrap_content{

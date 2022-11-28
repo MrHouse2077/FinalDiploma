@@ -1,7 +1,7 @@
 
 import './App.css';
 
-import { Route, Routes, useNavigate } from 'react-router-dom';
+import { Route, Routes, useNavigate, Navigate  } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import StateApp from './State';
@@ -13,6 +13,8 @@ import Login from './Components/Pages/Login/Login';
 import Dashboard from './Components/Admin/Pages/Dashboard/Dashboard';
 import ListProducts from './Components/Pages/Shop/Pages/ListProducts/ListProducts';
 import Search from './Components/Search/Search';
+import Product from './Components/Pages/Shop/Pages/Product/Product';
+import SearchPage from './Components/Search/SearchPage';
 
 function App(props) {
   const navigate = useNavigate();
@@ -39,7 +41,9 @@ function App(props) {
   return (
     <div className="App">
       <Routes>
-        <Route path="/" element={<Home startImage={Home} />} />
+        <Route path='/' element={ <Navigate to="/home" /> }/>
+        <Route path="/home" element={<Home startImage={SearchPage}/>} />
+        <Route path="/search/:request" element={<SearchPage startImage={SearchPage} />} />
   
         <Route path="/about" element={<About startImage={About} />} />
         <Route path="/login" element={<Login
@@ -54,6 +58,8 @@ function App(props) {
         />} />
 
         <Route path="/shop" element={<ListProducts/>} />
+
+        <Route path="/shop/:indexProduct" element={<Product/>} />
 
         {/* <Route path="shop" element={<Shop auth={dataApp.auth} startImage={Shop} />} />
         <Route path="blog" element={<Blog startImage={Blog} />} />*/
