@@ -2,6 +2,7 @@ import Styles from "./MainNav.module.scss";
 import { NavLink } from 'react-router-dom';
 
 import Search from "../Search/Search";
+import CartIcon from "../Pages/Cart/CartIcon";
 
 
 function MainNav(){
@@ -76,10 +77,9 @@ function MainNav(){
                                 )}
                             </NavLink>
                         </li>
-                        <li>
+                        <li className={Styles.profil_search_cart}>
                             <Search />
-                        </li>
-                        <li>
+                            <CartIcon />
                             <Search />
                         </li>
 

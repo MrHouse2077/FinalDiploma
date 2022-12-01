@@ -11,14 +11,14 @@
     display: flex;
     flex-wrap: wrap;
     background-color: #ffffff38;
-    font-size: 1.125rem;
+    font-size: 1.5rem;
     text-transform: uppercase;
     font-family: 'Teko', sans-serif;
     font-weight: 500;
     color: #fff;
 }
 .MainNav nav{
-    width: 100%;
+    width: 70%;
     margin-left: 10px;
 }
 .MainNav ul{
@@ -27,7 +27,7 @@
    align-items: center;
    justify-content: space-between;
    margin: 0;
-   padding: 1.65em 0 1.65em 40px ;
+   padding: 1.45em 0 1.45em 40px ;
    list-style: none;
    width: 70%;
    position: relative;
@@ -79,7 +79,14 @@
 .MainNav ul ul .nav_link:hover{
     color: #f00;
 }
-
+.profil_search_cart{
+    position: absolute;
+    right:-100%;
+    top: 35%;
+    width: 200px;
+    display: flex !important;
+    justify-content: space-around;
+}
 
 
 

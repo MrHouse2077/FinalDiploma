@@ -8,7 +8,7 @@ let StateApp =  {
         },
     cart:
         {
-            countItem: null
+            countItem: 0,
         }
 }
 
