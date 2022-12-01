@@ -43,6 +43,7 @@ function App(props) {
       <Routes>
         <Route path='/' element={ <Navigate to="/home" /> }/>
         <Route path="/home" element={<Home startImage={SearchPage}/>} />
+        <Route path="/cart" element={<Home startImage={SearchPage}/>} />
         <Route path="/search/:request" element={<SearchPage startImage={SearchPage} />} />
   
         <Route path="/about" element={<About startImage={About} />} />

@@ -126,8 +126,8 @@ function Footer(props){
 
                                 <ul className={Styles.FooterInfo}>
                                     <li className = {classNames("d-flex align-items-start pt-5 mb-20")}>
-                                        <div ClassName = {Styles.FooterInfoIcon}>
-                                            <i classNmae="fas fa-map-marker-alt"></i>
+                                        <div className = {Styles.FooterInfoIcon}>
+                                            <i className="fas fa-map-marker-alt"></i>
                                         </div>
 
                                         <div className={Styles.FooterInfoText}>
@@ -136,8 +136,8 @@ function Footer(props){
                                     </li>
 
                                     <li className = {classNames("d-flex align-items-start pt-5 mb-20")}>
-                                        <div ClassName = {Styles.FooterInfoIcon}>
-                                            <i classNmae="fas fa-map-marker-alt"></i>
+                                        <div className = {Styles.FooterInfoIcon}>
+                                            <i className="fas fa-map-marker-alt"></i>
                                         </div>
 
                                         <div className={Styles.FooterInfoText}>
@@ -147,8 +147,8 @@ function Footer(props){
                                     </li>
 
                                     <li className = {classNames("d-flex align-items-start pt-5 mb-20")}>
-                                        <div ClassName = {Styles.FooterInfoIcon}>
-                                            <i classNmae="fas fa-map-marker-alt"></i>
+                                        <div className = {Styles.FooterInfoIcon}>
+                                            <i className="fas fa-map-marker-alt"></i>
                                         </div>
 
                                         <div className={Styles.FooterInfoText}>
@@ -175,7 +175,7 @@ function Footer(props){
 
                                     <ul>
                                         <li>
-                                            <div ClassName = {classNames(Styles.FooterBlogSm,"d-flex align-items-center")}>
+                                            <div className = {classNames(Styles.FooterBlogSm,"d-flex align-items-center")}>
                                                 <div className={Styles.FooterBlogSmThumb}>
                                                     <NavLink to="#">
                                                         <img/>
@@ -202,7 +202,7 @@ function Footer(props){
 
 
                                         <li>
-                                            <div ClassName = {classNames(Styles.FooterBlogSm,"d-flex align-items-center")}>
+                                            <div className = {classNames(Styles.FooterBlogSm,"d-flex align-items-center")}>
                                                 <div className={Styles.FooterBlogSmThumb}>
                                                     <NavLink to="#">
                                                         <img/>

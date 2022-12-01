@@ -5,6 +5,10 @@ let StateApp =  {
             login: null,
             email: null,
             token: null 
+        },
+    cart:
+        {
+            countItem: null
         }
 }
 

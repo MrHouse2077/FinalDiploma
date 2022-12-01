@@ -129,7 +129,7 @@ function Contacts() {
                     <div className = {Styles.MapArea}>
                         
                         <div className={Styles.ContactMap}>
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d99370.14184006557!2d-77.0846156762382!3d38.89386718919168!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b7b7bcdecbb1df%3A0x715969d86d0b76bf!2sThe%20White%20House!5e0!3m2!1sen!2sbd!4v1640853420661!5m2!1sen!2sbd" allowfullscreen="" loading="lazy"></iframe>
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d99370.14184006557!2d-77.0846156762382!3d38.89386718919168!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b7b7bcdecbb1df%3A0x715969d86d0b76bf!2sThe%20White%20House!5e0!3m2!1sen!2sbd!4v1640853420661!5m2!1sen!2sbd" allowFullScreen="" loading="lazy"></iframe>
                         </div>
                     </div>
 
@@ -140,7 +140,7 @@ function Contacts() {
                                     <div className={classNames(Styles.ContactInfo, "mb-40")}>
                                         <div className={Styles.svInner}>
                                             <div className={Styles.servicesIcon}>
-                                                <i class="fas fa-map-marker-alt"></i>
+                                                <i className="fas fa-map-marker-alt"></i>
                                             </div>
                                         </div>
                                         <div className={Styles.ContactInfoText}>
@@ -160,7 +160,7 @@ function Contacts() {
                                     <div className={classNames(Styles.ContactInfo, "mb-40")}>
                                         <div className={Styles.svInner}>
                                             <div className={Styles.servicesIcon}>
-                                                <i class="fas fa-map-marker-alt"></i>
+                                                <i className="fas fa-map-marker-alt"></i>
                                             </div>
                                         </div>
                                         <div className={Styles.ContactInfoText}>
@@ -180,7 +180,7 @@ function Contacts() {
                                     <div className={classNames(Styles.ContactInfo, "mb-40")}>
                                         <div className={Styles.svInner}>
                                             <div className={Styles.servicesIcon}>
-                                                <i class="fas fa-map-marker-alt"></i>
+                                                <i className="fas fa-map-marker-alt"></i>
                                             </div>
                                         </div>
                                         <div className={Styles.ContactInfoText}>
