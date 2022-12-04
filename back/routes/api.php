@@ -60,5 +60,8 @@ Route::prefix('v1')->group(function () {
         return "скрытая зона";
     });
 
+    Route::post('/addCharacteristics', [AdminController::class, 'addCharacteristicsAction']);
+    Route::post('/addProduct', [AdminController::class, 'addProductAction']);
+
 });
 

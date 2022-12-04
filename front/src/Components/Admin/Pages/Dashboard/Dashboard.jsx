@@ -92,7 +92,7 @@ function Dashboard(props){
                                 </NavLink>
                             </div>
                             <div className={Styles.NavItem}>
-                                <NavLink to = "/admin/addproduct">
+                                <NavLink to = "/admin/add-product">
                                     <span>Добавление товаров</span>
                                 </NavLink>
                             </div>

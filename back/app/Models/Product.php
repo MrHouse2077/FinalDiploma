@@ -14,4 +14,9 @@ class Product extends Model
     {
         return $this->belongsTo(Category::class);
     }
+
+    public function characteristics()
+    {
+        return $this->belongsToMany(Characteristics::class, 'characteristics_and_products', 'product_id', '	characteristic_id');
+    }
 }
