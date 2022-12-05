@@ -1,8 +1,10 @@
 .login{
+    width: 190px;
     padding: 0 40px;
+    margin-right: 20px;
     //background: #ea1b29;
     color: #ffffff;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 500;
     font-family: "Teko", sans-serif;
     text-transform: uppercase;
@@ -11,9 +13,16 @@
     display: inline-block;
     height: -webkit-fill-available;
     text-align: center;
-    line-height: 80px;
+    line-height: 88px;
     text-decoration: none;
     margin-left: 10px;
+    svg{
+        margin-left: 10px;
+        width: 25px;
+        height: 20px;
+        color: #fff;
+        font-weight: bold;
+    }
 }
 .NavBar{
     display: flex;

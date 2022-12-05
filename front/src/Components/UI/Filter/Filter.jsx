@@ -14,7 +14,7 @@ function Filter(props) {
 
     return (
         <div className={Styles.Filter}>
-
+            <h3>Филтр</h3>
                 <RangedSlider 
                     filterParams={filter} 
                     changeStatus={props.chengeStatusFilter}

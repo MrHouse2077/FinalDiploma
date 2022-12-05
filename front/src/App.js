@@ -1,7 +1,7 @@
 
 import './App.css';
 
-import { Route, Routes, useNavigate } from 'react-router-dom';
+import { Route, Routes, useNavigate, Navigate  } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import StateApp from './State';
@@ -44,7 +44,8 @@ function App(props) {
   return (
     <div className="App">
       <Routes>
-        <Route path="/" element={<Home startImage={Home} />} />
+        <Route path='/' element={ <Navigate to="/home" /> }/>
+        <Route path="/home" element={<Home startImage={SearchPage}/>} />
         <Route path="/search/:request" element={<SearchPage startImage={SearchPage} />} />
   
         <Route path="/about" element={<About startImage={About} />} />
