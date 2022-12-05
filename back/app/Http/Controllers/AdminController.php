@@ -24,10 +24,33 @@ class AdminController extends Controller{
 
 
     function addCharacteristicsAction(Request $request){
-        dd($request);
+        $characteristics = new Characteristics;
+
+        $characteristics->size = $request->size;
+        $characteristics->color = $request->color;
+        $characteristics->equipment = $request->equipment;
+        
+        $characteristics->save();
+
+        return $characteristics;
     }
 
     function addProductAction(Request $request){
-        dd($request);
+        $product = new Product;
+        $product->name = $request->name;
+        $product->description = $request->description;
+        $product->main_photo = $request->main_photo;
+        $product->price = $request->price;
+        $product->old_price = $request->old_price;
+        $product->category_id = $request->selectedCategory;
+        $product->save();
+        return $product;
+
+
+
+        
+
+
+
     }
 }

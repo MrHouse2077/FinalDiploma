@@ -110,7 +110,6 @@ function AddProduct(){
             method: 'post', 
             url: '/addProduct',
             data: product,
-            callback:renderCategories 
         });
         
     }
@@ -121,19 +120,18 @@ function AddProduct(){
             method: 'post', 
             url: '/addCharacteristics',
             data: characterisctics,
-            callback:renderCategories 
         });
         
         
     }
 
-    function addCharacteristics(fieldElement, value){
-        // console.log(fieldElement, value);
-        let copy = Object.assign([], characterisctics);
-        copy.characterisctics[fieldElement] = value;
-        setCharacteristics(copy);
-        // console.log(copy);
-    }
+    // function addCharacteristics(fieldElement, value){
+    //     // console.log(fieldElement, value);
+    //     let copy = Object.assign([], characterisctics);
+    //     copy.characterisctics[fieldElement] = value;
+    //     setCharacteristics(copy);
+    //     // console.log(copy);
+    // }
 
     
     // let [checkValues, checkSet] = useState({
@@ -325,7 +323,8 @@ function AddProduct(){
                 <button className = {classNames("btn", "btn-primary")} onClick = {
                                                                         ()=>{
                                                                             sendNewProduct(product)
-                                                                            sendCharacteristics(characterisctics);}
+                                                                            // sendCharacteristics(characterisctics);}
+                                                                        }
                                                                         }>Добавить</button>
 
             </div>
