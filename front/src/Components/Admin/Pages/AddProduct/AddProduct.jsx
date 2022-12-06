@@ -15,11 +15,13 @@ import Form from 'react-bootstrap/Form';
 function AddProduct(){
     const [show, setShow] = useState(false);
     let [product, setProduct] = useState({
+        product:{
             name: '',
             description: '',
             newPrice: '',
             oldPrice: '',
             selectedCategory: '',
+        }
         
 
     })
@@ -98,7 +100,7 @@ function AddProduct(){
     function addProduct(fieldElement, value){
         // console.log(fieldElement, value);
         let copy = Object.assign([], product);
-        copy[fieldElement] = value;
+        copy.product[fieldElement] = value;
         setProduct(copy);
         
     }
