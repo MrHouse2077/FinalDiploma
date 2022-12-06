@@ -15,13 +15,12 @@ import Form from 'react-bootstrap/Form';
 function AddProduct(){
     const [show, setShow] = useState(false);
     let [product, setProduct] = useState({
-        product:{
             name: '',
             description: '',
             newPrice: '',
             oldPrice: '',
             selectedCategory: '',
-        }
+        
 
     })
 
@@ -99,7 +98,7 @@ function AddProduct(){
     function addProduct(fieldElement, value){
         // console.log(fieldElement, value);
         let copy = Object.assign([], product);
-        copy.product[fieldElement] = value;
+        copy[fieldElement] = value;
         setProduct(copy);
         
     }
@@ -254,19 +253,19 @@ function AddProduct(){
                             <Form className="row">
                                 <Form.Group className="mb-3 col-12" controlId="formBasicName">
                                     <Form.Label>Название товара</Form.Label>
-                                    <Form.Control type="text" placeholder="Название" onChange= {(evt)=>{onChangeFieldProducts('name', evt.target.value)}} />
+                                    <Form.Control type="text" placeholder="Название" onChange= {(nativeEvent)=>{onChangeFieldProducts('name', nativeEvent.target.value)}} />
                                 </Form.Group>
                                 <Form.Group className="mb-3 col-12" controlId="formColorDescription">
                                     <Form.Label>Описание товара</Form.Label>
-                                    <Form.Control type="text" placeholder="Описание" onChange= {(evt)=>{onChangeFieldProducts('description', evt.target.value)}}/>
+                                    <Form.Control type="text" placeholder="Описание" onChange= {(nativeEvent)=>{onChangeFieldProducts('description', nativeEvent.target.value)}}/>
                                 </Form.Group>
                                 <Form.Group controlId="formFileLg" className="mb-3 col-12">
                                     <Form.Label>Изображение товара</Form.Label>
                                     <Form.Control type="file" size="lg" />
                                 </Form.Group>
-                                <Form.Group className="mb-3 col-12" controlId="formColorDescription">
+                                {/* <Form.Group className="mb-3 col-12" controlId="formColorDescription">
                                     <Form.Control type="text" placeholder="Описание" disabled value = {characterisctics.priceColor + characterisctics.priceSize + characterisctics.priceEquipment}/>
-                                </Form.Group>
+                                </Form.Group> */}
                             </Form>
                           
                         </div>
@@ -283,11 +282,11 @@ function AddProduct(){
                                 <Form className="row">
                                     <Form.Group className="mb-3 col-12" controlId="formBasicNewPrice">
                                         <Form.Label>Новая цена</Form.Label>
-                                        <Form.Control type="text" placeholder="Название" onChange= {(evt)=>{onChangeFieldProducts('newPrice', evt.target.value)}} />
+                                        <Form.Control type="text" placeholder="Название" onChange= {(nativeEvent)=>{onChangeFieldProducts('newPrice', nativeEvent.target.value)}} />
                                     </Form.Group>
                                     <Form.Group className="mb-3 col-12" controlId="formColorDescription">
                                         <Form.Label>Старая цена</Form.Label>
-                                        <Form.Control type="text" placeholder="Описание" onChange= {(evt)=>{onChangeFieldProducts('oldPrice', evt.target.value)}}/>
+                                        <Form.Control type="text" placeholder="Описание" onChange= {(nativeEvent)=>{onChangeFieldProducts('oldPrice', nativeEvent.target.value)}}/>
                                     </Form.Group>
                                     
                                 </Form>
@@ -304,7 +303,7 @@ function AddProduct(){
                                 <h5 className={Styles.parametr_title}>
                                         Категория 
                                 </h5>
-                                <select class="form-select" onChange= {(evt)=>{onChangeFieldProducts('selectedCategory', evt.target.value)}}>
+                                <select class="form-select" onChange= {(nativeEvent)=>{onChangeFieldProducts('selectedCategory', nativeEvent.target.value)}}>
                                     {
                                         categories.categories.map((category)=>
                                             <option>{category.name}</option>
@@ -322,11 +321,7 @@ function AddProduct(){
                     <p>Итоговая стоимость со всеми характеристиками:</p>
 
                 </div>
-                <button className = {classNames("btn", "btn-primary")} onClick = {
-                                                                        ()=>{
-                                                                            sendNewProduct(product)
-                                                                            sendCharacteristics(characterisctics);}
-                                                                        }>Добавить</button>
+                <button className = {classNames("btn", "btn-primary")} onClick = {()=>{sendNewProduct(product)}}>Добавить</button>
 
             </div>
         </div>
