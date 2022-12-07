@@ -1,7 +1,7 @@
 import { useState } from "react";
 import InputText from "../../../UI/InputText/InputText";
 import Select from "../../../UI/Select/Select";
-import TextArea from "../../../UI/TextArea/TextArea";
+import TextArea from "../../../UI/TextArea/Textarea";
 import Dashboard from "../Dashboard/Dashboard";
 import Styles from "./AddProduct.module.scss"
 import classNames from 'classnames';
@@ -12,7 +12,7 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 
-function AddProduct(){
+function AddProduct(props){
     const [show, setShow] = useState(false);
     let [product, setProduct] = useState({
         product:{
@@ -21,6 +21,7 @@ function AddProduct(){
             newPrice: '',
             oldPrice: '',
             selectedCategory: '',
+            count: '',
         }
         
 
@@ -89,6 +90,7 @@ function AddProduct(){
             case 'description': 
             case 'newPrice':
             case 'oldPrice':
+            case 'count':
             case 'selectedCategory': 
             addProduct(fieldElement, value);
                 break;
@@ -284,11 +286,15 @@ function AddProduct(){
                                 <Form className="row">
                                     <Form.Group className="mb-3 col-12" controlId="formBasicNewPrice">
                                         <Form.Label>Новая цена</Form.Label>
-                                        <Form.Control type="text" placeholder="Название" onChange= {(nativeEvent)=>{onChangeFieldProducts('newPrice', nativeEvent.target.value)}} />
+                                        <Form.Control type="text" placeholder="руб." onChange= {(nativeEvent)=>{onChangeFieldProducts('newPrice', nativeEvent.target.value)}} />
                                     </Form.Group>
-                                    <Form.Group className="mb-3 col-12" controlId="formColorDescription">
+                                    <Form.Group className="mb-3 col-12" controlId="formOldPrice">
                                         <Form.Label>Старая цена</Form.Label>
-                                        <Form.Control type="text" placeholder="Описание" onChange= {(nativeEvent)=>{onChangeFieldProducts('oldPrice', nativeEvent.target.value)}}/>
+                                        <Form.Control type="text" placeholder="руб." onChange= {(nativeEvent)=>{onChangeFieldProducts('oldPrice', nativeEvent.target.value)}}/>
+                                    </Form.Group>
+                                    <Form.Group className="mb-3 col-12" controlId="formCount">
+                                        <Form.Label>Количество товаров</Form.Label>
+                                        <Form.Control type="text" placeholder="шт." onChange= {(nativeEvent)=>{onChangeFieldProducts('count', nativeEvent.target.value)}}/>
                                     </Form.Group>
                                     
                                 </Form>
@@ -301,13 +307,13 @@ function AddProduct(){
                         
                         <div  className={Styles.parametr_wrap_flex}>
 
-                            <div class="col-12">
+                            <div className="col-12">
                                 <h5 className={Styles.parametr_title}>
                                         Категория 
                                 </h5>
-                                <select class="form-select" onChange= {(nativeEvent)=>{onChangeFieldProducts('selectedCategory', nativeEvent.target.value)}}>
+                                <select className="form-select" onChange= {(nativeEvent)=>{onChangeFieldProducts('selectedCategory', nativeEvent.target.value)}}>
                                     {
-                                        categories.categories.map((category)=>
+                                        categories.categories.map((category, key)=>
                                             <option>{category.name}</option>
                                             // <div>
                                                 

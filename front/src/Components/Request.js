@@ -22,11 +22,11 @@ function Request(parametrsRequest){
   function getRequest(url){
     axios({
       method: 'get',
-      "url": '${APIversion}${domen}/${url}',
+      url: `${APIversion}${domen}/${url}`,
       responseType: 'json'
     })
       .then(function (response) {
-        console.log(responce.data);
+        console.log(response.data);
       })
       .catch(function (error) {
         console.log(error);
@@ -40,7 +40,7 @@ function Request(parametrsRequest){
       responseType: 'json'
     })
       .then(function (response) {
-        console.log(responce.data);
+        console.log(response.data);
       })
       .catch(function (error) {
         console.log(error);

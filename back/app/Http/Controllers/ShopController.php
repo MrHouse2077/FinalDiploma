@@ -45,7 +45,7 @@ class ShopController extends Controller
     }
 
     public function addNewCategoryAction(Request $request){
-        dd($request);
+  
 
         $validated = Validator::make($request->all(),[
             'name' => 'required|min:2|max:200',

@@ -9,7 +9,7 @@ import CsSupport from "../../../images/cs-supporot-2.jpg";
 
 import Requests from "../../Requests";
 import InputText from "../../UI/InputText/InputText";
-import Textarea from "../../UI/TextArea/TextArea";
+import Textarea from "../../UI/TextArea/Textarea";
 import Button from "../../UI/Button/Button";
 import Validator from "../../Validator";
 

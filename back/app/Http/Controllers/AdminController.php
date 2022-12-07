@@ -42,6 +42,7 @@ class AdminController extends Controller{
         $product->main_photo = $request->main_photo;
         $product->price = $request->price;
         $product->old_price = $request->old_price;
+        $product->count = $request->count;
         $product->category_id = $request->selectedCategory;
         $product->save();
         return $product;

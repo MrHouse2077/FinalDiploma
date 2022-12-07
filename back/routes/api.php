@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\ShopController;
+use App\Http\Controllers\AdminController;
+
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
