@@ -241,12 +241,6 @@ function AddProduct(props){
                         
                     </Form>
                     </Modal.Body>
-                    {/* <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose}>
-                        Close
-                    </Button>
-                    <Button variant="primary">Understood</Button>
-                    </Modal.Footer> */}
                 </Modal>
                 
                 <div className={Styles.wrap_add_field}>
@@ -267,9 +261,6 @@ function AddProduct(props){
                                     <Form.Label>Изображение товара</Form.Label>
                                     <Form.Control type="file" size="lg" />
                                 </Form.Group>
-                                {/* <Form.Group className="mb-3 col-12" controlId="formColorDescription">
-                                    <Form.Control type="text" placeholder="Описание" disabled value = {characterisctics.priceColor + characterisctics.priceSize + characterisctics.priceEquipment}/>
-                                </Form.Group> */}
                             </Form>
                           
                         </div>
@@ -315,10 +306,7 @@ function AddProduct(props){
                                     {
                                         categories.categories.map((category, key)=>
                                             <option>{category.name}</option>
-                                            // <div>
-                                                
-                                            //     <input type = "text" value = {category.id}  disabled/>
-                                            // </div>
+                                            
                                         )
                                     }
                                 </select> 
