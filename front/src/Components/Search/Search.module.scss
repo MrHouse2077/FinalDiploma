@@ -100,12 +100,12 @@
     >div{
         display: flex;
         aside{
-            width: 20%;
+            width: 0;
             padding: 10px;
             margin: 0;
         }
         .searchRez{
-            width: 80%;
+            width: 100%;
             position: relative;
                 .categorySer{
                     margin-top: 15px;

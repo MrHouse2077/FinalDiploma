@@ -35,9 +35,6 @@ function SearchPage(props){
             <DefaultLayout title="Search">
                 <div className={Styles.SearchPage}>
                     <div className='wrap'>
-                        <aside>
-                            <div>aside</div>
-                        </aside>
                         <div className={Styles.searchRez}>
                                 {(dataRezSearch.loader)? <Loader className={Styles.Loader} /> : ""}
                                 {

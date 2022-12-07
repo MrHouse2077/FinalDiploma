@@ -15,7 +15,7 @@ import ListProducts from './Components/Pages/Shop/Pages/ListProducts/ListProduct
 import Search from './Components/Search/Search';
 import Product from './Components/Pages/Shop/Pages/Product/Product';
 import SearchPage from './Components/Search/SearchPage';
-import CartPage from './Components/Pages/Cart/CartPages';
+import CartPage from './Components/Pages/Cart/CartPage';
 
 function App(props) {
   const navigate = useNavigate();
@@ -44,7 +44,7 @@ function App(props) {
       <Routes>
         <Route path='/' element={ <Navigate to="/home" /> }/>
         <Route path="/home" element={<Home startImage={SearchPage}/>} />
-        <Route path="/cart" element={<CartPage startImage={SearchPage}/>} />
+        <Route path="/cart/:data" element={<CartPage startImage={SearchPage}/>} />
         <Route path="/search/:request" element={<SearchPage startImage={SearchPage} />} />
   
         <Route path="/about" element={<About startImage={About} />} />
