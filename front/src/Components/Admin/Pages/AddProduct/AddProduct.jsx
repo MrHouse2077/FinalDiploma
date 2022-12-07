@@ -18,10 +18,10 @@ function AddProduct(props){
         product:{
             name: '',
             description: '',
-            newPrice: '',
-            oldPrice: '',
-            selectedCategory: '',
-            count: '',
+            newPrice: 1,
+            oldPrice: 1,
+            selectedCategory: 2,
+            count: 1,
         }
         
 
@@ -112,7 +112,7 @@ function AddProduct(props){
         Requests({
             method: 'post', 
             url: '/addProduct',
-            data: product,
+            data: product.product,
             callback:renderCategories 
         });
         
@@ -305,7 +305,7 @@ function AddProduct(props){
                                 <select className="form-select" onChange= {(nativeEvent)=>{onChangeFieldProducts('selectedCategory', nativeEvent.target.value)}}>
                                     {
                                         categories.categories.map((category, key)=>
-                                            <option>{category.name}</option>
+                                            <option key={key} value = {category.id}>{category.name}</option>
                                             
                                         )
                                     }
