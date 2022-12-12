@@ -30,7 +30,7 @@ function About(){
                     <div className = {Styles.AboutInfo}>
                         <span className={Styles.AboutTitle}>About us</span>
                         <h3 className={Styles.SectionTitle}>Make yourself stronger than your best excuses</h3>
-                        <span className={Styles.SectionBorder}><i class="far fa-circle"></i></span>
+                        <span className={Styles.SectionBorder}><i className="far fa-circle"></i></span>
                         <p className={Styles.SectionDescription}>Duis nunc sodales conubia a laoreet aliquet on nostra eleifend lacinia prasent hendrerit quisque penatibus erat a pulvina integer semper ridiculus lectus con dimentum obor tise verodar capmtaso morin</p>
                         <div className = {Styles.BlockQuote}>
                             <span>Push harder than yesterday if you want on the different tomorrow.</span>
@@ -87,7 +87,7 @@ function About(){
         //                     <span className={Styles.tpsubTitle}>About us</span>
         //                     <h3 className={Styles.sectionTitle}>Make yourself stronger than
         //                     your best excuses</h3>
-        //                     <span className={Styles.sectionBorder}><i class="far fa-circle"></i></span>
+        //                     <span className={Styles.sectionBorder}><i className="far fa-circle"></i></span>
         //                     <p className={Styles.sectionDescription}>Duis nunc sodales conubia a laoreet aliquet on nostra eleifend lacinia prasent hendrerit quisque penatibus erat a pulvina integer semper ridiculus lectus con dimentum obor tise verodar capmtaso morin</p>
         //                     </div>
         //                     <blockquote className={Styles.abBquote}>

@@ -1,0 +1,31 @@
+.CartIcon{
+    display: block;
+    position: relative;
+    .nav_link{
+        text-decoration: none;
+        color: #fff;
+    }
+    .nav_link:hover{
+        text-decoration: none;
+        color: #fff;
+    }
+    span {
+        background-color: #ea1b29;
+        min-width: 20px;
+        width: fit-content;
+        height: 20px;
+        box-sizing: border-box;
+        padding: 2px;
+        display: inline-block;
+        border-radius: 20px;
+        text-align: center;
+        font-size: 14px;
+        line-height: 20px;
+        color: #ffffff;
+        font-family: "Roboto", sans-serif;
+        font-weight: 400;
+        position: absolute;
+        top: -2px;
+        left: 10px;
+    }
+}
