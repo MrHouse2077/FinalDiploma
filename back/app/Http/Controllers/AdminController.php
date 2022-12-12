@@ -29,8 +29,14 @@ class AdminController extends Controller{
         $characteristics->size = $request->size;
         $characteristics->color = $request->color;
         $characteristics->equipment = $request->equipment;
+        $characteristics->color_price = $request->priceColor;
+        $characteristics->size_price = $request->priceSize;
+        $characteristics->equipment_price = $request->priceEquipment;
+
+
         
         $characteristics->save();
+        
 
         return $characteristics;
     }
@@ -45,7 +51,12 @@ class AdminController extends Controller{
         $product->count = $request->count;
         $product->category_id = $request->selectedCategory;
         $product->save();
+        $product = Product::latest()->first();
+        foreach ($product->characteristic as $characteristic) {
+            echo $characteristic->pivot->created_at;
+        }
         return $product;
+
 
 
 

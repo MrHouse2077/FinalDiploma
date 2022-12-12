@@ -1,7 +1,4 @@
 import { useState } from "react";
-import InputText from "../../../UI/InputText/InputText";
-import Select from "../../../UI/Select/Select";
-import TextArea from "../../../UI/TextArea/Textarea";
 import Dashboard from "../Dashboard/Dashboard";
 import Styles from "./AddProduct.module.scss"
 import classNames from 'classnames';
@@ -11,6 +8,7 @@ import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
+import AdminTemplate from "../AdminTemplate/AdminTemplate";
 
 function AddProduct(props){
     const [show, setShow] = useState(false);
@@ -18,10 +16,10 @@ function AddProduct(props){
         product:{
             name: '',
             description: '',
-            newPrice: 1,
-            oldPrice: 1,
-            selectedCategory: 2,
-            count: 1,
+            newPrice: '',
+            oldPrice: '',
+            selectedCategory: '',
+            count: '',
         }
         
 
@@ -92,7 +90,7 @@ function AddProduct(props){
             case 'oldPrice':
             case 'count':
             case 'selectedCategory': 
-            addProduct(fieldElement, value);
+                addProduct(fieldElement, value);
                 break;
             default:
                 break;
@@ -123,7 +121,7 @@ function AddProduct(props){
         Requests({
             method: 'post', 
             url: '/addCharacteristics',
-            data: characterisctics,
+            data: characterisctics.characterisctics,
             callback:renderCategories 
         });
         
@@ -180,7 +178,7 @@ function AddProduct(props){
     return(
         
         <div>
-            <Dashboard></Dashboard>
+            <AdminTemplate></AdminTemplate>
             <div className={Styles.AddProduct}>
 
                 <h4 className={Styles.title}>
@@ -208,7 +206,7 @@ function AddProduct(props){
                         </Form.Group>
                         <Form.Group className="mb-3 col-6" controlId="formColorPrice">
                             <Form.Label>Введите стоимость за цвет</Form.Label>
-                            <Form.Control type="text" placeholder="Доп цена" onChange= {(evt)=>{onChangeFieldCharacteristics('priceColor', evt.target.value)}}/>
+                            <Form.Control type="text" placeholder="Доп цена" onChange= {(evt)=>{onChangeFieldCharacteristics('priceColor', Number(evt.target.value))}}/>
                         </Form.Group>
 
                         <Form.Group className="mb-3 col-6" controlId="formBasicSize">
@@ -217,7 +215,7 @@ function AddProduct(props){
                         </Form.Group>
                         <Form.Group className="mb-3 col-6" controlId="formSizePrice">
                             <Form.Label>Введите стоимость за размер</Form.Label>
-                            <Form.Control type="text" placeholder="Доп цена" onChange= {(evt)=>{onChangeFieldCharacteristics('priceSize', evt.target.value)}}/>
+                            <Form.Control type="text" placeholder="Доп цена" onChange= {(evt)=>{onChangeFieldCharacteristics('priceSize', Number(evt.target.value))}}/>
                         </Form.Group>
 
                         <Form.Group className="mb-3 col-6" controlId="formBasicEquipment">
@@ -226,7 +224,7 @@ function AddProduct(props){
                         </Form.Group>
                         <Form.Group className="mb-3 col-6" controlId="formEquipmentPrice">
                             <Form.Label>Введите стоимость за комплектацию</Form.Label>
-                            <Form.Control type="text" placeholder="Доп цена" onChange= {(evt)=>{onChangeFieldCharacteristics('priceEquipment', evt.target.value)}}/>
+                            <Form.Control type="text" placeholder="Доп цена" onChange= {(evt)=>{onChangeFieldCharacteristics('priceEquipment', Number(evt.target.value))}}/>
                         </Form.Group>
 
                         <div className="row justify-content-center">
@@ -277,15 +275,15 @@ function AddProduct(props){
                                 <Form className="row">
                                     <Form.Group className="mb-3 col-12" controlId="formBasicNewPrice">
                                         <Form.Label>Новая цена</Form.Label>
-                                        <Form.Control type="text" placeholder="руб." onChange= {(nativeEvent)=>{onChangeFieldProducts('newPrice', nativeEvent.target.value)}} />
+                                        <Form.Control type="text" placeholder="руб." onChange= {(nativeEvent)=>{onChangeFieldProducts('newPrice', Number(nativeEvent.target.value))}} />
                                     </Form.Group>
                                     <Form.Group className="mb-3 col-12" controlId="formOldPrice">
                                         <Form.Label>Старая цена</Form.Label>
-                                        <Form.Control type="text" placeholder="руб." onChange= {(nativeEvent)=>{onChangeFieldProducts('oldPrice', nativeEvent.target.value)}}/>
+                                        <Form.Control type="text" placeholder="руб." onChange= {(nativeEvent)=>{onChangeFieldProducts('oldPrice', Number(nativeEvent.target.value))}}/>
                                     </Form.Group>
                                     <Form.Group className="mb-3 col-12" controlId="formCount">
                                         <Form.Label>Количество товаров</Form.Label>
-                                        <Form.Control type="text" placeholder="шт." onChange= {(nativeEvent)=>{onChangeFieldProducts('count', nativeEvent.target.value)}}/>
+                                        <Form.Control type="text" placeholder="шт." onChange= {(nativeEvent)=>{onChangeFieldProducts('count', Number(nativeEvent.target.value))}}/>
                                     </Form.Group>
                                     
                                 </Form>
@@ -317,7 +315,10 @@ function AddProduct(props){
                     <p>Итоговая стоимость со всеми характеристиками:</p>
 
                 </div>
-                <button className = {classNames("btn", "btn-primary")} onClick = {()=>{sendNewProduct(product)}}>Добавить</button>
+                <button className = {classNames("btn", "btn-primary")} onClick = {()=>{
+                                                                                        sendNewProduct(product)
+                                                                                        sendCharacteristics(characterisctics)
+                                                                                    }}>Добавить</button>
 
             </div>
         </div>

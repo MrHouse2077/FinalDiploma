@@ -8,7 +8,8 @@ import classNames from 'classnames';
 import Styles from "./AddCategory.module.scss";
 import Loader from "../../../Loader/Loader";
 
-import Dashboard from "./Dashboard";
+//import Dashboard from "./Dashboard";
+import AdminTemplate from "../AdminTemplate/AdminTemplate";
 
 
 
@@ -142,7 +143,7 @@ function AddCategory(){
         
 
         <div>
-            <Dashboard></Dashboard>
+            <AdminTemplate></AdminTemplate>
             {(categories.loader)? <Loader/>: ''}
             <div>
 
