@@ -9,7 +9,6 @@ import CsSupport from "../../../images/cs-supporot-2.jpg";
 
 import Requests from "../../Requests";
 import InputText from "../../UI/InputText/InputText";
-import Textarea from "../../UI/TextArea/TextArea";
 import Button from "../../UI/Button/Button";
 import Validator from "../../Validator";
 
@@ -308,7 +307,7 @@ function Contacts() {
                                                 />
 
                                             </div>
-                                            <div className={classNames(Styles.SupportFormField, "mb-20")}>
+                                            {/* <div className={classNames(Styles.SupportFormField, "mb-20")}>
                                                 <Textarea
                                                     placeholder="Введите сообщение" 
                                                     // onChange = {(evt)=>{
@@ -346,7 +345,7 @@ function Contacts() {
                                                     checkValues = {checkValues.fieldMsg}
 
                                                 />
-                                            </div>
+                                            </div> */}
 
                                             
                                                 <Button 

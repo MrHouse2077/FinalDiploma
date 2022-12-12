@@ -13,9 +13,6 @@ import Login from './Components/Pages/Login/Login';
 import Dashboard from './Components/Admin/Pages/Dashboard/Dashboard';
 import ListProducts from './Components/Pages/Shop/Pages/ListProducts/ListProducts';
 import Search from './Components/Search/Search';
-import AddProduct from './Components/Admin/Pages/AddProduct/AddProduct';
-import AddCategory from './Components/Admin/Pages/Dashboard/AddCategory';
-import AddPrduct from './Components/Admin/Pages/AddProduct/AddProduct';
 import Product from './Components/Pages/Shop/Pages/Product/Product';
 import SearchPage from './Components/Search/SearchPage';
 import CartPage from './Components/Pages/Cart/CartPages';
@@ -64,16 +61,7 @@ function App(props) {
 
         <Route path="/shop" element={<ListProducts/>} />
 
-        <Route path="/shop/:indexProduct" element={<Product/>}/>
-        <Route path="/admin/add-product" element={<AddProduct
-          auth={dataApp.auth}
-          setAuthData={setAuthData}
-        />} /> 
-        <Route path="/admin/addcategory" element={<AddCategory
-          auth={dataApp.auth}
-          setAuthData={setAuthData}
-        />} />
-        
+        <Route path="/shop/:indexProduct" element={<Product/>} />
 
         {/* <Route path="shop" element={<Shop auth={dataApp.auth} startImage={Shop} />} />
         <Route path="blog" element={<Blog startImage={Blog} />} />*/
