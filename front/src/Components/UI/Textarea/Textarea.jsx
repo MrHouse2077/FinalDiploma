@@ -1,5 +1,5 @@
 
-import Styles from "./Textarea.module.scss";
+import Styles from "./TextArea.module.scss";
 
 function TextArea(props) {
     
