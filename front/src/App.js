@@ -16,6 +16,8 @@ import Search from './Components/Search/Search';
 import Product from './Components/Pages/Shop/Pages/Product/Product';
 import SearchPage from './Components/Search/SearchPage';
 import CartPage from './Components/Pages/Cart/CartPages';
+import AddProduct from './Components/Admin/Pages/AddProduct/AddProduct';
+import AddCategory from './Components/Admin/Pages/Dashboard/AddCategory';
 
 function App(props) {
   const navigate = useNavigate();
@@ -55,6 +57,14 @@ function App(props) {
         />} />
         <Route path="/admin/dashboard" element={<Dashboard
           startImage={Login}
+          auth={dataApp.auth}
+          setAuthData={setAuthData}
+        />} />
+        <Route path="/admin/add-product" element={<AddProduct
+          auth={dataApp.auth}
+          setAuthData={setAuthData}
+        />} /> 
+        <Route path="/admin/addcategory" element={<AddCategory
           auth={dataApp.auth}
           setAuthData={setAuthData}
         />} />

@@ -18,10 +18,16 @@ import Logo from "../../../../images/brand-white.svg"
 import Graph from "../Graph/Graph";
 
 import UsersMap from "./UsersMap";
+import AdminTemplate from "../AdminTemplate/AdminTemplate";
 
 
 function Dashboard(props){
-   
+   return(
+    <div>
+        <AdminTemplate></AdminTemplate>
+    </div>
+    
+   )
 }
 
 export default Dashboard;
