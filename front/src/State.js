@@ -6,6 +6,11 @@ let StateApp =  {
             email: null,
             token: null 
         },
+    cart:
+        {
+            products: [],
+            counItem: 0,
+        }
 }
 
 

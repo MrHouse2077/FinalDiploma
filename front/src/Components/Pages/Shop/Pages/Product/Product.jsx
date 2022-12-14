@@ -8,9 +8,11 @@ import ProductImage from "../../../../images/product/product-5.jpg"
 function Product(props){
 
     let product = props.product;
+    let addProductToCart = props.addProductToCart
 
     function sendProductToCard(){
-
+        console.log(product.id);
+        addProductToCart(product.id);
     }
 
     return (
@@ -29,7 +31,7 @@ function Product(props){
             }
             <div className={Styles.wrap_bottom}>
                 <div className={Styles.product_info}>
-                    <NavLink className={Styles.product_link}>
+                    <NavLink to={'/shop/'+ product.id} className={Styles.product_link}>
                         <h5 className={Styles.product_name}>{product.name}</h5>
                     </NavLink>
                     <h6 className={Styles.price}>{product.price} руб</h6>
@@ -40,7 +42,7 @@ function Product(props){
                     onClick={sendProductToCard}
                     data-id = {product.id}    
                 >
-                    <span>Buy Now </span>
+                    <span>Add to cart</span>
                     <FontAwesomeIcon className={Styles.btnArrows} icon={solid('angles-right')} />
                 </div>
             </div>

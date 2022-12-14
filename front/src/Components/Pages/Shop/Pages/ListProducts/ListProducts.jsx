@@ -9,7 +9,7 @@ import Product from "../Product/Product";
 import Styles from './ListProducts.module.scss';
 import Sorting from "../../../../Sorting/Sorting";
 import Filter from "../../../../UI/Filter/Filter";
-function ListProducts(){
+function ListProducts(props){
 
     let [products, setProducts] = useState({
         products: [],
@@ -133,7 +133,7 @@ function ListProducts(){
                                         
                                         products.products.map((product)=>
                                             <div key={product.id} className={Styles.product}>
-                                                <Product to={'/shop/'+product.id} product={product}/>
+                                                <Product product={product} addProductToCart={props.addProductToCart}/>
                                             </div>
                                         )
                                     }
