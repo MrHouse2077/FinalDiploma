@@ -1,11 +1,13 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import DefaultLayout from "../../Layouts/DefaultLayout/DefaultLayout";
 import Styles from "./Cart.module.scss";
 function CartPage(props){
     let [dataCart, setCart] = useState({
-        products: []
+        products: [],
     });
+    useEffect(() => {
+    }, []);
     return (
         <div>
             <DefaultLayout title="Cart">
