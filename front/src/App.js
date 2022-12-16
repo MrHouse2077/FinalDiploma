@@ -50,7 +50,9 @@ function App(props) {
         <Route path="/search/:request" element={<SearchPage startImage={SearchPage} />} />
   
         <Route path="/about" element={<About startImage={About} />} />
-        <Route path="/login" element={<Login
+        <Route path='/admin' element={ <Navigate to="/admin/login" /> }/>
+
+        <Route path="/admin/login" element={<Login
           startImage={Login}
           auth={dataApp.auth}
           setAuthData={setAuthData}
