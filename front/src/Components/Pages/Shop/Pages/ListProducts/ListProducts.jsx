@@ -34,7 +34,6 @@ function ListProducts(props){
     function onFilterResult(){
 
         let copy = Object.assign([], products);
-        console.log(copy.sortBy);
         copy.loader = true;
         setProducts(copy);
 
@@ -57,12 +56,9 @@ function ListProducts(props){
 
     function renderProducts(serverRequest){
         if(serverRequest.code == 200){
-
-            
             let copy = Object.assign([], products);
             copy.products = serverRequest.data
             copy.loader = false;
-            // copy.products = 
             SortProducts(copy);
             setProducts(copy);
             

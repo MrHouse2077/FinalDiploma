@@ -41,13 +41,11 @@ function App(props) {
         copy.cart.counItem = Number(localStorage.getItem("CartCount"));
         copy.cart.products = JSON.parse(localStorage.getItem("CartProducts"));
         setAuth(copy);
-        console.log(dataApp);
     }
     //function for added product in AppState Cart
     function addProductToCart(product){
         let copy = Object.assign([], dataApp);
         if(findInArr(product, copy.cart.products).status === true){
-            console.log(findInArr(product, copy.cart.products));
             copy.cart.products[findInArr(product, copy.cart.products).index].count++;
         }
         if(findInArr(product, copy.cart.products).status === false){

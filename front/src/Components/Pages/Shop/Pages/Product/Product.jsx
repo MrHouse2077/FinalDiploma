@@ -11,7 +11,6 @@ function Product(props){
     let addProductToCart = props.addProductToCart
 
     function sendProductToCard(){
-        console.log(product.id);
         addProductToCart(product.id);
     }
 
