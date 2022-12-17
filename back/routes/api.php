@@ -43,7 +43,7 @@ Route::prefix('v1')->group(function () {
     Route::post('/chekToken', [IndexController::class, 'checkToken']);
     
     Route::post('/search', [IndexController::class, 'searchAction']);
-
+    Route::post('/cart', [ShopController::class, 'showCartAction']);
     Route::post('/products', [ShopController::class, 'listProductsAction']);
     Route::post('/categories', [ShopController::class, 'categoriesAction']);
     //Route::post('/addNewcategory', [ShopController::class, 'addNewCategoryAction']);

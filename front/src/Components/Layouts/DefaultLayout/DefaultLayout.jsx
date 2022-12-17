@@ -6,6 +6,7 @@ import { NavLink } from 'react-router-dom';
 import MainNav from '../../MainNav/MainNav';
 import SiteInfo from '../../SiteInfo/SiteInfo';
 import classNames from 'classnames';
+import Footer from '../Footer/Footer';
 
 function DefaultLayout(props) {
     let titlePage = props.title;
@@ -73,9 +74,7 @@ function DefaultLayout(props) {
                 {props.children}
             </main>
 
-            {/* <footer>
-                подвал
-            </footer> */}
+            <Footer/>
         </div>
     );
 

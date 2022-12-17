@@ -35,12 +35,20 @@ function App(props) {
 
         navigate('/admin/dashboard');
     }
-    //function for update dataApp 
+    //function for check localstorage and update dataApp 
     function updateStateItemCart(){
-        let copy = Object.assign([], dataApp);
-        copy.cart.counItem = Number(localStorage.getItem("CartCount"));
-        copy.cart.products = JSON.parse(localStorage.getItem("CartProducts"));
-        setAuth(copy);
+        if(localStorage.getItem("CartCount") !== undefined && 
+                localStorage.getItem("CartProducts") !== undefined && 
+                Number(localStorage.getItem("CartCount")) >= 0 && 
+                Array.isArray(JSON.parse(localStorage.getItem("CartProducts")))){
+            let copy = Object.assign([], dataApp);
+            copy.cart.counItem = Number(localStorage.getItem("CartCount"));
+            copy.cart.products = JSON.parse(localStorage.getItem("CartProducts"));
+            setAuth(copy);
+        }
+        else{
+            sessionCartSetUpdate();
+        }    
     }
     //function for added product in AppState Cart
     function addProductToCart(product){
@@ -90,6 +98,7 @@ function App(props) {
                 <Route path="/cart" element={<CartPage 
                                                 startImage={SearchPage} 
                                                 dataApp={dataApp}
+                                                addProductToCart={addProductToCart}
                                             />
                                             } />
                 <Route path="/search/:request" element={<SearchPage startImage={SearchPage} />} />

@@ -16,7 +16,12 @@ let StateApp =  {
         {
             products: [],
             counItem: 0,
-        }
+        },
+    wishList: 
+        {
+            products: [],
+            counItem: 0,
+        },
 }
 
 

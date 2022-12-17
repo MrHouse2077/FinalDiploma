@@ -97,8 +97,8 @@ function ListProducts(props){
 
  
     
-    // let quantity = 7;
-    // let activePage = 1;
+    let quantity = 7;
+    let activePage = 1;
 
     return (
         <div>
@@ -128,9 +128,10 @@ function ListProducts(props){
                                     {   
                                         
                                         products.products.map((product)=>
-                                            <div key={product.id} className={Styles.product}>
-                                                <Product product={product} addProductToCart={props.addProductToCart}/>
-                                            </div>
+                                            (product.count > 0)?
+                                                <div key={product.id} className={Styles.product}>
+                                                    <Product product={product} addProductToCart={props.addProductToCart}/> 
+                                                </div> : ""
                                         )
                                     }
                                 </div>
@@ -142,11 +143,11 @@ function ListProducts(props){
                 {/* <div className={Styles.product}>
                     <Product /> 
                 </div> */}
-                
-                {/* <Pagination quantity={quantity} activePage={activePage}/> */}
+            </div>
+            <div>
+                <Pagination quantity={quantity} activePage={activePage}/>
             </div>
             </DefaultLayout>
-
             
         </div>
         /*

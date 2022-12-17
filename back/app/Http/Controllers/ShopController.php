@@ -73,4 +73,22 @@ class ShopController extends Controller
         return $category;
         //redirect()->route('admin_categories')->with('success', 'Ок! Категория успешно добавлена');
     }
+    public function showCartAction(Request $request){
+        return RequestHelper::write(200, 'sucess', $request->all());
+        $data = [];
+        foreach($request->all() as $element){
+           if(Product::where('id', $element->id)->first != null){
+                $product = Product::where('id', $element->id)->first;
+                if($element->count <= $product->count){
+                    $arr = ["product" => $product, "count" => $element->count, "maxCount" => $product->count, "code" => 200];
+                    array_push($data, $arr);
+                }
+                else{
+                    $arr = ["product" => $product, "count" => $element->count, "maxCount" => $product->count, "code" => 400];
+                    array_push($data, $arr);
+                } 
+           }
+        }
+        return RequestHelper::write(200, 'sucess', $data);
+    }
 }

@@ -9,6 +9,7 @@ import Search from '../../Search/Search';
 import classNames from 'classnames';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import SliderText from "../../SliderText/SliderText";
+import Footer from "../Footer/Footer";
 
 
 function MainLayout(props) {
@@ -62,7 +63,7 @@ function MainLayout(props) {
                     {props.children}
                 </div>
             </main>
-            
+            <Footer/>
 
         </div>
     );
