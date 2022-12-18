@@ -20,34 +20,45 @@ use App\Models\Category;
 use App\Models\Product;
 use App\Models\Characteristics;
 use App\Models\ProductCharacterisrics;
+use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller{
 
 
-    // function addCharacteristicsAction(Request $request){
-    //     $characteristics = new Characteristics;
+    function addCharacteristicsAction(Request $request){
+        $characteristics = new Characteristics;
 
-    //     $characteristics->size = $request->size;
-    //     $characteristics->color = $request->color;
-    //     $characteristics->equipment = $request->equipment;
-    //     $characteristics->color_price = $request->priceColor;
-    //     $characteristics->size_price = $request->priceSize;
-    //     $characteristics->equipment_price = $request->priceEquipment;
+        $characteristics->size = $request->size;
+        $characteristics->color = $request->color;
+        $characteristics->equipment = $request->equipment;
+        $characteristics->color_price = $request->priceColor;
+        $characteristics->size_price = $request->priceSize;
+        $characteristics->equipment_price = $request->priceEquipment;     
+        $characteristics->save();
 
+
+        $productRow = Product::latest()->first();
+        $productId = $productRow->id;
+
+        $characteristicRow = Characteristics::latest()->first();
+        $characteristicId = $characteristicRow->id;   
+
+        $character = new ProductCharacterisrics;
+        $character->product_id = $productId;
+        $character->characteristic_id = $characteristicId;
+
+        $character->save();
 
         
-    //     $characteristics->save();
-        
 
-    //     return $characteristics;
-    // }
+        return $characteristics;
+    }
 
     function addProductAction(Request $request){
-        //dd($request);
         $product = new Product;
         $product->name = $request->name;
         $product->description = $request->description;
-        //$product->main_photo = $request->main_photo;
+        $product->main_photo = $request->main_photo;
         $product->price = $request->newPrice;
         $product->old_price = $request->oldPrice;
         $product->count = $request->count;
@@ -55,17 +66,10 @@ class AdminController extends Controller{
         $product->main_photo = $request->images;
 
         $product->save();
+        
+        
 
-
-        $characteristicTable = new ProductCharacterisrics;
-        //DB::table('characteristics_and_products')->insert(['product_id' => '1']);
-        $characteristicTable->characteristic_id = 2;
-        $characteristicTable->product_id = 1;
-
-        // //Product::where('id')->latest()->first();
-        $characteristicTable->save();
-
-
+       
 
 
         // $characteristics = new Characteristics;
@@ -79,20 +83,7 @@ class AdminController extends Controller{
         // $characteristics->save();
         
 
-        return $characteristicTable;
-
-        // $product = Product::latest()->first();
-        // foreach ($product->characteristic as $characteristic) {
-        //     echo $characteristic->pivot->created_at;
-        // }
-        
-
-
-
-
-        
-
-
+        return $product;
 
     }
 }

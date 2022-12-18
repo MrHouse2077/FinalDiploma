@@ -17,6 +17,7 @@ function AddProduct(props){
             value: '',
             dirty: false,
             error: 'Название не может быть пустым',
+            target: '',
         }, 
         description:{
             value: '',
@@ -102,7 +103,7 @@ function AddProduct(props){
         console.log(evt.target.value);
         let copy = Object.assign([], productValid);
         copy.name.value = evt.target.value;
-        const re = /^[а-яА-ЯёЁa-zA-Z0-9]+$/;
+        const re = /^[а-яА-ЯёЁa-zA-Z0-9 ]+$/;
         if(!re.test(String(evt.target.value).toLowerCase())){
             copy.name.error = 'Некорректное название. Название может содержать только буквы латиницы или кириллицы, а также цифры';
             if(!evt.target.value){
@@ -287,8 +288,26 @@ function AddProduct(props){
         copy.product[fieldElement] = nativeEvent.target.files[0].name;
         setProduct(copy);
     }
-    function cleanInputs(product){
-        //очистка полей инпутов в случае успешной отправки данных
+
+    function clean(){
+        let copy = Object.assign([], productValid);
+        let copyProduct = Object.assign([], product);
+
+        copy.name.value = '';
+        copy.description.value = '';
+        copy.newPrice.value = '';
+        copy.oldPrice.value = '';
+        copy.count.value = '';
+        copyProduct.product.name = '';
+        copyProduct.product.description = '';
+        copyProduct.product.newPrice = '';
+        copyProduct.product.oldPrice = '';
+        copyProduct.product.count = '';
+        copy.formValid = false;
+
+
+        setProductValid(copy);
+        setProduct(copyProduct);
     }
     function sendNewProduct(product){
         //отправка товара в базу
@@ -298,23 +317,24 @@ function AddProduct(props){
             method: 'post', 
             url: '/addProduct',
             data:product.product,
-            callback:renderCategories 
+            callback:clean, 
         });
         
     }
-    // function sendCharacteristics(characterisctics){
-    //     //отправка характеристик в базу
+
+    function sendCharacteristics(characterisctics){
+        //отправка характеристик в базу
         
-    //     console.log(characterisctics);
-    //     Requests({
-    //         method: 'post', 
-    //         url: '/addProduct',
-    //         data: characterisctics.characterisctics,
-    //         callback:renderCategories 
-    //     });
+        console.log(characterisctics);
+        Requests({
+            method: 'post', 
+            url: '/addCharacteristics',
+            data: characterisctics.characterisctics,
+            callback:renderCategories 
+        });
         
         
-    // }
+    }
 
     function addCharacteristics(fieldElement, value){
         //функция добавления характеристик в состояние
@@ -348,6 +368,7 @@ function AddProduct(props){
         setProductValid(copy);
 
     }
+    
 
     return(
         
@@ -452,17 +473,17 @@ function AddProduct(props){
                                     <Form.Group className="mb-3 col-12" controlId="formBasicNewPrice">
                                         {(productValid.newPrice.dirty && productValid.newPrice.error) && <div style={{color:'red'}}>{productValid.newPrice.error}</div>}
                                         <Form.Label>Новая цена</Form.Label>
-                                        <Form.Control  name = "newPrice" type="text" placeholder="руб." onInput= {(nativeEvent)=>{onChangeFieldProducts('newPrice', Number(nativeEvent.target.value))}} onChange = {(evt)=>{newPriceHundler(evt)}} onBlur = {(evt)=>{blurHandle(evt)}}/>
+                                        <Form.Control  value = {productValid.newPrice.value} name = "newPrice" type="text" placeholder="руб." onInput= {(nativeEvent)=>{onChangeFieldProducts('newPrice', Number(nativeEvent.target.value))}} onChange = {(evt)=>{newPriceHundler(evt)}} onBlur = {(evt)=>{blurHandle(evt)}}/>
                                     </Form.Group>
                                     <Form.Group className="mb-3 col-12" controlId="formOldPrice">
                                         {(productValid.oldPrice.dirty && productValid.oldPrice.error) && <div style={{color:'red'}}>{productValid.oldPrice.error}</div>}
                                         <Form.Label>Старая цена</Form.Label>
-                                        <Form.Control  name = "oldPrice" type="text" placeholder="руб." onInput= {(nativeEvent)=>{onChangeFieldProducts('oldPrice', Number(nativeEvent.target.value))}} onChange = {(evt)=>{oldPriceHundler(evt)}} onBlur = {(evt)=>{blurHandle(evt)}}/>
+                                        <Form.Control  value = {productValid.oldPrice.value} name = "oldPrice" type="text" placeholder="руб." onInput= {(nativeEvent)=>{onChangeFieldProducts('oldPrice', Number(nativeEvent.target.value))}} onChange = {(evt)=>{oldPriceHundler(evt)}} onBlur = {(evt)=>{blurHandle(evt)}}/>
                                     </Form.Group>
                                     <Form.Group className="mb-3 col-12" controlId="formCount">
                                         {(productValid.count.dirty && productValid.count.error) && <div style={{color:'red'}}>{productValid.count.error}</div>}
                                         <Form.Label>Количество товаров</Form.Label>
-                                        <Form.Control name = "count" type="text" placeholder="шт." onInput= {(nativeEvent)=>{onChangeFieldProducts('count', Number(nativeEvent.target.value))}} onChange = {(evt)=>{countHundler(evt)}} onBlur={(evt)=>blurHandle(evt)}/>
+                                        <Form.Control value = {productValid.count.value} name = "count" type="text" placeholder="шт." onInput= {(nativeEvent)=>{onChangeFieldProducts('count', Number(nativeEvent.target.value))}} onChange = {(evt)=>{countHundler(evt)}} onBlur={(evt)=>blurHandle(evt)}/>
                                     </Form.Group>
                                     
                                 </Form>
@@ -495,9 +516,9 @@ function AddProduct(props){
                     <p>Итоговая стоимость со всеми характеристиками:</p>
 
                 </div>
-                <button disabled = {!productValid.formValid} className = {classNames("btn", "btn-primary")} onClick = {()=>{
+                <button type="submit" disabled = {!productValid.formValid} className = {classNames("btn", "btn-primary")} onClick = {()=>{
                                                                                         sendNewProduct(product)
-                                                                                        // sendCharacteristics(characterisctics)
+                                                                                        sendCharacteristics(characterisctics)
                                                                                     }}>Добавить</button>
 
             </div>
