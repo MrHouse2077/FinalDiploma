@@ -10,6 +10,8 @@ import DefaultLayout from "../../Layouts/DefaultLayout/DefaultLayout";
 import { NavLink } from "react-router-dom";
 import Footer from "../../Layouts/Footer/Footer";
 
+import classNames from 'classnames';
+
 
 function About() {
     let titlePage = "About us"
@@ -61,7 +63,9 @@ function About() {
                                         </div>
                                         <div className={Styles.AboutPlay}>
                                             <a className={Styles.AbPlayBtn} href="https://www.youtube.com/watch?v=ZoZSp-wy8h8">
-                                                <i className="fas fa-play"></i>
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className={classNames("bi bi-play-fill", Styles.PLay)} viewBox="0 0 16 16">
+                                                    <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/>
+                                                </svg>
                                             </a>
                                             <span>Intro Video</span>
                                         </div>

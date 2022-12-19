@@ -207,23 +207,22 @@
                                     background: #ea1b29;
                                     border-radius: 50%;
                                     z-index: -1;
-                                    animation: video-ripple 1500ms ease-out infinite;
                                     left: -5px;
                                     top: -4px;
                                     z-index: -1;
                                 }
+                                .PLay{
+                                    width: 30px;
+                                    height: 30px;
 
-                                span {
-                                    font-size: 22px;
-                                    font-weight: 500;
-                                    margin-left: 15px;
-                                    color: #010101;
                                 }
 
-
-
-
-
+                            }
+                            span {
+                                font-size: 22px;
+                                font-weight: 500;
+                                margin-left: 15px;
+                                color: #010101;
                             }
 
 

@@ -100,6 +100,7 @@
             .FooterWidget{
                 // margin-right: 90px;
                 margin-bottom: 40px;
+                width: 300px;
                 .FooterLogo{
                     margin-bottom: 25px;
                     .NavLink{
@@ -118,17 +119,20 @@
                 }
 
                 .FooterSocialLinks{
-                    .NavLink{
-                        display: inline-block;
+                   
+                    .IconsLink{
+                        color: #fff;
+                        margin-right: 10px;
+                        padding: 15px;
+                        //box-sizing: border-box;
+                        background-color: #424243;
                         width: 45px;
                         height: 45px;
-                        line-height: 47px;
-                        text-align: center;
-                        background: #424243;
-                        color: #ffffff;
-                        margin-right: 10px;
-                        margin-bottom: 10px;
-                        transition: 0.3s;
+                        &:hover{
+                            background-color: #ea1b29;
+                            transition: 0.5s;
+
+                        }
                     }
                 }
 
@@ -137,26 +141,130 @@
                     color: #ffffff;
                     position: relative;
                     margin-bottom: 35px;
+                    font-family: "Teko", sans-serif;
+                    &::before {
+                        position: absolute;
+                        content: "";
+                        width: 25px;
+                        height: 2px;
+                        background: #ea1b29;
+                        bottom: -4px;
+                    }
                 }
 
-                .FooterProjectLists, .FooterInfo{
+                .FooterProjectLists{
                     list-style: none;
                     margin: 0px;
                     padding: 0px;
-
-                    .NavLink{
-                        font-size: 16px;
-                        color: #ffffff;
-                        font-family: "Roboto", sans-serif;
-                        display: inline-block;
-                        transition: 0.3s;
+                    line-height: 2.3;
+                    font-weight: 500;
+                    font-family: "Roboto", sans-serif;
+                    a{
                         text-decoration: none;
+                        color: #fff;
+                    }
+                }
+                
+                .FooterInfo{
+                    list-style: none;
+                    margin: 0px;
+                    padding: 0px;
+                    margin-top: -45px;
+                    
+                    .FooterInfoIcon{
+                        .IconsContact{
+                            color: #fff;
+                            margin-right: 10px;
+                            padding: 10px;
+                            //box-sizing: border-box;
+                            background-color: #ea1b29;
+                            width: 35px;
+                            height: 35px;
+                        }
+                    }
+                    .FooterInfoText{
+                        a,span{
+                            font-size: 16px;
+                            color: #ffffff;
+                            font-family: "Roboto", sans-serif;
+                            text-decoration: none;                    
+                        }
+                    }
 
                     
-                    }
                 }
 
             }
         }
     }
+
+    .FooterWidget{
+        .FooterBlog{
+            ul{
+                list-style: none;
+                padding: 0;
+                li{
+                    font-size: 14px;
+                    margin-bottom: 25px;
+                    
+                    .FooterBlogSm{
+                        
+                        .FooterBlogSmThumb{
+                            
+                            margin-right: 25px;
+                            img{
+                                border-radius: 50%;
+                            }
+                        }
+
+                        .FooterBlogSmTitle{
+                            line-height: 1.7;
+                            a{
+                                text-decoration: none;
+                                color: #ffffff;
+                                font-weight: 400;
+                            }
+                        }
+                        .FooterBlogSmMeta{
+                            color: #ffffff;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .CopyRightArea{
+        background: #0000007d;
+        padding: 40px 0;
+        font-family: "Roboto", sans-serif;
+        font-size: 16px;
+
+        .CopyRightInfo{
+            display: flex;
+            justify-content: space-between;
+            .OwnerName{
+                color: #ffffff;
+                margin-bottom: 0;
+                font-weight: 500;
+                a{
+                    color: #ea1b29;
+                    text-decoration: none;
+                }
+            }
+            .CopyRightUsefulLinks{
+                a{
+                    color: #ffffff;
+                    text-decoration: none;
+                    &:hover{
+                        color: #ea1b29;
+                        transition: 0.6s;
+                    }
+                }
+                
+    
+            }
+        }
+    }
+
+    
 }

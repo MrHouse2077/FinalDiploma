@@ -13,7 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        
+        Schema::table('characteristics_and_products', function (Blueprint $table) {
+            $table->timestamps();
+        });
     }
 
     /**

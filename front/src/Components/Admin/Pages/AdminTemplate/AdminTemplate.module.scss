@@ -56,6 +56,7 @@
         background-color: #e4e4e4;
         border: none;
         padding: 0;
+        height: 30px;
     }
     .BtnSearch1{
         margin-bottom: 0;
@@ -296,6 +297,9 @@
                 text-decoration: none;
                 span{
                     font-size: 13px;
+                }
+                .Icon{
+                    margin-right: 10px;
                 }
             }
         }
