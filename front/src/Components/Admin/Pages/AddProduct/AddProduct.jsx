@@ -377,9 +377,9 @@ function AddProduct(props){
             <div className={Styles.AddProduct}>
 
                 <h4 className={Styles.title}>
-                    Добавить новый продукт
+                    Добавить новый товар
                 </h4>
-                <Button variant="primary" onClick={handleShow}>
+                <Button variant="primary" className = {Styles.BtnCharact} onClick={handleShow}>
                     Добавить дополнительные характеристики
                 </Button>
 
@@ -444,16 +444,22 @@ function AddProduct(props){
                             <Form className="row">
                                 <Form.Group className="mb-3 col-12" controlId="formBasicName">
                                     {(productValid.name.dirty && productValid.name.error) && <div style={{color:'red'}}>{productValid.name.error}</div>}
-                                    <Form.Label>Название товара</Form.Label>
+                                    <h5 className={Styles.parametr_title}>
+                                        Название товара 
+                                    </h5>
                                     <Form.Control value = {productValid.name.value} name = "name" type="text" placeholder="Название" onInput= {(nativeEvent)=>{onChangeFieldProducts('name', nativeEvent.target.value)}} onChange = {(evt)=>{nameHandler(evt)}} onBlur = {(evt)=>{blurHandle(evt)}}/>
                                 </Form.Group>
                                 <Form.Group className="mb-3 col-12" controlId="formColorDescription">
                                     {(productValid.description.dirty && productValid.description.error) && <div style={{color:'red'}}>{productValid.description.error}</div>}
-                                    <Form.Label>Описание товара</Form.Label>
+                                    <h5 className={Styles.parametr_title}>
+                                        Описание товара 
+                                    </h5>
                                     <Form.Control value = {productValid.description.value} name = "description" type="text" placeholder="Описание" onInput= {(nativeEvent)=>{onChangeFieldProducts('description', nativeEvent.target.value)}} onChange = {(evt)=>{descriptionHandler(evt)}} onBlur = {(evt)=>{blurHandle(evt)}}/>
                                 </Form.Group>
                                 <Form.Group controlId="formFileMultiple" className="mb-3 col-12">
-                                    <Form.Label>Изображения товара</Form.Label>
+                                    <h5 className={Styles.parametr_title}>
+                                            Изображение товара 
+                                    </h5>
                                     <Form.Control name = "images" type="file" size = "lg" multiple onInput= {(nativeEvent)=>{onChangeFieldProductsImages('images', nativeEvent)}}/>
                                 </Form.Group>
                             </Form>
@@ -472,17 +478,23 @@ function AddProduct(props){
                                 <Form className="row">
                                     <Form.Group className="mb-3 col-12" controlId="formBasicNewPrice">
                                         {(productValid.newPrice.dirty && productValid.newPrice.error) && <div style={{color:'red'}}>{productValid.newPrice.error}</div>}
-                                        <Form.Label>Новая цена</Form.Label>
+                                        <h5 className={Styles.parametr_title}>
+                                            Новая цена 
+                                        </h5>
                                         <Form.Control  value = {productValid.newPrice.value} name = "newPrice" type="text" placeholder="руб." onInput= {(nativeEvent)=>{onChangeFieldProducts('newPrice', Number(nativeEvent.target.value))}} onChange = {(evt)=>{newPriceHundler(evt)}} onBlur = {(evt)=>{blurHandle(evt)}}/>
                                     </Form.Group>
                                     <Form.Group className="mb-3 col-12" controlId="formOldPrice">
                                         {(productValid.oldPrice.dirty && productValid.oldPrice.error) && <div style={{color:'red'}}>{productValid.oldPrice.error}</div>}
-                                        <Form.Label>Старая цена</Form.Label>
+                                        <h5 className={Styles.parametr_title}>
+                                            Старая цена 
+                                        </h5>
                                         <Form.Control  value = {productValid.oldPrice.value} name = "oldPrice" type="text" placeholder="руб." onInput= {(nativeEvent)=>{onChangeFieldProducts('oldPrice', Number(nativeEvent.target.value))}} onChange = {(evt)=>{oldPriceHundler(evt)}} onBlur = {(evt)=>{blurHandle(evt)}}/>
                                     </Form.Group>
                                     <Form.Group className="mb-3 col-12" controlId="formCount">
                                         {(productValid.count.dirty && productValid.count.error) && <div style={{color:'red'}}>{productValid.count.error}</div>}
-                                        <Form.Label>Количество товаров</Form.Label>
+                                        <h5 className={Styles.parametr_title}>
+                                            Количество товаров
+                                        </h5>
                                         <Form.Control value = {productValid.count.value} name = "count" type="text" placeholder="шт." onInput= {(nativeEvent)=>{onChangeFieldProducts('count', Number(nativeEvent.target.value))}} onChange = {(evt)=>{countHundler(evt)}} onBlur={(evt)=>blurHandle(evt)}/>
                                     </Form.Group>
                                     
@@ -513,10 +525,9 @@ function AddProduct(props){
                         </div>
 
                     </div>
-                    <p>Итоговая стоимость со всеми характеристиками:</p>
 
                 </div>
-                <button type="submit" disabled = {!productValid.formValid} className = {classNames("btn", "btn-primary")} onClick = {()=>{
+                <button type="submit" disabled = {!productValid.formValid} className = {classNames(Styles.BtnSend, "btn", "btn-primary")} onClick = {()=>{
                                                                                         sendNewProduct(product)
                                                                                         sendCharacteristics(characterisctics)
                                                                                     }}>Добавить</button>

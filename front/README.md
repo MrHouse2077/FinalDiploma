@@ -73,6 +73,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 Проект для клиенской части:
 https://bootstraptema.ru/_sf/54/5441.html
 Проект для администраторской зоны:
+https://bootstraptema.ru/_sf/53/5366.html
 
 Ползунки react:
 https://slider-react-component.vercel.app/demo/handle
