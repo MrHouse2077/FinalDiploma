@@ -15,6 +15,7 @@ import Validator from "../../Validator";
 
 
 import classNames from 'classnames';
+import Footer from "../../Layouts/Footer/Footer";
 
 
 
@@ -383,7 +384,11 @@ function Contacts() {
 
                 </div>                    
             </section>
+            <Footer>
+                
+            </Footer>
         </div>
+        
       
     );
   }
