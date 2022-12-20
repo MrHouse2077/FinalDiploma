@@ -30,6 +30,7 @@ function App(props) {
         copy.auth.name = data.data.name;
 
         localStorage.setItem('token', data.data.token);
+        localStorage.setItem('email', data.data.email);
 
         setAuth(copy);
 

@@ -20,6 +20,7 @@ use App\Models\Category;
 use App\Models\Product;
 use App\Models\Characteristics;
 use App\Models\ProductCharacterisrics;
+use App\Models\UsersDashboardWidgets;
 use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller{
@@ -85,5 +86,27 @@ class AdminController extends Controller{
 
         return $product;
 
+    }
+
+    function writeUserWidgetsAction(Request $request){
+        $user = User::where('email', $request->email)->first();
+        $UDW = UsersDashboardWidgets::where('user_id', $user->id)->first();
+        $UDW->widgets = $request->jsonIsOpenGraph;
+        $UDW->save();
+        $status = 1;
+
+        return $request;
+    }
+
+    function readUserWidgetsAction(Request $request){
+        $user = User::where('email', $request->email)->first();
+        $UDW = UsersDashboardWidgets::where('user_id', $user->id)->first();
+        return $UDW->widgets;
+    }
+
+    function getUsersTableAction(){
+        $users = User::get();
+
+        return $users;
     }
 }
