@@ -44,33 +44,5 @@ class ShopController extends Controller
         
     }
 
-    public function addNewCategoryAction(Request $request){
-  
-
-        $validated = Validator::make($request->all(),[
-            'name' => 'required|min:2|max:200',
-            'description' => 'max:1000',
-        ],
-        [
-            'name.required' => 'Название категории обязательно для заполнения',
-            'name.min:2' => 'Название категории минимум 2 символа',
-            'name.max:200' => 'Название категории максимум 200 символов',
-            'description.max:1000' => 'Превышена максимальная длина описани. Максимум 1000 символов'
-        ]
-        );
-
-        // if ($validated->fails()) {
-        //     return redirect()->route('admin_categories')->withErrors($validated)->with('error', 'Ошибка! Категория не добавлена')->withInput();
-        // }
-
-        $category = new Category;
-
-        $category->name = $request->fieldName;
-        $category->description = $request->fieldDescription;
     
-        $category->save();
-
-        return $category;
-        //redirect()->route('admin_categories')->with('success', 'Ок! Категория успешно добавлена');
-    }
 }

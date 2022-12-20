@@ -47,7 +47,6 @@ Route::prefix('v1')->group(function () {
     Route::post('/products', [ShopController::class, 'listProductsAction']);
     Route::post('/categories', [ShopController::class, 'categoriesAction']);
     //Route::post('/addNewcategory', [ShopController::class, 'addNewCategoryAction']);
-    Route::post('/addNewcategory', [ShopController::class, 'addNewCategoryAction']);
     Route::get('/ip', [IndexController::class, 'ipAction']);
     Route::get('/get-users', function(){
         return User::get();
@@ -64,6 +63,8 @@ Route::prefix('v1')->group(function () {
 
     Route::post('/addCharacteristics', [AdminController::class, 'addCharacteristicsAction']);
     Route::post('/addProduct', [AdminController::class, 'addProductAction']);
+    Route::post('/addNewcategory', [AdminController::class, 'addNewCategoryAction']);
+
 
 });
 

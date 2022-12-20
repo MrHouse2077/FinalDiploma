@@ -67,23 +67,19 @@ class AdminController extends Controller{
 
         $product->save();
         
-        
-
-       
-
-
-        // $characteristics = new Characteristics;
-
-        // $characteristics->size = $request->size;
-        // $characteristics->color = $request->color;
-        // $characteristics->equipment = $request->equipment;
-        // $characteristics->color_price = $request->priceColor;
-        // $characteristics->size_price = $request->priceSize;
-        // $characteristics->equipment_price = $request->priceEquipment;     
-        // $characteristics->save();
-        
 
         return $product;
 
+    }
+
+    public function addNewCategoryAction(Request $request){
+        $category = new Category;
+
+        $category->name = $request->name;
+        $category->description = $request->description;
+    
+        $category->save();
+
+        return $category;
     }
 }
