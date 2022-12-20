@@ -20,6 +20,7 @@ use App\Models\Category;
 use App\Models\Product;
 use App\Models\Characteristics;
 use App\Models\ProductCharacterisrics;
+
 use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller{
@@ -85,5 +86,18 @@ class AdminController extends Controller{
 
         return $product;
 
+    }
+
+    public function addNewCategoryAction(Request $request){
+
+        $category = new Category;
+
+        $category->name = $request->name;
+        $category->description = $request->description;
+    
+        $category->save();
+
+        return $category;
+        //redirect()->route('admin_categories')->with('success', 'Ок! Категория успешно добавлена');
     }
 }

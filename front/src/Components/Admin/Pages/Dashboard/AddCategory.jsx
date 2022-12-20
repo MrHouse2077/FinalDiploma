@@ -16,8 +16,8 @@ import AdminTemplate from "../AdminTemplate/AdminTemplate";
 function AddCategory(){
     let [category, setNewCategory] = useState({
         category:{
-            name: "",
-            description:"",
+            name: '',
+            description: '',
         }
         
     });
@@ -71,7 +71,7 @@ function AddCategory(){
         Requests({
             method: 'post', 
             url: '/addNewcategory',
-            data: category,
+            data: category.category,
             callback:renderCategories 
         });
     }

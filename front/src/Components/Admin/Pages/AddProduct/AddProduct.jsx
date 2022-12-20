@@ -11,7 +11,7 @@ import Form from 'react-bootstrap/Form';
 import AdminTemplate from "../AdminTemplate/AdminTemplate";
 
 function AddProduct(props){
-    let defaultData = {
+    let defaultDataProduct = {
         name:{
             value: '',
             dirty: false,
@@ -38,9 +38,26 @@ function AddProduct(props){
             dirty: false,
             error: 'Количество товаров не может быть пустым',
         },
+        category:{
+            value: '',
+            dirty: false,
+            error: 'Выберите определенную категорию',
+        },
+
         formValid: false, 
     }
-    let [productValid, setProductValid] = useState(defaultData);
+    
+
+    let defaultStatus = {
+        formAccess: {
+            status: false,
+            text: 'Товар успешно добавлен!',
+        },
+        formError: false,
+
+    };
+    let [productValid, setProductValid] = useState(defaultDataProduct);
+    let [statusForm, setStatusForm] = useState(defaultStatus);
     const [show, setShow] = useState(false);
     let [product, setProduct] = useState({
         //состояние товаров
@@ -86,7 +103,7 @@ function AddProduct(props){
     useEffect(()=>{
         let copy = Object.assign([], productValid);
         //проверка на ошибки всей формы, для разблокировки кнопки отправки
-        if(productValid.name.error || productValid.description.error || productValid.newPrice.error || productValid.oldPrice.error || productValid.count.error){
+        if(productValid.name.error || productValid.description.error || productValid.newPrice.error || productValid.oldPrice.error || productValid.count.error || productValid.category.error){
             copy.formValid = false;
         }
         else{
@@ -96,7 +113,7 @@ function AddProduct(props){
         }
         setProductValid(copy);
 
-    }, [productValid.name.error, productValid.description.error, productValid.newPrice.error, productValid.oldPrice.error, productValid.count.error]);
+    }, [productValid.name.error, productValid.description.error, productValid.newPrice.error, productValid.oldPrice.error, productValid.count.error, productValid.category.error]);
 
     function nameHandler(evt){
         //валидация названия
@@ -114,6 +131,7 @@ function AddProduct(props){
             copy.name.error = '';
             
         }
+        setStatusForm(defaultStatus);
         setProductValid(copy);
     }
 
@@ -126,12 +144,13 @@ function AddProduct(props){
             copy.description.error = 'Описание не может быть пустым';
 
         }
-        else if(evt.target.value.length < 20){
-            copy.description.error = 'Описание не может быть меньше 20 символов';
+        else if(evt.target.value.length < 10){
+            copy.description.error = 'Описание не может быть меньше 10 символов';
         }
         else{
             copy.description.error = '';
         }
+        setStatusForm(defaultStatus);
         setProductValid(copy);
 
     }
@@ -151,6 +170,7 @@ function AddProduct(props){
         else{
             copy.newPrice.error = '';
         }
+        setStatusForm(defaultStatus);
         setProductValid(copy);
 
     }
@@ -170,6 +190,7 @@ function AddProduct(props){
         else{
             copy.oldPrice.error = '';
         }
+        setStatusForm(defaultStatus);
         setProductValid(copy);
 
     }
@@ -189,8 +210,23 @@ function AddProduct(props){
         else{
             copy.count.error = '';
         }
+        setStatusForm(defaultStatus);
         setProductValid(copy);
 
+    }
+
+    function categoryHundler(evt){
+        //валидация категорий
+        let copy = Object.assign([], productValid);
+        copy.category.value = evt.target.value;
+        if(copy.category.value == '0'){
+            copy.category.error = 'Выберите определенную категорию';
+        }
+        else{
+            copy.category.error = '';
+        }
+        setStatusForm(defaultStatus);
+        setProductValid(copy);
     }
 
     // function categoryHundler(evt){
@@ -290,24 +326,14 @@ function AddProduct(props){
     }
 
     function clean(){
-        //let copy = Object.assign([], productValid);
-        // let copyProduct = Object.assign([], product);
+        //очистка формы отправки товаров
+        let copy = Object.assign([], statusForm);
+        copy.formAccess.status = true;
 
-        // copy.name.value = '';
-        // copy.description.value = '';
-        // copy.newPrice.value = '';
-        // copy.oldPrice.value = '';
-        // copy.count.value = '';
-        // copyProduct.product.name = '';
-        // copyProduct.product.description = '';
-        // copyProduct.product.newPrice = '';
-        // copyProduct.product.oldPrice = '';
-        // copyProduct.product.count = '';
-        // copy.formValid = false;
+        setProductValid(defaultDataProduct);
+        setStatusForm(copy);
 
 
-        setProductValid(defaultData);
-        //setProduct(copyProduct);
     }
     function sendNewProduct(product){
         //отправка товара в базу
@@ -338,11 +364,9 @@ function AddProduct(props){
 
     function addCharacteristics(fieldElement, value){
         //функция добавления характеристик в состояние
-        // console.log(fieldElement, value);
         let copy = Object.assign([], characterisctics);
         copy.characterisctics[fieldElement] = value;
         setCharacteristics(copy);
-        // console.log(copy);
     }
 
     function blurHandle(evt){
@@ -363,6 +387,9 @@ function AddProduct(props){
                 break;
             case 'count':
                 copy.count.dirty = true;
+                break;
+            case 'category':
+                copy.category.dirty = true;
                 break;
         }
         setProductValid(copy);
@@ -441,19 +468,22 @@ function AddProduct(props){
 
                     <div className={Styles.product_description}>
                         <div>
+                        {(statusForm.formAccess.status) && <div style={{color:'green', marginBottom:'15px'}}>{statusForm.formAccess.text}</div>}
+
                             <Form className="row">
                                 <Form.Group className="mb-3 col-12" controlId="formBasicName">
-                                    {(productValid.name.dirty && productValid.name.error) && <div style={{color:'red'}}>{productValid.name.error}</div>}
+                                    
                                     <h5 className={Styles.parametr_title}>
                                         Название товара 
                                     </h5>
+                                    {(productValid.name.dirty && productValid.name.error) && <div style={{color:'red', marginBottom:'15px'}}>{productValid.name.error}</div>}
                                     <Form.Control value = {productValid.name.value} name = "name" type="text" placeholder="Название" onInput= {(nativeEvent)=>{onChangeFieldProducts('name', nativeEvent.target.value)}} onChange = {(evt)=>{nameHandler(evt)}} onBlur = {(evt)=>{blurHandle(evt)}}/>
                                 </Form.Group>
                                 <Form.Group className="mb-3 col-12" controlId="formColorDescription">
-                                    {(productValid.description.dirty && productValid.description.error) && <div style={{color:'red'}}>{productValid.description.error}</div>}
                                     <h5 className={Styles.parametr_title}>
                                         Описание товара 
                                     </h5>
+                                    {(productValid.description.dirty && productValid.description.error) && <div style={{color:'red', marginBottom:'15px'}}>{productValid.description.error}</div>}
                                     <Form.Control value = {productValid.description.value} name = "description" type="text" placeholder="Описание" onInput= {(nativeEvent)=>{onChangeFieldProducts('description', nativeEvent.target.value)}} onChange = {(evt)=>{descriptionHandler(evt)}} onBlur = {(evt)=>{blurHandle(evt)}}/>
                                 </Form.Group>
                                 <Form.Group controlId="formFileMultiple" className="mb-3 col-12">
@@ -477,24 +507,24 @@ function AddProduct(props){
                             <div>
                                 <Form className="row">
                                     <Form.Group className="mb-3 col-12" controlId="formBasicNewPrice">
-                                        {(productValid.newPrice.dirty && productValid.newPrice.error) && <div style={{color:'red'}}>{productValid.newPrice.error}</div>}
                                         <h5 className={Styles.parametr_title}>
                                             Новая цена 
                                         </h5>
+                                        {(productValid.newPrice.dirty && productValid.newPrice.error) && <div style={{color:'red', marginBottom:'15px'}}>{productValid.newPrice.error}</div>}
                                         <Form.Control  value = {productValid.newPrice.value} name = "newPrice" type="text" placeholder="руб." onInput= {(nativeEvent)=>{onChangeFieldProducts('newPrice', Number(nativeEvent.target.value))}} onChange = {(evt)=>{newPriceHundler(evt)}} onBlur = {(evt)=>{blurHandle(evt)}}/>
                                     </Form.Group>
                                     <Form.Group className="mb-3 col-12" controlId="formOldPrice">
-                                        {(productValid.oldPrice.dirty && productValid.oldPrice.error) && <div style={{color:'red'}}>{productValid.oldPrice.error}</div>}
                                         <h5 className={Styles.parametr_title}>
                                             Старая цена 
                                         </h5>
+                                        {(productValid.oldPrice.dirty && productValid.oldPrice.error) && <div style={{color:'red', marginBottom:'15px'}}>{productValid.oldPrice.error}</div>}
                                         <Form.Control  value = {productValid.oldPrice.value} name = "oldPrice" type="text" placeholder="руб." onInput= {(nativeEvent)=>{onChangeFieldProducts('oldPrice', Number(nativeEvent.target.value))}} onChange = {(evt)=>{oldPriceHundler(evt)}} onBlur = {(evt)=>{blurHandle(evt)}}/>
                                     </Form.Group>
                                     <Form.Group className="mb-3 col-12" controlId="formCount">
-                                        {(productValid.count.dirty && productValid.count.error) && <div style={{color:'red'}}>{productValid.count.error}</div>}
                                         <h5 className={Styles.parametr_title}>
                                             Количество товаров
                                         </h5>
+                                        {(productValid.count.dirty && productValid.count.error) && <div style={{color:'red', marginBottom:'15px'}}>{productValid.count.error}</div>}
                                         <Form.Control value = {productValid.count.value} name = "count" type="text" placeholder="шт." onInput= {(nativeEvent)=>{onChangeFieldProducts('count', Number(nativeEvent.target.value))}} onChange = {(evt)=>{countHundler(evt)}} onBlur={(evt)=>blurHandle(evt)}/>
                                     </Form.Group>
                                     
@@ -512,8 +542,9 @@ function AddProduct(props){
                                 <h5 className={Styles.parametr_title}>
                                         Категория 
                                 </h5>
-                                <select className="form-select" name = "category" onInput= {(nativeEvent)=>{onChangeFieldProducts('selectedCategory', Number(nativeEvent.target.value))}} >
-                                    <option selected disabled >Выберите категорию</option>
+                                {(productValid.category.dirty && productValid.category.error) && <div style={{color:'red', marginBottom:'15px'}}>{productValid.category.error}</div>}
+                                <select className="form-select" name = "category" onInput= {(nativeEvent)=>{onChangeFieldProducts('selectedCategory', Number(nativeEvent.target.value))}} onChange = {(evt)=>{categoryHundler(evt)}} onBlur={(evt)=>blurHandle(evt)}>
+                                    <option selected value = '0'>Выберите категорию</option>
                                     {
                                         categories.categories.map((category, key)=>
                                             <option key={key} value = {category.id}>{category.name}</option>
