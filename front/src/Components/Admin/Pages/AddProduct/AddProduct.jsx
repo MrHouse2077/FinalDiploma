@@ -16,7 +16,6 @@ function AddProduct(props){
             value: '',
             dirty: false,
             error: 'Название не может быть пустым',
-            target: '',
         }, 
         description:{
             value: '',
@@ -229,19 +228,6 @@ function AddProduct(props){
         setProductValid(copy);
     }
 
-    // function categoryHundler(evt){
-    //     //валидация описания
-    //     console.log(evt.target.value);
-    //     setCategory(evt.target.value);
-    //     if(!evt.target.value){
-    //         setCategoryError('Выберите категорию');
-    //     }
-    //     else{
-    //         setCategoryError('');
-    //     }
-    // }
-
-    
     useEffect(()=>{
         //подгрузка категорий из базы
         Requests({

@@ -21,12 +21,89 @@ function AddCategory(){
         }
         
     });
+    
+    let defaultData = {
+        name:{
+            value: '',
+            dirty: false,
+            error: 'Название не может быть пустым',
+        },
+        description:{
+            value: '',
+        },
+        formValid: false,
+    }
+    let [categoryValid, setcategoryValid] = useState(defaultData);
 
 
     let [categories, setCategories] = useState({
         categories:[],
         loader: true,
-    })
+    });
+
+    let defaultStatus = {
+        formAccess: {
+            status: false,
+            text: 'Товар успешно добавлен!',
+        },
+        formError: false,
+
+    };
+    let [statusForm, setStatusForm] = useState(defaultStatus);
+
+    function clean(){
+        //очистка формы отправки товаров
+        let copy = Object.assign([], statusForm);
+        copy.formAccess.status = true;
+
+        setcategoryValid(defaultData);
+        setStatusForm(copy);
+
+
+    }
+
+    function nameHandler(evt){
+        //валидация названия
+        console.log(evt.target.value);
+        let copy = Object.assign([], categoryValid);
+        copy.name.value = evt.target.value;
+        const re = /^[а-яА-ЯёЁa-zA-Z0-9 ]+$/;
+        if(!re.test(String(evt.target.value).toLowerCase())){
+            copy.name.error = 'Некорректное название. Название может содержать только буквы латиницы или кириллицы, а также цифры';
+            if(!evt.target.value){
+                copy.name.error = 'Название не может быть пустым';
+            }
+        }
+        else{
+            copy.name.error = '';
+            
+        }
+        setcategoryValid(copy);
+        setStatusForm(defaultStatus);
+
+    }
+    function descriptionHandler(evt){
+        //валидация названия
+        console.log(evt.target.value);
+        let copy = Object.assign([], categoryValid);
+        copy.description.value = evt.target.value;
+        setcategoryValid(copy);
+        setStatusForm(defaultStatus);
+    }
+
+    function blurHandle(evt){
+        //проверка поля на его касание, если коснулись, но ничего не заполнили, то состояние меняется и выводится ошибка
+        let copy = Object.assign([], categoryValid);
+        switch(evt.target.name){
+            case 'name':
+                copy.name.dirty = true;
+                break;
+            default:
+                break;
+        }
+        setcategoryValid(copy);
+
+    }
 
 
 
@@ -40,26 +117,10 @@ function AddCategory(){
             default:
                 break;
         }
-       
-        
+
     }
 
-    // function validationField(fieldElement, value){
-    //     let copy = Object.assign([], category);
-    //     copy[fieldElement].value = value;
-    //     copy[fieldElement].touched = true;
-    //     for(let rule of copy[fieldElement].valid = category[fieldElement].rules){
-    //         if(!rule.f(value).status){
-    //             copy[fieldElement].valid = false;
-    //             copy[fieldElement].msgFaild = rule.f(value).msg;
-    //             break;
-    //         }
-    //         copy[fieldElement].valid = rule.f(value).status;
-    //         copy[fieldElement].msgFaild = "";
-    //     }
-        
-    //     setNewCategory(copy);
-    // }
+   
     function addNewCategory(fieldElement, value){
         let copy = Object.assign([], category);
         copy.category[fieldElement] = value;
@@ -72,17 +133,11 @@ function AddCategory(){
             method: 'post', 
             url: '/addNewcategory',
             data: category.category,
-            callback:renderCategories 
+            callback:clean, 
         });
     }
 
-    
-   
-
-
-
-
-    let [bgcFonApp, setbgcFonApp] = useState(
+   let [bgcFonApp, setbgcFonApp] = useState(
         {
             activeBGC: 0,
             bgc: [
@@ -115,29 +170,23 @@ function AddCategory(){
             copy.loader = false;
             setCategories(copy);
         }
-    }
-  
-    // function addNewCategory(category){
-    //     let copy = Object.assign([], category);
-    //     copy.category.name = category.name;
-    //     setCategories(copy);
-    //     console.log(copy);
-
-    //     Requests({
-    //         method: 'post',
-    //         url: '/addNewCategory',
-    //         data: copy,
-    //         callback:addNewCategory,
-    //     })
+    }    
 
 
+    useEffect(()=>{
+        let copy = Object.assign([], categoryValid);
+        //проверка на ошибки всей формы, для разблокировки кнопки отправки
+        if(categoryValid.name.error){
+            copy.formValid = false;
+        }
+        else{
+            copy.formValid = true;
 
-    // }
-    
 
+        }
+        setcategoryValid(copy);
 
-
-    
+    }, [categoryValid.name.error]);
 
     return (
         
@@ -156,6 +205,7 @@ function AddCategory(){
                         <div className="page-content">
 
                             <div className="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
+
                                 
                                 <div className="ps-3">
                                     <h4 className={Styles.title}>
@@ -165,7 +215,7 @@ function AddCategory(){
                                 <div className="ms-auto">
                                     <div className="btn-group">
                                         <button type="button" className="btn btn-light">Settings</button>
-                                        <button type="button" className="btn btn-light dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown">	<span class="visually-hidden">Фон</span>
+                                        <button type="button" className="btn btn-light dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown">	<span className="visually-hidden">Фон</span>
                                         </button>
                                         <div className="dropdown-menu dropdown-menu-right dropdown-menu-lg-end">
                                             {
@@ -198,22 +248,25 @@ function AddCategory(){
                                         <div className="col-12 col-lg-4 d-flex">
                                             <div className="card border shadow-none w-100">
                                                 <div className="card-body">
+                                                    {(statusForm.formAccess.status) && <div style={{color:'green', marginBottom:'15px'}}>{statusForm.formAccess.text}</div>}
                                                     
                                                         <input type="hidden" name="id"/>                    
                                                         <div className="col-12">
                                                             <label className="form-label">Название</label>
-                                                            <input type="text" className="form-control" name="name" placeholder="Category name" onChange= {(evt)=>{onChangeField('name', evt.target.value)}}/>
+                                                            {(categoryValid.name.dirty && categoryValid.name.error) && <div style={{color:'red', marginBottom:'15px'}}>{categoryValid.name.error}</div>}
+
+                                                            <input type="text" value = {categoryValid.name.value} className="form-control" name="name" placeholder="Category name" onInput= {(evt)=>{onChangeField('name', evt.target.value)}} onChange = {(evt)=>{nameHandler(evt)}} onBlur = {(evt)=>{blurHandle(evt)}}/>
                                                         </div>
                                                 
 
                                                         <div className="col-12">
                                                             <label className="form-label">Описание</label>
-                                                            <textarea className="form-control" rows="3" cols="3" placeholder="Product Description" name="description" onChange= {(evt)=>{onChangeField('description', evt.target.value)}}/>
+                                                            <textarea className="form-control" value = {categoryValid.description.value} rows="3" cols="3" placeholder="Product Description" name="description" onInput= {(evt)=>{onChangeField('description', evt.target.value)}} onChange = {(evt)=>{descriptionHandler(evt)}}/>
                                                         </div>
                                                         <div className="col-12">
                                                             <div className="d-grid">
                                                                 {
-                                                                    <button className = {classNames("btn", "btn-primary")} onClick = {
+                                                                    <button disabled = {!categoryValid.formValid} className = {classNames(Styles.BtnSend, "btn", "btn-primary")} onClick = {
                                                                         ()=>{
                                                                             sendNewCategory(category);}
                                                                         }>Add Category
@@ -241,8 +294,8 @@ function AddCategory(){
                                                         </thead>
                                                         <tbody>
                                                             {
-                                                                categories.categories.map((category)=>
-                                                                    <tr>
+                                                                categories.categories.map((category, key)=>
+                                                                    <tr key={key}>
                                                                         <td><input className="form-check-input" type="checkbox"/></td>
                                                                         <td>{category.id}</td>
                                                                         <td>{category.name}</td>
