@@ -20,6 +20,8 @@ use App\Models\Category;
 use App\Models\Product;
 use App\Models\Characteristics;
 use App\Models\ProductCharacterisrics;
+use App\Http\Resources\ProductResource;
+
 
 use Illuminate\Support\Facades\DB;
 
@@ -38,17 +40,7 @@ class AdminController extends Controller{
         $characteristics->save();
 
 
-        $productRow = Product::latest()->first();
-        $productId = $productRow->id;
-
-        $characteristicRow = Characteristics::latest()->first();
-        $characteristicId = $characteristicRow->id;   
-
-        $character = new ProductCharacterisrics;
-        $character->product_id = $productId;
-        $character->characteristic_id = $characteristicId;
-
-        $character->save();
+        
 
         
 
@@ -66,7 +58,19 @@ class AdminController extends Controller{
         $product->category_id = $request->selectedCategory;
         $product->main_photo = $request->images;
 
-        $product->save();       
+        $product->save();     
+
+        $productRow = Product::latest()->first();
+        $productId = $productRow->id;
+
+        $characteristicRow = Characteristics::latest()->first();
+        $characteristicId = $characteristicRow->id;   
+
+        $character = new ProductCharacterisrics;
+        $character->product_id = $productId;
+        $character->characteristic_id = $characteristicId;
+
+        $character->save();
 
         return $product;
 
@@ -81,5 +85,12 @@ class AdminController extends Controller{
         $category->save();
 
         return $category;
+    }
+
+    public function renderProductsAction(){
+        $products = ProductResource::collection(Product::all());
+
+
+        return RequestHelper::write(200, 'sucess', $products);
     }
 }

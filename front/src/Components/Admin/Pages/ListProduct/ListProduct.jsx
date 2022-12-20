@@ -47,13 +47,13 @@ function ListProduct() {
                 <div className="page-wrapper">
                     <div className="page-content">
                         <div className="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-                            <div className="card">
+                            <div className="wrap">
                                 <div className="card-header py-3">
                                     <h6 className="mb-0">Список товаров</h6>
                                 </div>
                                 <div className="card-body">
                                     <div className="row">
-                                        <div className="col-12 col-lg-8 d-flex">
+                                        <div className="d-flex">
                                             <div className="card border shadow-none w-100">
                                                 <div className="card-body">
                                                     <div className="table-responsive">
@@ -64,21 +64,31 @@ function ListProduct() {
                                                                     <th>ID</th>
                                                                     <th>Название</th>
                                                                     <th>Описание</th>
+                                                                    <th>Новая цена</th>
+                                                                    <th>Старая цена</th>
+                                                                    <th>Количество</th>
+                                                                    <th>Категория</th>
+
                                                                     
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
-                                                                {/* {
-                                                                    categories.categories.map((category)=>
+                                                                {
+                                                                    products.products.map((product)=>
                                                                         <tr>
                                                                             <td><input className="form-check-input" type="checkbox"/></td>
-                                                                            <td>{category.id}</td>
-                                                                            <td>{category.name}</td>
-                                                                            <td>{category.description}</td>
+                                                                            <td>{product.id}</td>
+                                                                            <td>{product.name}</td>
+                                                                            <td>{product.description}</td>
+                                                                            <td>{product.price}</td>
+                                                                            <td>{product.old_price}</td>
+                                                                            <td>{product.count}</td>
+                                                                            <td>{product.category_id}</td>
+
                                                                             
                                                                         </tr>
                                                                     )
-                                                                } */}
+                                                                }
 
                                                                 
                                                                 
@@ -94,6 +104,9 @@ function ListProduct() {
                         </div>
                     </div>
                 </div>
+
+
+                
                 
             </div>
         </div>

@@ -45,16 +45,50 @@ function AddProduct(props){
 
         formValid: false, 
     }
+
+    let defaultDataCharacteristics = {
+        color:{
+            value: '',
+        }, 
+        priceColor:{
+            value: '',
+        }, 
+        size:{
+            value: '',
+        }, 
+        priceSize:{
+            value: '',
+        }, 
+        equipment:{
+            value: '',
+        },
+        priceEquipment:{
+            value: '',
+        },
+
+    }
     
 
     let defaultStatus = {
-        formAccess: {
+        formProductAccess: {
             status: false,
             text: 'Товар успешно добавлен!',
         },
-        formError: false,
+        formProductError: {
+            status: false,
+            text: 'Возникла ошибка при добавлении!',
+        },
+        formCharacteristicsAccess: {
+            status: false,
+            text: 'Характеристики успешно добавлены!',
+        },
+        formCharacteristicsError: {
+            status: false,
+            text: 'Возникла ошибка при добавлении!',
+        },
 
     };
+    let [CharacteristicsValid, setCharacteristicsValid] = useState(defaultDataCharacteristics);
     let [productValid, setProductValid] = useState(defaultDataProduct);
     let [statusForm, setStatusForm] = useState(defaultStatus);
     const [show, setShow] = useState(false);
@@ -228,6 +262,14 @@ function AddProduct(props){
         setProductValid(copy);
     }
 
+    function characteristicHundler(fieldel,evt){
+        let copy = Object.assign([], CharacteristicsValid);
+        copy[fieldel].value = evt.target.value;
+        setStatusForm(defaultStatus);
+        setCharacteristicsValid(copy);
+
+    }
+
     useEffect(()=>{
         //подгрузка категорий из базы
         Requests({
@@ -314,12 +356,18 @@ function AddProduct(props){
     function clean(){
         //очистка формы отправки товаров
         let copy = Object.assign([], statusForm);
-        copy.formAccess.status = true;
+        copy.formProductAccess.status = true;
 
         setProductValid(defaultDataProduct);
         setStatusForm(copy);
+    }
 
+    function cleanCharacteristic(){
+        let copy = Object.assign([], statusForm);
+        copy.formCharacteristicsAccess.status = true;
 
+        setCharacteristicsValid(defaultDataCharacteristics);
+        setStatusForm(copy);
     }
     function sendNewProduct(product){
         //отправка товара в базу
@@ -342,7 +390,7 @@ function AddProduct(props){
             method: 'post', 
             url: '/addCharacteristics',
             data: characterisctics.characterisctics,
-            callback:renderCategories 
+            callback:cleanCharacteristic 
         });
         
         
@@ -407,38 +455,40 @@ function AddProduct(props){
                     <Modal.Title>Дополнительные характеристики</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
+                    {(statusForm.formCharacteristicsAccess.status) && <div style={{color:'green', marginBottom:'15px'}}>{statusForm.formCharacteristicsAccess.text}</div>}
                     <Form className="row">
                         <Form.Group className="mb-3 col-6" controlId="formBasicColor">
-                            <Form.Label>Выберите цвет товара</Form.Label>
-                            <Form.Control type="text" placeholder="Введите цвет" onInput= {(evt)=>{onChangeFieldCharacteristics('color', evt.target.value)}}  />
+                            <Form.Label>Цвет товара</Form.Label>
+                            <Form.Control type="text" value = {CharacteristicsValid.color.value} placeholder="Введите цвет" onInput= {(evt)=>{onChangeFieldCharacteristics('color', evt.target.value)}}  onChange = {(evt)=>{characteristicHundler('color', evt)}}/>
                         </Form.Group>
                         <Form.Group className="mb-3 col-6" controlId="formColorPrice">
-                            <Form.Label>Введите стоимость за цвет</Form.Label>
-                            <Form.Control type="text" placeholder="Доп цена" onInput= {(evt)=>{onChangeFieldCharacteristics('priceColor', Number(evt.target.value))}}/>
+                            <Form.Label>Стоимость за цвет</Form.Label>
+                            <Form.Control type="text" value = {CharacteristicsValid.priceColor.value} placeholder="Доп цена" onInput= {(evt)=>{onChangeFieldCharacteristics('priceColor', Number(evt.target.value))}} onChange = {(evt)=>{characteristicHundler('priceColor', evt)}}/>
                         </Form.Group>
 
                         <Form.Group className="mb-3 col-6" controlId="formBasicSize">
-                            <Form.Label>Выберите размер товара </Form.Label>
-                            <Form.Control type="text" placeholder="Введите размер" onInput= {(evt)=>{onChangeFieldCharacteristics('size', evt.target.value)}}/>
+                            <Form.Label>Размер товара </Form.Label>
+                            <Form.Control type="text" value = {CharacteristicsValid.size.value} placeholder="Введите размер" onInput= {(evt)=>{onChangeFieldCharacteristics('size', evt.target.value)}} onChange = {(evt)=>{characteristicHundler('size', evt)}}/>
                         </Form.Group>
                         <Form.Group className="mb-3 col-6" controlId="formSizePrice">
-                            <Form.Label>Введите стоимость за размер</Form.Label>
-                            <Form.Control type="text" placeholder="Доп цена" onInput= {(evt)=>{onChangeFieldCharacteristics('priceSize', Number(evt.target.value))}}/>
+                            <Form.Label>Стоимость за размер</Form.Label>
+                            <Form.Control type="text" value = {CharacteristicsValid.priceSize.value} placeholder="Доп цена" onInput= {(evt)=>{onChangeFieldCharacteristics('priceSize', Number(evt.target.value))}} onChange = {(evt)=>{characteristicHundler('priceSize', evt)}}/>
                         </Form.Group>
 
                         <Form.Group className="mb-3 col-6" controlId="formBasicEquipment">
-                            <Form.Label>Выберите комплектацию товара</Form.Label>
-                            <Form.Control type="text" placeholder="Введите комплектацию" onInput= {(evt)=>{onChangeFieldCharacteristics('equipment', evt.target.value)}} />
+                            <Form.Label>Комплектация товара</Form.Label>
+                            <Form.Control type="text" value = {CharacteristicsValid.equipment.value} placeholder="Введите комплектацию" onInput= {(evt)=>{onChangeFieldCharacteristics('equipment', evt.target.value)}} onChange = {(evt)=>{characteristicHundler('equipment', evt)}}/>
                         </Form.Group>
                         <Form.Group className="mb-3 col-6" controlId="formEquipmentPrice">
-                            <Form.Label>Введите стоимость за комплектацию</Form.Label>
-                            <Form.Control type="text" placeholder="Доп цена" onInput= {(evt)=>{onChangeFieldCharacteristics('priceEquipment', Number(evt.target.value))}}/>
+                            <Form.Label>Стоимость за комплектацию</Form.Label>
+                            <Form.Control type="text" value = {CharacteristicsValid.priceEquipment.value} placeholder="Доп цена" onInput= {(evt)=>{onChangeFieldCharacteristics('priceEquipment', Number(evt.target.value))}} onChange = {(evt)=>{characteristicHundler('priceEquipment', evt)}}/>
                         </Form.Group>
 
                         <div className="row justify-content-center">
                             <Button variant="primary" className="mb-3 col-2" type="button" onClick = {
                                                                         ()=>{
-                                                                            console.log(characterisctics);}
+                                                                            sendCharacteristics(characterisctics)
+                                                                        }
                                                                         }>
                                 Добавить
                             </Button>
@@ -454,7 +504,7 @@ function AddProduct(props){
 
                     <div className={Styles.product_description}>
                         <div>
-                        {(statusForm.formAccess.status) && <div style={{color:'green', marginBottom:'15px'}}>{statusForm.formAccess.text}</div>}
+                        {(statusForm.formProductAccess.status) && <div style={{color:'green', marginBottom:'15px'}}>{statusForm.formProductAccess.text}</div>}
 
                             <Form className="row">
                                 <Form.Group className="mb-3 col-12" controlId="formBasicName">
@@ -546,7 +596,6 @@ function AddProduct(props){
                 </div>
                 <button type="submit" disabled = {!productValid.formValid} className = {classNames(Styles.BtnSend, "btn", "btn-primary")} onClick = {()=>{
                                                                                         sendNewProduct(product)
-                                                                                        sendCharacteristics(characterisctics)
                                                                                     }}>Добавить</button>
 
             </div>

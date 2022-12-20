@@ -64,6 +64,8 @@ Route::prefix('v1')->group(function () {
     Route::post('/addCharacteristics', [AdminController::class, 'addCharacteristicsAction']);
     Route::post('/addProduct', [AdminController::class, 'addProductAction']);
     Route::post('/addNewcategory', [AdminController::class, 'addNewCategoryAction']);
+    Route::post('/listProducts', [AdminController::class, 'renderProductsAction']);
+
 
 
 });
