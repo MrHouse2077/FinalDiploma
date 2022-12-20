@@ -35,15 +35,15 @@ function Dashboard(props){
     let [isOpenGrph, setOpened] = useState([
             {isOpenGrphWH1: false, 
                 optionTab: 1,
-                optionType: '',
+                optionType: '1',
                 textarea: '',},
             {isOpenGrphWH2: false,
                 optionTab: 1,
-                optionType: '',
+                optionType: '1',
                 textarea: '',},
             {isOpenGrphWH3: false,
                 optionTab: 1,
-                optionType: '',
+                optionType: '1',
                 textarea: '',},
     ]);
 
