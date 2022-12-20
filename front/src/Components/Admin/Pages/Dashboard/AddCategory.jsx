@@ -239,7 +239,7 @@ function AddCategory(){
 
                             <div className="card">
                                 <div className="card-header py-3">
-                                    <h6 className="mb-0">Add Product Category</h6>
+                                    <h6 className="mb-0">Добавить категорию товаров</h6>
                                 </div>
                                 <div className="card-body">
                                     <div className="row">
@@ -300,13 +300,6 @@ function AddCategory(){
                                                                         <td>{category.id}</td>
                                                                         <td>{category.name}</td>
                                                                         <td>{category.description}</td>
-                                                                        {/* <td>
-                                                                            <div class="d-flex align-items-center gap-3 fs-6">
-                                                                                <a href="javascript:;" class="text-primary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="View detail" aria-label="Views"><i class="bi bi-eye-fill"></i></a>
-                                                                                <a href="javascript:;" class="text-warning" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="Edit info" aria-label="Edit"><i class="bi bi-pencil-fill"></i></a>
-                                                                                <a href="javascript:;" class="text-danger on_delete_category" data-id-category="1" data-bs-toggle="modal" data-bs-target="#deleteCategoryModal" title="" data-bs-original-title="Delete" aria-label="Delete"><i class="bi bi-trash-fill"></i></a>
-                                                                            </div>
-                                                                        </td> */}
                                                                     </tr>
                                                                 )
                                                             }

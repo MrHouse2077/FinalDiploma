@@ -73,7 +73,6 @@ class AdminController extends Controller{
     }
 
     public function addNewCategoryAction(Request $request){
-
         $category = new Category;
 
         $category->name = $request->name;
