@@ -152,22 +152,22 @@ function AddCategory(){
 
                     <div className={Styles.AddCategory}>
 
-                        <div class="page-wrapper">
-                        <div class="page-content">
+                        <div className="page-wrapper">
+                        <div className="page-content">
 
-                            <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
+                            <div className="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
                                 
-                                <div class="ps-3">
+                                <div className="ps-3">
                                     <h4 className={Styles.title}>
                                         Добавить новую категорию
                                     </h4>
                                 </div>
-                                <div class="ms-auto">
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-light">Settings</button>
-                                        <button type="button" class="btn btn-light dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown">	<span class="visually-hidden">Фон</span>
+                                <div className="ms-auto">
+                                    <div className="btn-group">
+                                        <button type="button" className="btn btn-light">Settings</button>
+                                        <button type="button" className="btn btn-light dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown">	<span class="visually-hidden">Фон</span>
                                         </button>
-                                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-end">
+                                        <div className="dropdown-menu dropdown-menu-right dropdown-menu-lg-end">
                                             {
                                                 bgcFonApp.bgc.map((el, index)=>
                                                 
@@ -187,31 +187,31 @@ function AddCategory(){
                             </div>
 
 
-                            <div class="card">
-                                <div class="card-header py-3">
-                                    <h6 class="mb-0">Add Product Category</h6>
+                            <div className="card">
+                                <div className="card-header py-3">
+                                    <h6 className="mb-0">Add Product Category</h6>
                                 </div>
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-12">
+                                <div className="card-body">
+                                    <div className="row">
+                                        <div className="col-12">
                                         </div>
-                                        <div class="col-12 col-lg-4 d-flex">
-                                            <div class="card border shadow-none w-100">
-                                                <div class="card-body">
+                                        <div className="col-12 col-lg-4 d-flex">
+                                            <div className="card border shadow-none w-100">
+                                                <div className="card-body">
                                                     
                                                         <input type="hidden" name="id"/>                    
-                                                        <div class="col-12">
-                                                            <label class="form-label">Название</label>
-                                                            <input type="text" class="form-control" name="name" placeholder="Category name" onChange= {(evt)=>{onChangeField('name', evt.target.value)}}/>
+                                                        <div className="col-12">
+                                                            <label className="form-label">Название</label>
+                                                            <input type="text" className="form-control" name="name" placeholder="Category name" onChange= {(evt)=>{onChangeField('name', evt.target.value)}}/>
                                                         </div>
                                                 
 
-                                                        <div class="col-12">
-                                                            <label class="form-label">Описание</label>
-                                                            <textarea class="form-control" rows="3" cols="3" placeholder="Product Description" name="description" onChange= {(evt)=>{onChangeField('description', evt.target.value)}}/>
+                                                        <div className="col-12">
+                                                            <label className="form-label">Описание</label>
+                                                            <textarea className="form-control" rows="3" cols="3" placeholder="Product Description" name="description" onChange= {(evt)=>{onChangeField('description', evt.target.value)}}/>
                                                         </div>
-                                                        <div class="col-12">
-                                                            <div class="d-grid">
+                                                        <div className="col-12">
+                                                            <div className="d-grid">
                                                                 {
                                                                     <button className = {classNames("btn", "btn-primary")} onClick = {
                                                                         ()=>{
@@ -225,14 +225,14 @@ function AddCategory(){
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-12 col-lg-8 d-flex">
-                                            <div class="card border shadow-none w-100">
-                                                <div class="card-body">
-                                                <div class="table-responsive">
-                                                    <table class="table align-middle">
-                                                        <thead class="table-light">
+                                        <div className="col-12 col-lg-8 d-flex">
+                                            <div className="card border shadow-none w-100">
+                                                <div className="card-body">
+                                                <div className="table-responsive">
+                                                    <table className="table align-middle">
+                                                        <thead className="table-light">
                                                             <tr>
-                                                                <th><input class="form-check-input" type="checkbox"/></th>
+                                                                <th><input className="form-check-input" type="checkbox"/></th>
                                                                 <th>ID</th>
                                                                 <th>Название</th>
                                                                 <th>Описание</th>
@@ -243,7 +243,7 @@ function AddCategory(){
                                                             {
                                                                 categories.categories.map((category)=>
                                                                     <tr>
-                                                                        <td><input class="form-check-input" type="checkbox"/></td>
+                                                                        <td><input className="form-check-input" type="checkbox"/></td>
                                                                         <td>{category.id}</td>
                                                                         <td>{category.name}</td>
                                                                         <td>{category.description}</td>
