@@ -150,21 +150,17 @@ function AddCategory(){
                 {
                     (!categories.loader)?
 
-                    <div className={Styles.AddCategory}>AddCategory
+                    <div className={Styles.AddCategory}>
 
                         <div class="page-wrapper">
                         <div class="page-content">
 
                             <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-                                <div class="breadcrumb-title pe-3">eCommerce</div>
+                                
                                 <div class="ps-3">
-                                    <nav aria-label="breadcrumb">
-                                        <ol class="breadcrumb mb-0 p-0">
-                                            <li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
-                                            </li>
-                                            <li class="breadcrumb-item active" aria-current="page">Добавить новую категорию</li>
-                                        </ol>
-                                    </nav>
+                                    <h4 className={Styles.title}>
+                                        Добавить новую категорию
+                                    </h4>
                                 </div>
                                 <div class="ms-auto">
                                     <div class="btn-group">
@@ -209,15 +205,6 @@ function AddCategory(){
                                                             <input type="text" class="form-control" name="name" placeholder="Category name" onChange= {(evt)=>{onChangeField('name', evt.target.value)}}/>
                                                         </div>
                                                 
-                                                        <div class="col-12">
-                                                            <label class="form-label">Parent</label>
-                                                            <select class="form-select">
-                                                                <option>Fashion</option>
-                                                                <option>Electronics</option>
-                                                                <option>Furniture</option>
-                                                                <option>Sports</option>
-                                                            </select> 
-                                                        </div>
 
                                                         <div class="col-12">
                                                             <label class="form-label">Описание</label>
@@ -249,8 +236,7 @@ function AddCategory(){
                                                                 <th>ID</th>
                                                                 <th>Название</th>
                                                                 <th>Описание</th>
-                                                                <th>Товаров</th>
-                                                                <th></th>
+                                                                
                                                             </tr>
                                                         </thead>
                                                         <tbody>
@@ -261,7 +247,6 @@ function AddCategory(){
                                                                         <td>{category.id}</td>
                                                                         <td>{category.name}</td>
                                                                         <td>{category.description}</td>
-                                                                        <td>{category.count}</td>
                                                                         {/* <td>
                                                                             <div class="d-flex align-items-center gap-3 fs-6">
                                                                                 <a href="javascript:;" class="text-primary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="View detail" aria-label="Views"><i class="bi bi-eye-fill"></i></a>
@@ -278,15 +263,7 @@ function AddCategory(){
                                                         </tbody>
                                                     </table>
                                                 </div>
-                                                <nav class="float-end mt-0" aria-label="Page navigation">
-                                                    <ul class="pagination">
-                                                        <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
-                                                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                                                    </ul>
-                                                </nav>
+                                                
                                             </div>
                                         </div>
                                     </div>

@@ -11,8 +11,7 @@ import Form from 'react-bootstrap/Form';
 import AdminTemplate from "../AdminTemplate/AdminTemplate";
 
 function AddProduct(props){
-    let [productValid, setProductValid] = useState(
-    {
+    let defaultData = {
         name:{
             value: '',
             dirty: false,
@@ -40,7 +39,8 @@ function AddProduct(props){
             error: 'Количество товаров не может быть пустым',
         },
         formValid: false, 
-    })
+    }
+    let [productValid, setProductValid] = useState(defaultData);
     const [show, setShow] = useState(false);
     let [product, setProduct] = useState({
         //состояние товаров
@@ -290,24 +290,24 @@ function AddProduct(props){
     }
 
     function clean(){
-        let copy = Object.assign([], productValid);
-        let copyProduct = Object.assign([], product);
+        //let copy = Object.assign([], productValid);
+        // let copyProduct = Object.assign([], product);
 
-        copy.name.value = '';
-        copy.description.value = '';
-        copy.newPrice.value = '';
-        copy.oldPrice.value = '';
-        copy.count.value = '';
-        copyProduct.product.name = '';
-        copyProduct.product.description = '';
-        copyProduct.product.newPrice = '';
-        copyProduct.product.oldPrice = '';
-        copyProduct.product.count = '';
-        copy.formValid = false;
+        // copy.name.value = '';
+        // copy.description.value = '';
+        // copy.newPrice.value = '';
+        // copy.oldPrice.value = '';
+        // copy.count.value = '';
+        // copyProduct.product.name = '';
+        // copyProduct.product.description = '';
+        // copyProduct.product.newPrice = '';
+        // copyProduct.product.oldPrice = '';
+        // copyProduct.product.count = '';
+        // copy.formValid = false;
 
 
-        setProductValid(copy);
-        setProduct(copyProduct);
+        setProductValid(defaultData);
+        //setProduct(copyProduct);
     }
     function sendNewProduct(product){
         //отправка товара в базу

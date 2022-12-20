@@ -26,7 +26,7 @@ function AdminTemplate(props){
         let token = localStorage.getItem('token');
 
         if(!token){
-            navigate('/login');
+            navigate('/admin');
         }
 
     });

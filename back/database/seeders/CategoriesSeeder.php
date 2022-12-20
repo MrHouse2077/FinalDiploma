@@ -16,9 +16,24 @@ class CategoriesSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('category')->insert([
-            'name' => Str::random(10),
-            'description' => Str::random(10),
+        DB::table('category')->insertOrIgnore([
+            [
+                'name' => 'ручные тренажеры',
+                'description' => 'Тренажеры для занятий дома',
+            ],
+            [
+                'name' => 'электрические тренажеры',
+                'description' => 'Тренажеры для спортзала',
+            ],
+            [
+                'name' => 'спортивная одежда',
+                'description' => 'Одежда для занятий спортом дома и в спортзале',
+            ],
+            [
+                'name' => 'спортивная обувь',
+                'description' => 'Обувь для занятий спортом дома и в спортзале',
+            ]
+            
         ]);
     }
 }
