@@ -17,10 +17,41 @@ class ProductsSeeder extends Seeder
     public function run()
     {
         DB::table('product')->insertOrIgnore([
-            'name' => Str::random(10),
-            'price' => mt_rand(100, 50000),
-            'count' => mt_rand(0, 4),
-            'category_id' => mt_rand(1, 2),
+            [
+                'name' => 'Велотренажер',
+                'price' => mt_rand(100, 50000),
+                'count' => mt_rand(0, 4),
+                'old_price'=> mt_rand(100, 50000),
+                'category_id' => 2,
+            ],
+            [
+                'name' => 'Гантели',
+                'price' => mt_rand(100, 50000),
+                'count' => mt_rand(0, 4),
+                'old_price'=> mt_rand(100, 50000),
+                'category_id' => 1,
+            ],
+            [
+                'name' => 'Кроссовки Nike Air',
+                'price' => mt_rand(100, 50000),
+                'count' => mt_rand(0, 4),
+                'old_price'=> mt_rand(100, 50000),
+                'category_id' => 4,
+            ],
+            [
+                'name' => 'Майка женская',
+                'price' => mt_rand(100, 50000),
+                'count' => mt_rand(0, 4),
+                'old_price'=> mt_rand(100, 50000),
+                'category_id' => 3,
+            ],
+            [
+                'name' => 'Обруч',
+                'price' => mt_rand(100, 50000),
+                'count' => mt_rand(0, 4),
+                'old_price'=> mt_rand(100, 50000),
+                'category_id' => 2,
+            ],
         ]);
     }
 }
