@@ -68,5 +68,9 @@ Route::prefix('v1')->group(function () {
 
 
 
+    Route::post('/usersWidgetsWr', [AdminController::class, 'writeUserWidgetsAction']);
+    Route::post('/usersWidgetsRd', [AdminController::class, 'readUserWidgetsAction']);
+    Route::get('/getUsersTabel', [AdminController::class, 'getUsersTableAction']);
+
 });
 
