@@ -66,23 +66,7 @@ class AdminController extends Controller{
         $product->category_id = $request->selectedCategory;
         $product->main_photo = $request->images;
 
-        $product->save();
-        
-        
-
-       
-
-
-        // $characteristics = new Characteristics;
-
-        // $characteristics->size = $request->size;
-        // $characteristics->color = $request->color;
-        // $characteristics->equipment = $request->equipment;
-        // $characteristics->color_price = $request->priceColor;
-        // $characteristics->size_price = $request->priceSize;
-        // $characteristics->equipment_price = $request->priceEquipment;     
-        // $characteristics->save();
-        
+        $product->save();       
 
         return $product;
 
@@ -98,6 +82,5 @@ class AdminController extends Controller{
         $category->save();
 
         return $category;
-        //redirect()->route('admin_categories')->with('success', 'Ок! Категория успешно добавлена');
     }
 }
