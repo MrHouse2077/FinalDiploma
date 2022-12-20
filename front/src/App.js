@@ -16,6 +16,7 @@ import Search from './Components/Search/Search';
 import Product from './Components/Pages/Shop/Pages/Product/Product';
 import SearchPage from './Components/Search/SearchPage';
 import CartPage from './Components/Pages/Cart/CartPages';
+import Question from './Components/Pages/AnswerQuestion/Question';
 
 function App(props) {
   const navigate = useNavigate();
@@ -62,6 +63,8 @@ function App(props) {
         <Route path="/shop" element={<ListProducts/>} />
 
         <Route path="/shop/:indexProduct" element={<Product/>} />
+
+        <Route path="/question" element={<Question/>} />
 
         {/* <Route path="shop" element={<Shop auth={dataApp.auth} startImage={Shop} />} />
         <Route path="blog" element={<Blog startImage={Blog} />} />*/
