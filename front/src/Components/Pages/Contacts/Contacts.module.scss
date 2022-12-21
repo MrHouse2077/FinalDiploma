@@ -257,6 +257,7 @@
                             
                         }
                         .SupportBtn{
+                            
                             .TpBtnRound{
                                 padding: 0 44px;
                                 background: #ea1b29;
@@ -275,6 +276,7 @@
                                 height: 60px;
                                 line-height: 60px;
                                 text-decoration: none;
+                                cursor: pointer;
 
                                 &:before {
                                     background-color: #fff;

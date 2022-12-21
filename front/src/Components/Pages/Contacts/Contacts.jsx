@@ -57,9 +57,9 @@ function Contacts() {
             ],
          },
          fieldMsg: {
-            value: null,
+            value: 'null',
             msgFaild: null,
-            valid: false,
+            valid: true,
             touched: false,
             rules:[
                 {
@@ -83,7 +83,7 @@ function Contacts() {
         copy[fieldElement].touched = data[fieldElement].touched;
         copy[fieldElement].valid = data[fieldElement].valid;
         copy[fieldElement].msgFaild = data[fieldElement].msgFaild;
-    
+        console.log(checkValues);
         checkSet(copy);
       };
 
@@ -100,6 +100,7 @@ function Contacts() {
 
       function onFeedback(){
         let data = createObject();
+        console.log(1)
         Requests(
             {
                 method:'post', 
