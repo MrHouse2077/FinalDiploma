@@ -133,6 +133,11 @@ class IndexController extends Controller
             }
         }
     }
+
+    function quesAnsAction(){
+        $qaf = DB::table('qaf')->get();
+        return RequestHelper::write(200, 'sucess', $qaf);
+    }
     
 }
  
