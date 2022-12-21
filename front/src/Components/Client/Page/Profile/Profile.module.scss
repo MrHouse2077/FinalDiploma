@@ -1,0 +1,258 @@
+.ProfileIcon{
+    display: block;
+    box-sizing: border-box;
+    a{
+        position: relative;
+        color: #000000;
+        font-size: 11px;
+        text-decoration: none;
+        img{
+            display: block;
+            border-radius: 50%;
+        }
+        span{
+            padding: 0;
+            border-radius: 3px;
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 5px;
+            font-weight: bold;
+            text-align: center;
+            box-sizing: border-box;
+        }
+    }
+}
+.ProfileIcon:hover{
+    display: block;
+    a{
+        color: #d32323;
+    }
+}
+main{
+    background: url(https://themepure.net/template/futexo-prev/futexo/assets/img/about/about-bg-png.png) no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+.Profile{
+    padding: 10px 0;
+    max-width: 40%;
+    min-height: 300px;
+    border-radius: 50px;
+    .button{
+        color: #ffffff;
+        padding: 5px 10px;
+        font-size: 17px;
+        border-radius: 5px;
+        box-sizing: border-box;
+        cursor: pointer;
+    }
+    .button.Change{
+        color:#405be7;
+        background-color: #ffffff;
+        border: 2px solid #405be7;
+    }
+    .button.Logout{
+        color: #e31a1a;
+        background-color: #ffffff;
+        border: 2px solid #e31a1a;
+    }
+    .button.Change:hover{
+        background-color: #405be7;
+        color: #ffffff;
+    }
+    .button.Logout:hover{
+        background-color: #e31a1a;
+        color: #ffffff;
+    }
+    .ProfileWrap{
+        display: block;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-bottom: 60px;
+        font-size: 23px;        
+        >*{
+            padding: 10px;
+            width: 70%;
+            min-width: 180px;
+            margin: 0 auto;
+            box-sizing: border-box;
+        }
+        .photo{
+            text-align: center;
+        }
+        .desc{
+            text-align: center;
+            .nameInfo{
+                font-weight: bold;
+            }
+        }
+        .info{
+            flex-direction: column;
+            span{
+                width: 50%;
+                margin: 0 auto;
+                text-align: center;
+                .nameInfo{
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+}
+.flexWrap{
+    display: flex;
+    justify-content: space-around;
+}
+.ChangeProfile{
+    padding: 10px 0;
+    width: 70%;
+    height: 1000px;
+    .flexWrap{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+        >*{
+            margin: 0 auto;
+            max-width: 100%;
+        }
+        h2.title{
+            font-size: 40px;
+        }
+        .imageCH{
+            display: block;
+            margin: 0;
+            box-sizing: border-box;
+            position: relative;
+            width: 100%;
+            height: 200px;
+            >h3.About{
+                font-size: 30px;
+            }
+            input[type=file]{
+                display: none;
+            }
+            label{
+                box-sizing: border-box;
+                position: relative;
+                width: 200px;
+                height: 200px;
+                border-radius: 50%;
+                margin: 0;
+                margin-bottom: 10px;
+                div{
+                    width: 200px;
+                    height: 200px;
+                    z-index: 1;
+                    overflow: hidden;
+                    background-color: #000000;
+                    border-radius: 50%;
+                    img{
+                        height: 200px;
+                    }
+                }
+                .iconImg{
+                    display: none;
+                    position: absolute;
+                    text-align: center;
+                    top: 65px;
+                    left: 65px;
+                    width: 65px;
+                    height: 65px;
+                    font-size: 20px;
+                    span{
+                        color: #e31a1a;
+                    }
+                }
+            }
+            label:hover .iconImg{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                background-color: #ffffff;
+            }
+            
+        }
+    }
+    .InputWrap{
+        font-size: 25px;
+        position: relative;
+        display: flex;
+        width: 200px;
+        height: 25px;
+        justify-content: space-between;
+        width: 600px;
+        margin: 0 auto;
+        margin-top: 30px;
+        >*{margin-right: 0; width: 49%;}
+        select{
+            background: #464343;
+            color: rgb(255, 254, 254);
+            font-size: 25px;
+            height: 40px;
+            width: 295px;
+            box-sizing: border-box;
+            display: block;
+        }
+        input{
+            display: block;
+            box-sizing: border-box;
+            width: 295px;
+            border-radius: 5px;
+            margin: 0;
+        }
+        .error{
+            background-color: #e59a9a;
+            font-size: 25px;
+            box-sizing: border-box;
+            display: block;
+        }
+        .succes{
+            background: #464343;
+            color: rgb(255, 254, 254);
+            font-size: 25px;
+            box-sizing: border-box;
+            display: block;
+        }
+    }
+    .Buttongroup{
+        position: relative;
+        margin: 0 auto;
+        margin-top: 600px;
+        display: flex;
+        justify-content: space-between;
+        width: 300px;
+
+    }
+    .chenge{
+        position: relative;
+        width: 100px;
+        display: block;
+        color: #e31a1a;
+        background-color: #ffffff;
+        border: 2px solid #e31a1a;
+        text-align: center;
+        border-radius: 5px;
+    }
+    .save{
+        position: relative;
+        width: 100px;
+        display: block;
+        color:#405be7;
+        background-color: #ffffff;
+        border: 2px solid #405be7;
+        text-align: center;
+        border-radius: 5px;
+    }
+    
+    .save:hover{
+        background-color: #405be7;
+        color: #ffffff;
+    }
+    .chenge:hover{
+        background-color: #e31a1a;
+        color: #ffffff;
+    }
+}

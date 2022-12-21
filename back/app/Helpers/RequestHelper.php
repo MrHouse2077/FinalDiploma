@@ -5,6 +5,7 @@
     // const ACCESS_DENIED = 402;
     // const NO_PERMISSION = 403;
     // const SUCCESS = 200;
+    // const DATA_ERROR = 405
 
     class RequestHelper{
         static function write($code, $msg, $data = null){

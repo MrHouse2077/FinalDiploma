@@ -1,5 +1,7 @@
 .InputText{
     position: relative;
+    display: block;
+    box-sizing: border-box;
     margin-bottom: 2rem;
     font-size: 2rem;
     width: 100%;
@@ -9,7 +11,10 @@
 .active{
     margin: 0;
     position:absolute;
-    font-size: 1.5rem;
+    font-size: 1rem;
     top: 3.5rem;
-    color: #ccc;
+    color: rgb(220, 0, 0);
+}
+.error{
+    background-color: #e59a9a;
 }

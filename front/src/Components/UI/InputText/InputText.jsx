@@ -1,17 +1,28 @@
 
+import { useEffect } from "react";
+import { useState } from "react";
 import Styles from "./InputText.module.scss";
 
 function InputText(props) {
-    
+    let[defaultValue, setdefault] = useState("")
     let type = props.type;
     let placeholder = props.placeholder;
     let onChange = props.onChange;
     let className = props.className;
     let onBlur = props.onBlur;
     let checkValues = props.checkValues;
-   
+    function defInt(){
+      if(props.defaultValue != undefined){
+          let copy = Object.assign({}, defaultValue);
+          copy = props.defaultValue;
+          setdefault(copy);
+      }
+    }
+    
 
-  
+    useEffect(() => {
+      defInt();
+    }, []);
     return (
       <div className={Styles.InputText}>
         
@@ -21,6 +32,7 @@ function InputText(props) {
           onChange = {onChange}
           className= {className}
           onBlur = {onBlur}
+          defaultValue={defaultValue}
         />
         <p
           className={

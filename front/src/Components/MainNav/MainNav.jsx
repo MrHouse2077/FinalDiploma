@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 import Search from "../Search/Search";
 import CartIcon from "../Pages/Cart/Cart";
 import Cart from "../Pages/Cart/Cart";
+import ProfileIcon from "../Client/Page/Profile/ProfileIcon";
 
 
 function MainNav(){
@@ -53,19 +54,6 @@ function MainNav(){
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink to="/blog" className={Styles.nav_link}>
-                                {({ isActive }) => (
-                                <span
-                                    className={
-                                    isActive ? Styles.active : undefined
-                                    }
-                                >
-                                    Blog
-                                </span>
-                                )}
-                            </NavLink>
-                        </li>
-                        <li>
                             <NavLink to="/contacts" className={Styles.nav_link}>
                                 {({ isActive }) => (
                                 <span
@@ -81,6 +69,7 @@ function MainNav(){
                         <li className={Styles.profil_search_cart}>
                             <Search />
                             <Cart />
+                            <ProfileIcon/>
                         </li>
 
                     </ul>

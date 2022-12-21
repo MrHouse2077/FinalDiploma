@@ -4,18 +4,22 @@ let StateApp =  {
         {
             login: null,
             email: null,
-            token: null 
+            token: null,
+            url: "/login" 
         },
     client:
         {
             login: null,
             email: null,
-            token: null 
+            token: null,
+            url: "/loginClient",
         },
     cart:
         {
             products: [],
             counItem: 0,
+            productsObj: [],
+            status: "",
         },
     wishList: 
         {

@@ -40,8 +40,9 @@ Route::prefix('v1')->group(function () {
     });
 
     Route::post('/login', [IndexController::class, 'indexAction']);
+    Route::post('/loginClient', [IndexController::class, 'loginClientAction']);
     Route::post('/chekToken', [IndexController::class, 'checkToken']);
-    
+    Route::post('/changeUser', [IndexController::class, 'changeUserAction']);
     Route::post('/search', [IndexController::class, 'searchAction']);
     Route::post('/cart', [ShopController::class, 'showCartAction']);
     Route::post('/products', [ShopController::class, 'listProductsAction']);

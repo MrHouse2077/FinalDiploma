@@ -74,21 +74,29 @@ class ShopController extends Controller
         //redirect()->route('admin_categories')->with('success', 'Ок! Категория успешно добавлена');
     }
     public function showCartAction(Request $request){
-        return RequestHelper::write(200, 'sucess', $request->all());
+        //return RequestHelper::write(200, 'sucess', $request[1]);
         $data = [];
-        foreach($request->all() as $element){
-           if(Product::where('id', $element->id)->first != null){
-                $product = Product::where('id', $element->id)->first;
-                if($element->count <= $product->count){
-                    $arr = ["product" => $product, "count" => $element->count, "maxCount" => $product->count, "code" => 200];
-                    array_push($data, $arr);
+        if(count($request[1]) > 0){
+            foreach($request[1] as $element){
+                if(Product::where('id', $element["id"])->first()){
+                        $product = Product::where('id', $element["id"])->first();
+                        if($element["count"] <= $product->count){
+                            $arr = ["product" => $product, "count" => $element["count"], "maxCount" => $product->count, "code" => 200];
+                            array_push($data, $arr);
+                        }
+                        else{
+                            $arr = ["product" => $product, "count" => $element["count"], "maxCount" => $product->count, "code" => 400];
+                            array_push($data, $arr);
+                        } 
                 }
-                else{
-                    $arr = ["product" => $product, "count" => $element->count, "maxCount" => $product->count, "code" => 400];
-                    array_push($data, $arr);
-                } 
-           }
+            }
+            if(count($data) > 0){
+                return RequestHelper::write(201, 'sucess', $data);
+            }
+        } 
+        if(count($request[1]) == 0){
+            return RequestHelper::write(200, 'sucess');
         }
-        return RequestHelper::write(200, 'sucess', $data);
+
     }
 }

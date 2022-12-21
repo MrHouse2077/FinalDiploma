@@ -37,7 +37,7 @@ function Product(props){
             }
             <div className={Styles.wrap_bottom}>
                 <div className={Styles.product_info}>
-                    <NavLink to={'/shop/'+ product.id} className={Styles.product_link}>
+                    <NavLink to={'/shop/'+ product.id+"/"+ product} className={Styles.product_link}>
                         <h5 className={Styles.product_name}>{product.name}</h5>
                     </NavLink>
                     <div className={Styles.price_count}>

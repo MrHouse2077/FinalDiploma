@@ -1,12 +1,13 @@
 import { useState } from "react";
-import Requests from "../../Requests";
-import Button from "../../UI/Button/Button";
-import InputText from "../../UI/InputText/InputText";
+import Requests from "../../../Requests";
+import Button from "../../../UI/Button/Button";
+import InputText from "../../../UI/InputText/InputText";
+import Validator from "../../../Validator";
 import Styles from "./Login.module.scss";
-import Validator from "../../Validator";
-import Shape from "../../images/login/shape.png";
+import Shape from "../../../images/login/shape.png";
 
-function Login(props) {
+
+function LoginClient(props) {
 
   let [checkValues, checkSet] = useState({
     fieldEmail: {
@@ -213,5 +214,5 @@ function Login(props) {
     );
   }
       
-  export default Login;
+  export default LoginClient;
   

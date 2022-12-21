@@ -18,6 +18,7 @@ use Illuminate\Http\Request;
 use App\Jobs\FeedbackJob;
 use App\Models\Category;
 use App\Models\Product;
+use Illuminate\Support\Facades\Auth;
 
 class IndexController extends Controller
 {
@@ -30,18 +31,37 @@ class IndexController extends Controller
         if (! $user || ! Hash::check($request->password, $user->password)) {
             return RequestHelper::write(402, 'В доступе отказано');
         }
-
-        $data = [
-            "token" => $user->createToken("token_name")->plainTextToken,
-            "name" => $user->name,
-            "email" => $user->email,
-        ];
-
-        
-
-        return RequestHelper::write(200, 'sucess', $data);
+        if($user->zone == "admin"){
+            $data = [
+                "token" => $user->createToken("token_name")->plainTextToken,
+                "name" => $user->name,
+                "email" => $user->email,
+            ];
+            return RequestHelper::write(200, 'sucess', $data);
+        }
+        return RequestHelper::write(402, 'В доступе отказано');
     }
+    function ClientLogout(){
+        Auth::logout();
+    }
+    function changeUserAction(Request $request){
+        if($request->user){
+            $user = User::find(2);
+            $user->name = $request->user['name'];
+            $user->last_name = $request->user['last_name'];
+            $user->description = $request->user['description'];
+            $user->email = $request->user['email'];
+            $user->adress = $request->user['adress'];
+            $user->phone_num = $request->user['phone_num'];
+            $user->gender = $request->user['gender'];
+            $user->age = $request->user['age'];
 
+            $user->save();
+            return RequestHelper::write(200, 'sucess', $user);
+        }
+        return RequestHelper::write(402, 'ERROR_DATA');
+
+    }
     function checkToken(Request $request){
         $token = \Laravel\Sanctum\PersonalAccessToken::findToken($request->token);
         if(!$token){
@@ -52,11 +72,16 @@ class IndexController extends Controller
         if(!$user){
             return RequestHelper::write(402, 'В доступе отказано');
         }
-        $data = [
-            "token" => $request->token,
-            "email" => $user->email,
-        ];
-        return RequestHelper::write(200, 'sucess', $data);
+        if($user->zone == "client"){
+            $data = [
+                "token" => $request->token,
+                "user" => $user,
+            ];
+            return RequestHelper::write(200, 'sucess', $data);
+        }
+        else{
+            return RequestHelper::write(402, 'ACCESS_DENIED');
+        }
     }
 
     function feedbackAction(Request $request){
@@ -132,6 +157,22 @@ class IndexController extends Controller
                 return RequestHelper::write(200, 'sucess', $data);
             }
         }
+    }
+    function loginClientAction(Request $request){
+        $user = User::where('email', $request->email)->first();
+
+        if (! $user || ! Hash::check($request->password, $user->password)) {
+            return RequestHelper::write(402, 'В доступе отказано');
+        }
+        if($user->zone == "client"){
+            $data = [
+                "token" => $user->createToken("token_name")->plainTextToken,
+                "name" => $user->name,
+                "email" => $user->email,
+            ];
+            return RequestHelper::write(200, 'sucess', $data);
+        }
+        return RequestHelper::write(402, 'В доступе отказано');
     }
     
 }

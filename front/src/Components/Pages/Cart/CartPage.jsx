@@ -1,31 +1,57 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { json, useParams } from "react-router-dom";
 import DefaultLayout from "../../Layouts/DefaultLayout/DefaultLayout";
 import Styles from "./Cart.module.scss";
 import Table from 'react-bootstrap/Table';
-import ProductCart from "./Product";
+import ProductCart from "./ProductCart";
 import Requests from "../../Requests";
+import Loader from "../../Loader/Loader";
 function CartPage(props){
-    let dataApp = props.dataApp;
     let [dataCart, setCart] = useState({
-        products: [],
         loader: true,
+        productsObj: [],
+        status: "",
     });
-    function renderCart(serverRequest){
-        let copy = Object.assign([], dataCart);
-            copy.products = serverRequest.data;
+    function render(){
+        if(dataCart.status === "201"){
+
+            let copy = Object.assign([], dataCart);
             copy.loader = false;
             setCart(copy);
-            console.log(dataApp);
+            console.log("sucss")
+        }
+        if(dataCart.loader){
+            sendRequestCart();
+            console.log("here")
+            console.log(props.dataApp);
+        }
     }
-    //UseEffect for get products from DB using array with params products from StateApp Cart
-    useEffect(() => {
+    //save data about product in cart from server
+    function renderCart(serverRequest){
+        if(serverRequest.data != null){
+            let copy = Object.assign([], dataCart);
+            copy.productsObj = [];
+            copy.loader = false;
+            copy.status = serverRequest.code;
+            copy.productsObj = serverRequest.data;
+            setCart(copy);
+            console.log(dataCart);
+        }
+    }
+    //function for send Requests to server with data Cart
+    function sendRequestCart(){
+        console.log(props.dataApp);
         Requests({
             method: 'post', 
             url: '/cart',
-            data: props.dataApp.cart.products,
+            data: ["products", props.dataApp.cart.products],
             callback:renderCart 
         });
+        console.log(dataCart);
+    }
+    //UseEffect for get products from DB using array with params products from StateApp Cart
+    useEffect(() => {
+        sendRequestCart();
     }, []);
     return (
         <div>
@@ -47,11 +73,10 @@ function CartPage(props){
                             </tr>
                         </thead>
                         <tbody>
-                            
-                                <ProductCart />
                         </tbody>
                         </Table>
-                    </div>
+                        {(Number(localStorage.getItem("CartCount")) != 0)? <div className={Styles.wrapLoader}><Loader/></div>: "cart empty"} 
+                    </div> 
                 </div>
             </DefaultLayout>
         </div>
