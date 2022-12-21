@@ -74,8 +74,8 @@ function ListProduct() {
                                                             </thead>
                                                             <tbody>
                                                                 {
-                                                                    products.products.map((product)=>
-                                                                        <tr>
+                                                                    products.products.map((product, key)=>
+                                                                        <tr key={key}>
                                                                             <td><input className="form-check-input" type="checkbox"/></td>
                                                                             <td>{product.id}</td>
                                                                             <td>{product.name}</td>
