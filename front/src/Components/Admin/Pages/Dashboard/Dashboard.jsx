@@ -118,7 +118,9 @@ function Dashboard(props){
     function dropHandler(evt){
         evt.target.style.boxShadow = "none";
         evt.preventDefault();
-        setModalActive(true);
+        if(currentWid.className == Styles.widget+' graph'){
+            setModalActive(true);
+        }
         setDropWid(evt.target);
         
     }  
@@ -338,8 +340,7 @@ function Dashboard(props){
                 <option selected value="1">Линии</option>
                 <option  value="2">Гистограмма</option>
             </select>
-            <label for="textareaModalWid" className="form-label">Стили</label>
-            <textarea className={classNames(Styles.textareaModalWid, "form-control")} id="textareaModalWid" rows="3" onBlur= {(evt)=>{saveState(evt.target.value, 'textarea')}}></textarea>
+
             <button onClick={getTbForGraph} class="btn btn-primary">Применить</button>
         </Modal>
        
