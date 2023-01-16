@@ -82,6 +82,19 @@ function MainNav(){
                             <Search />
                             <Cart />
                         </li>
+                        <li>
+                            <NavLink to="/question" className={Styles.nav_link}>
+                                {({ isActive }) => (
+                                <span
+                                    className={
+                                    isActive ? Styles.active : undefined
+                                    }
+                                >
+                                    FAQ
+                                </span>
+                                )}
+                            </NavLink>
+                        </li>
 
                     </ul>
                     

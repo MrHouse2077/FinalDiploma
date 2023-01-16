@@ -17,6 +17,7 @@ import CartPage from './Components/Pages/Cart/CartPage';
 import AddProduct from './Components/Admin/Pages/AddProduct/AddProduct';
 import AddCategory from './Components/Admin/Pages/Dashboard/AddCategory';
 import ListProduct from './Components/Admin/Pages/ListProduct/ListProduct';
+import Question from './Components/Pages/AnswerQuestion/Question';
 
 function App(props) {
     const navigate = useNavigate();
@@ -134,6 +135,7 @@ function App(props) {
                                                             setAuthData={setAuthData}
                                                         />} 
                 />
+                <Route path="/question" element={<Question/>} />
             </Routes>
         </div>
     );

@@ -67,6 +67,9 @@ Route::prefix('v1')->group(function () {
     Route::post('/listProducts', [AdminController::class, 'renderProductsAction']);
 
 
+    Route::get('/qaf-get', [IndexController::class, 'quesAnsAction']);
+
+
 
     Route::post('/usersWidgetsWr', [AdminController::class, 'writeUserWidgetsAction']);
     Route::post('/usersWidgetsRd', [AdminController::class, 'readUserWidgetsAction']);

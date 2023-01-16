@@ -18,6 +18,7 @@ use Illuminate\Http\Request;
 use App\Jobs\FeedbackJob;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Question;
 
 class IndexController extends Controller
 {
@@ -132,6 +133,11 @@ class IndexController extends Controller
                 return RequestHelper::write(200, 'sucess', $data);
             }
         }
+    }
+
+    function quesAnsAction(){
+        $qaf = Question::get();
+        return RequestHelper::write(200, 'success', $qaf);
     }
     
 }
