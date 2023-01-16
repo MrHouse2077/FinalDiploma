@@ -1,16 +1,50 @@
 import Styles from "./Question.module.scss";
-import React, { Component } from 'react';
-import { useState } from "react";
+import React, { useState, useEffect } from 'react';
+import Collapsible from 'react-collapsible';
 import DefaultLayout from '../../Layouts/DefaultLayout/DefaultLayout';
+import Requests from "../../Requests";
+
 
 function Question(props){
-    let [] = useState({
-        
-    });
+
+  let [faq, setData] = useState({
+    loader: true,
+    question: [],
+  });
+
+  // let [num, setNum] = useState({
+  //   num:1,
+  // });
+
+  function recordUS(serverRequest){
+    // let copy1 = Object.assign([], num);
+    // copy1.num = 2;
+    // console.log(copy1);
+    // setNum(copy1);
+    // console.log(num);
+    if(serverRequest.code == 200){
+      console.log(serverRequest);
+      let copy = Object.assign([], faq);
+      copy.question = serverRequest.data;
+      copy.loader = false;
+      console.log(copy);
+      setData(copy);
+      console.log(faq);
+    }
+  }
+
+useEffect(()=>{
+  Requests({
+              method: 'get', 
+              url: '/qaf-get',
+              callback:recordUS
+  });
+}, []);
+    
     return (
         <div>
           <DefaultLayout title="FAQ">
-              <div className={"accordion wrap "+Styles.Question} id="accordionPanelsStayOpenExample">
+              {/* <div className={"accordion wrap "+Styles.Question} id="accordionPanelsStayOpenExample">
                 <div className="accordion-item">
                   <h2 className="accordion-header" id="panelsStayOpen-headingOne">
                     <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
@@ -47,7 +81,12 @@ function Question(props){
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> */}
+
+
+
+
+
           </DefaultLayout>
         </div>
     );

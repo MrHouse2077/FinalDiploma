@@ -1,67 +1,15 @@
-// import React, { Component } from 'react';
-// import ReactDOM from 'react-dom';
-// import PropTypes from 'prop-types';
-// import classNames from 'classnames';
+import React from 'react';
+import Collapsible from 'react-collapsible';
 
-// class QuestionItem extends Component {
-//   static propTypes = {
-//     title: PropTypes.string
-//   };
+function QuestionItem(){
+  return (
+    <Collapsible trigger="Я хочу продлить действие своего абонемента ещё на год. Как это сделать? Могу ли я рассчитывать на скидку?">
+      <p>
+        Льготная цена на продление годового контракта действует за 30 дней до окончания действующего контракта. Продлить ваш контракт вы можете в отделе продаж или в вашем Личном кабинете
+      </p>
+    </Collapsible>
+    
+  );
+};
 
-//   static defaultProps = {
-//     title: 'TITLE'
-//   };
-
-//   constructor(props) {
-//     super(props);
-//     this.state = { isOpen: false };
-//     this.mounted = true;
-//   }
-
-//   handleDocumentClick = event => {
-//     if (
-//       this.mounted &&
-//       !ReactDOM.findDOMNode(this).contains(event.target) &&
-//       this.state.isOpen
-//     ) {
-//       this.setState({ isOpen: false });
-//     }
-//   };
-
-//   componentDidMount() {
-//     if (this.props.atomic) {
-//       document.addEventListener('click', this.handleDocumentClick, false);
-//       document.addEventListener('touchend', this.handleDocumentClick, false);
-//     }
-//   }
-
-//   componentWillUnmount() {
-//     this.mounted = false;
-//     document.removeEventListener('click', this.handleDocumentClick, false);
-//     document.removeEventListener('touchend', this.handleDocumentClick, false);
-//   }
-
-//   onClick = () => {
-//     this.setState({ isOpen: !this.state.isOpen });
-//   };
-
-//   render() {
-//     const accordionItemClassNames = classNames([
-//       'accordion-item',
-//       {
-//         active: this.state.isOpen
-//       }
-//     ]);
-
-//     return (
-//       <div className={accordionItemClassNames}>
-//         <button className="title" onClick={this.onClick}>
-//           {this.props.title}
-//         </button>
-//         <div className="panel">{this.props.children}</div>
-//       </div>
-//     );
-//   }
-// }
-
-// export default QuestionItem;
+export default QuestionItem;
